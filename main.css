@@ -25,16 +25,44 @@ time, mark, audio, video {
         flex-wrap: wrap;
         flex-grow: 1;
     }
+
+    .button {
+        font-size: 30px;
+    }
 }
 /*tablet and large phone wireframe*/
 @media only screen and (min-width: 600px) {
+    fieldset {
+        display: flex;  
+        flex-direction: row;
+        font-size: 25px;
+        /*make radio button larger*/
+        }
+        input {
+            flex-wrap: wrap;
+            /* flex-grow: 1; */
+        }
+        .button {
+            font-size: 30px;
+        }
     
 }
 
 /*laptops and desktops wireframe*/
 @media only screen and (min-width: 900px) {
+    display: flex;  
+    flex-direction: row;
+    font-size: 30px;
+    /*make radio button larger*/
+    }
+    input {
+        
+    }
+    .button {
+        font-size: 30px;
+    }
     
 }
 .correct {
-    background-image: url("https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg");
+    /* background-image: url("https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg"); */
 }
