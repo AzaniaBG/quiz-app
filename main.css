@@ -32,35 +32,45 @@ time, mark, audio, video {
 }
 /*tablet and large phone wireframe*/
 @media only screen and (min-width: 600px) {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-shrink: 2;
+    }
     fieldset {
+        font-size: 20px;
+    }
+    /* ul > li {
         display: flex;  
         flex-direction: row;
         font-size: 25px;
         /*make radio button larger*/
-        }
+        /* }
         input {
             flex-wrap: wrap;
             /* flex-grow: 1; */
         }
         .button {
             font-size: 30px;
-        }
+        }  */
     
 }
 
 /*laptops and desktops wireframe*/
 @media only screen and (min-width: 900px) {
-    display: flex;  
-    flex-direction: row;
-    font-size: 30px;
-    /*make radio button larger*/
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-shrink: 2;
     }
-    input {
-        
-    }
-    .button {
-        font-size: 30px;
-    }
+    /* li {
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-shrink: 2;
+    } */
     
 }
 .correct {
