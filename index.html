@@ -7,8 +7,8 @@
     <meta name="description" content="Test your spanish language knowledge with this quiz.">
     <title>Spanish Quiz</title>
     <link rel="stylesheet" href="/main.css"> 
-    <link rel="images" href="/images/happy nerd.docx">
-    <link rel="stylesheet" href="images/ohno face.docx">
+    <!-- <link rel="images" href="/images/happy nerd.docx">
+    <link rel="stylesheet" href="images/ohno face.docx"> -->
 </head>
 
 <body>
@@ -26,15 +26,15 @@
 
     <main role="main" class="js-main-quiz">
         <form role="form" class="form js-form-quiz">
-                <button role="button" class="form button js-button-start">START</button>
+                <button role="button" class="form js-button-start">START</button>
 
             <fieldset class="form js-fieldset"> 
                 <legend>Instructions</legend>
                 <h3 class="form js-question">Question goes here</h3>
 
-                <ul role="list" class="form js-quiz-question1">
-                    <li role="listitem" class="form js-quiz-option1">
-                    <input role="button" class="radio js-button-option1" type="radio" size="70" name="options" value="option1" checked id="option1">option1 loremipsumloremipsumloremipsumoremipsumloremipsumloremipsumoremipsumloremipsumloremipsum
+                <ul role="list" class="form js-quiz-question-options"><!--add data-attribute value for question-->
+                    <!-- <li role="listitem" class="form js-quiz-option1">
+                    <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">option1 loremipsumloremipsumloremipsumoremipsumloremipsumloremipsumoremipsumloremipsumloremipsum
                     <label for="option1" lang="es">Option1</label>
                     </li>
 
@@ -52,7 +52,7 @@
                     <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">option4 lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
                     <label for="option4" lang="es">Option4</label>
                     </li>
-                </ul>
+                </ul> -->
                 <aside class="callout js-callout-box">Answer feedback</aside>
                     <output class="callout correct js-correct-callout-header">Correct!</output>
                     <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->
@@ -70,6 +70,10 @@
             </fieldset>          
         </form>
     </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>"> </script>
+
+    <script type="text/javascript" src="index.js"></script>
     
 </body>
 </html>
