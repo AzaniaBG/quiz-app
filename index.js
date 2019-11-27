@@ -114,6 +114,32 @@ const QUIZ = [
 ]
 
 function handleQuiz() {
+    function renderQuestionSetElement(question) {
+        <h3 data-role="question" class="form js-question" data-value="${question.number}" data-answer="${question.options[question.answer]}" data-hidden="false">${question1.question}</h3>
+
+                <ul role="options-list" class="form js-quiz-question-options">
+                    <li role="listitem" class="form js-quiz-option1" data-value="${question.option1}" data-answer="incorrect">
+                    <input role="button" class="radio js-button-option1" type="radio" name="options" data-value="${question.option1}" checked id="option1">
+                    <label for="option1" lang="es">${question.options["option1"]}</label>
+                    </li>
+
+                    <li role="listitem" class="form js-quiz-option2" data-value="${question.option2}" data-answer="correct">
+                    <input role="button" class="radio js-button-option2" type="radio" name="options" data-value="${question.option2}" checked id="option2">
+                    <label for="option2" lang="es">${question.options["option2"]}</label>
+                    </li>
+
+                    <li role="listitem" class="form js-quiz-option3" data-value="${question.option3}" data-answer="incorrect">                    
+                    <input role="button" class="radio js-button-option3" type="radio" name="options" data-value="${question.option3}" checked id="option3">
+                    <label for="option2" lang="es">${question.options["option3"]}</label>
+                    </li>
+
+                    <li role="listitem" class="form js-quiz-option4" data-value="${question.option4}" data-answer="incorrect">       
+                    <input role="button" class="radio js-button-option4" type="radio" name="options" data-value="${question.option4}" checked id="option4">
+                    <label for="option4" lang="es">{question.options["option4"]}</label>
+                    </li>
+                </ul>
+
+    }
 
 
 }
