@@ -44,7 +44,72 @@ const QUIZ = [
                 }
             }
         },
-
+        question3 = {
+            question: "What have you done (informal)?",
+            number: 3,
+            options: {
+                option1: "¿Qué has hecho?",
+                option2: "¿Qué ha hecho?",
+                option3: "¿Qué has hace?",
+                option4: "¿Qué habían hecho?"
+            },
+            answer: "option1",//refers to `options` index ("¿Cómo estás?")
+            selected: null,//need to toggle `selected` class
+            feedback: function(answer) {
+                let correctAnswer = this.options["option1"];
+                if(answer === null) {
+                    return "Please select an answer."
+                } else if(answer === correctAnswer) {
+                    return `Great! "${correctAnswer}" is correct. Note “hecho” is the past participle of the verb “hacer.”`
+                } else {
+                    return `Oops! "${correctAnswer}" is the correct answer.`
+                }
+            }
+        },
+        question4 = {
+            question: "What were you cooking (informal)?",
+            number: 4,
+            options: {
+                option1: "¿Qué estás cocinando?",
+                option2: "¿Qué cocinas?",
+                option3: "¿Qué cocinaba?",
+                option4: "¿Qué cocinabas?"
+            },
+            answer: "option4",//refers to `options` index ("¿Cómo estás?")
+            selected: null,//need to toggle `selected` class
+            feedback: function(answer) {
+                let correctAnswer = this.options["option4"];
+                if(answer === null) {
+                    return "Please select an answer."
+                } else if(answer === correctAnswer) {
+                    return `Great! "${correctAnswer}" is correct. The imperfect tense is used for ongoing events happening in the past, with no definitive time period`
+                } else {
+                    return `Oops! "${correctAnswer}" is the correct answer.`
+                }
+            }
+        },
+        question5 = {
+            question: "When will you visit (informal)?",
+            number: 5,
+            options: {
+                option1: "¿Cuándo visitaré?",
+                option2: "¿Cuándo visitará?",
+                option3: "¿Cuándo visitarás?",
+                option4: "¿Cuándo vas a venir?"
+            },
+            answer: "option3",//refers to `options` index ("¿Cómo estás?")
+            selected: null,//need to toggle `selected` class
+            feedback: function(answer) {
+                let correctAnswer = this.options["option3"];
+                if(answer === null) {
+                    return "Please select an answer."
+                } else if(answer === correctAnswer) {
+                    return `Great! "${correctAnswer}" is correct. You can also say, “¿Cuándo vas a visitar?`
+                } else {
+                    return `Oops! "${correctAnswer}" is the correct answer.`
+                }
+            }
+        },
 
 ]
 
