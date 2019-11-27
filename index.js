@@ -9,34 +9,39 @@ const QUIZ = [
                 option3: "¿Cómo eres?",
                 option4: "¿Qué cómo?"
             },
-            answer: 1,//refers to `options` index ("¿Cómo estás?")
+            answer: "option2",//refers to `options` index ("¿Cómo estás?")
             selected: null,//need to toggle `selected` class
-            feedback: function() {
-                let selected = question1.selected;
-                if(selected === null) {
+            feedback: function(answer) {
+                let correctAnswer = this.options["option2"];
+                if(answer === null) {
                     return "Please select an answer."
-                } else if(selected === true) {
-                    return `Great! "¿Cómo estás?" is correct; "estar" is the correct verb. Note that "esta" without an accent means "this".`
+                } else if(answer === correctAnswer) {
+                    return `Great! "${correctAnswer}" is correct; "estar" is the correct verb to use here. Note that "esta" without an accent means "this".`
                 } else {
-                    return `Oops! "¿Cómo estás?" is the correct answer.`
+                    return `Oops! "${correctAnswer}" is the correct answer.`
                 }
             }
         },
         question2 = {
             question: "What are you doing (formal)?",
             number: 2,
-            options: ["¿Qué haga?", "¿Qué haces?", "¿Qué haciendo?", "¿Qué estás haciendo?"],
-            answer: 3,//refers to `options` index ("¿Qué estás haciendo?")
+            options: {
+                option1: "¿Qué haga?",
+                option2: "¿Qué haces?",
+                option3: "¿Qué haciendo?",
+                option4: "¿Qué está haciendo?"
+            },
+            answer: "option4",//refers to `options` index ("¿Cómo estás?")
             selected: null,//need to toggle `selected` class
-            feedback: function() {
-                let selected = question2.selected;
-                if(selected === null) {
+            feedback: function(answer) {
+                let correctAnswer = this.options["option4"];
+                if(answer === null) {
                     return "Please select an answer."
-                } else if(selected === true) {
-                    return `Great! "¿Qué estás haciendo?" is the correct answer. You can also say, “¿Qué haces?”.`
+                } else if(answer === correctAnswer) {
+                    return `Great! "${correctAnswer}" is correct. You can also say, “¿Qué haces?”.`
                 } else {
-                    return `Oops! "¿Qué estás haciendo?" is the correct answer.`
-                };
+                    return `Oops! "${correctAnswer}" is the correct answer.`
+                }
             }
         },
 
