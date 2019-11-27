@@ -114,8 +114,14 @@ const QUIZ = [
 ]
 
 function handleQuiz() {
-    function renderQuestionSetElement(question) {
-        <h3 data-role="question" class="form js-question" data-value="${question.number}" data-answer="${question.options[question.answer]}" data-hidden="false">${question1.question}</h3>
+//when START button clicked, display first question set
+    $("js-button-start").click(function (event) {
+
+    });
+    function generateQuestionSetElement(question) {
+        console.log("show first question set");
+        return
+        `<h3 data-role="question" class="form js-question" data-value="${question.number}" data-answer="${question.options[question.answer]}" data-hidden="false">${question1.question}</h3>
 
                 <ul role="options-list" class="form js-quiz-question-options">
                     <li role="listitem" class="form js-quiz-option1" data-value="${question.option1}" data-answer="incorrect">
@@ -137,9 +143,25 @@ function handleQuiz() {
                     <input role="button" class="radio js-button-option4" type="radio" name="options" data-value="${question.option4}" checked id="option4">
                     <label for="option4" lang="es">{question.options["option4"]}</label>
                     </li>
-                </ul>
-
+                </ul>`
     }
+    function generateQuestionSetString(quiz) {
+        console.log("generateQuestionSetString ran")
+
+        const questionSet = quiz.map( (question) =>
+        generateQuestionSetElement(question));
+
+        return questionSet.join("");
+    }
+
+    function renderQuiz() {
+        console.log("renderQuiz ran");
+        const quizQuestionSetString =
+        generateQuestionSetString(QUIZ);
+
+        $(".js-main-quiz").html(quizQuestionSetString);
+    }
+
 
 
 }
