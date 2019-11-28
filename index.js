@@ -1,6 +1,6 @@
 'use strict'
 const QUIZ = [
-        question1 = {
+           {
             question: "How are you (informal)?",
             number: 1,
             options: {
@@ -22,7 +22,8 @@ const QUIZ = [
                 }
             }
         },
-        question2 = {
+
+        {
             question: "What are you doing (formal)?",
             number: 2,
             options: {
@@ -44,7 +45,8 @@ const QUIZ = [
                 }
             }
         },
-        question3 = {
+        
+        {
             question: "What have you done (informal)?",
             number: 3,
             options: {
@@ -66,7 +68,8 @@ const QUIZ = [
                 }
             }
         },
-        question4 = {
+        
+        {
             question: "What were you cooking (informal)?",
             number: 4,
             options: {
@@ -88,7 +91,8 @@ const QUIZ = [
                 }
             }
         },
-        question5 = {
+        
+        {
             question: "When will you visit (informal)?",
             number: 5,
             options: {
@@ -114,56 +118,56 @@ const QUIZ = [
 ]
 
 function handleQuiz() {
-//when START button clicked, display first question set
-    $("js-button-start").click(function (event) {
 
-    });
-    function generateQuestionSetElement(question) {
-        console.log("show first question set");
-        return
-        `<h3 data-role="question" class="form js-question" data-value="${question.number}" data-answer="${question.options[question.answer]}" data-hidden="false">${question1.question}</h3>
+    
+    };
+    
+    // function generateQuestionSetElement(question) {
+    //     //function generates an html element question/answer set from the QUIZ data model as a string
+        
+    //     console.log("show first question set");
+    //     return
+    //     `<h3 data-role="question" class="form js-question" data-value="${question.number}" data-answer="${question.options[question.answer]}" data-hidden="false">${question1.question}</h3>
 
-                <ul role="options-list" class="form js-quiz-question-options">
-                    <li role="listitem" class="form js-quiz-option1" data-value="${question.option1}" data-answer="incorrect">
-                    <input role="button" class="radio js-button-option1" type="radio" name="options" data-value="${question.option1}" checked id="option1">
-                    <label for="option1" lang="es">${question.options["option1"]}</label>
-                    </li>
+    //             <ul role="options-list" class="form js-quiz-question-options">
+    //                 <li role="listitem" class="form js-quiz-option1" data-value="${question.option1}" data-answer="incorrect">
+    //                 <input role="button" class="radio js-button-option1" type="radio" name="options" data-value="${question.option1}" checked id="option1">
+    //                 <label for="option1" lang="es">${question.options["option1"]}</label>
+    //                 </li>
 
-                    <li role="listitem" class="form js-quiz-option2" data-value="${question.option2}" data-answer="correct">
-                    <input role="button" class="radio js-button-option2" type="radio" name="options" data-value="${question.option2}" checked id="option2">
-                    <label for="option2" lang="es">${question.options["option2"]}</label>
-                    </li>
+    //                 <li role="listitem" class="form js-quiz-option2" data-value="${question.option2}" data-answer="correct">
+    //                 <input role="button" class="radio js-button-option2" type="radio" name="options" data-value="${question.option2}" checked id="option2">
+    //                 <label for="option2" lang="es">${question.options["option2"]}</label>
+    //                 </li>
 
-                    <li role="listitem" class="form js-quiz-option3" data-value="${question.option3}" data-answer="incorrect">                    
-                    <input role="button" class="radio js-button-option3" type="radio" name="options" data-value="${question.option3}" checked id="option3">
-                    <label for="option2" lang="es">${question.options["option3"]}</label>
-                    </li>
+    //                 <li role="listitem" class="form js-quiz-option3" data-value="${question.option3}" data-answer="incorrect">                    
+    //                 <input role="button" class="radio js-button-option3" type="radio" name="options" data-value="${question.option3}" checked id="option3">
+    //                 <label for="option2" lang="es">${question.options["option3"]}</label>
+    //                 </li>
 
-                    <li role="listitem" class="form js-quiz-option4" data-value="${question.option4}" data-answer="incorrect">       
-                    <input role="button" class="radio js-button-option4" type="radio" name="options" data-value="${question.option4}" checked id="option4">
-                    <label for="option4" lang="es">{question.options["option4"]}</label>
-                    </li>
-                </ul>`
-    }
-    function generateQuestionSetString(quiz) {
-        console.log("generateQuestionSetString ran")
-
-        const questionSet = quiz.map( (question) =>
-        generateQuestionSetElement(question));
-
-        return questionSet.join("");
-    }
+    //                 <li role="listitem" class="form js-quiz-option4" data-value="${question.option4}" data-answer="incorrect">       
+    //                 <input role="button" class="radio js-button-option4" type="radio" name="options" data-value="${question.option4}" checked id="option4">
+    //                 <label for="option4" lang="es">{question.options["option4"]}</label>
+    //                 </li>
+    //             </ul>`
+    // }
+    
+    // }
 
     function renderQuiz() {
-        console.log("renderQuiz ran");
+        console.log("renderQuiz to page ran");
         const quizQuestionSetString =
         generateQuestionSetString(QUIZ);
 
         $(".js-main-quiz").html(quizQuestionSetString);
     }
+    generateQuestionSetElement();
+    generateQuestionSetString();
+    renderQuiz();
+    
 
+console.log(`handleQuiz ran`);
 
 
 }
-
 $(handleQuiz);
