@@ -152,15 +152,24 @@ function handleQuiz() {
             event.preventDefault();
         //increment num by one and change num in header
         num += 1;
-        // $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
-        goToNextQuestion();
+        // goToNextQuestion();
         });
         console.log("showQuestionNum to page ran");
     }
+
+    // function showNextQuestion() {
+    // //when NEXT button clicked, increment question number in header by one to show which number user is on
+    //     $(".js-button-next").click(function (event) {
+    //         event.preventDefault();
+    //         //increment num by one and change num in header
+    //         num += 1;
+    //         $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
+    //     });
+    // }
     
     showStartScreen();
     showQuestionNum();
-    goToNextQuestion();
+    showNextQuestion();
     renderQuiz();
     
 
