@@ -119,11 +119,16 @@ const QUIZ = [
 
 function handleQuiz() {
 //create a question set from the QUIZ array using .map, which will be inserted into the HTML elements
-    let questionsArray = QUIZ.map(item => `${item.question}`);
+    let questionsArray = QUIZ.map(item => `${item.question}`); //returns an array of all questions
+    console.log(questionsArray);
     questionsArray.forEach(showQuestion);
     function showQuestion(question) {
-        return `${question}`;
+        return question;   
     };
+    // function renderQuestiontoPage(questionsArray) {
+    // //only return/show one question at a time
+
+    // };
     // let answersArray = QUIZ.map(item => {
     //     return `<li role="listitem" class="form js-quiz-option1" data-value="${item.options["option1"]}" data-answer="incorrect">${item.options["option1"]}</li>
     //     <input role="button" class="radio js-button-option1" type="radio" name="options" data-value="${item.options["option1"]}" checked id="option1">
@@ -133,23 +138,14 @@ function handleQuiz() {
     // function showOptions(answer) {
     //     return `${answer}`;
     // };
-    
-    // //                 <input role="button" class="radio js-button-option1" type="radio" name="options" data-value="${question.option1}" checked id="option1">
-    // //                 <label for="option1" lang="es">${question.options["option1"]}</label>
-    // //                 </li></li>
 
-    // function generateQuestionSetsArray() {
-    // 
+    // function renderQuiztoPage() {
+    //     console.log(`"renderQuiztoPage" ran`);
+    // //display questions by inserting them into the html elements
+    //     // $("h3").append(`${questionsArray}`);
 
-    // };
-
-    function renderQuiztoPage() {
-        console.log(`"renderQuiztoPage" ran`);
-    //display questions by inserting them into the html elements
-        $("h3").append(`${questionsArray}`);
-
-        // $("ul").append(`<li>${answersArray}</li>`);
-    }
+    //     $("ul").append(`<li>${answersArray}</li>`);
+    // }
     
     
     
@@ -204,7 +200,9 @@ function handleQuiz() {
     
     // generateQuestionSetsArray();
     // generateQuestionSetElements();
-    renderQuiztoPage();
+    
+    // renderQuestiontoPage();
+    // renderQuiztoPage();
     
 
 console.log(`handleQuiz ran`);
