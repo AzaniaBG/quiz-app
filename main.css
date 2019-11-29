@@ -84,7 +84,15 @@ time, mark, audio, video {
     background-image: url("https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg");
 }
 
-
+.button {
+    margin: 10px 0;
+}
+legend {
+    padding-top: 50px;
+}
+form, fieldset {
+    /* margin: 10px auto; */
+}
 /* display for START screen */
 .js-main-screen {
     display: none;
