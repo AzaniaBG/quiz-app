@@ -146,14 +146,14 @@ function handleQuiz() {
     function showNextQuestion() {
     //display next question when NEXT button clicked
         let num = 1;
-        let question = $("legend").html(`<h4 role="" class="js-main-screen form js-question1">Question ${num}<h4>`);
+        let question = $("h4").text(`Question ${num}`);
         // (`<h4 role="" class="js-main-screen form js-question1">Question ${num}</h4>`);
         console.log(question);
         $(".js-button-next").click(function (event) {
             event.preventDefault();
         //increment num by one and change num in header
         num += 1;
-        question.html(`Question ${num}`);
+        question.text(`Question ${num}`);
         // question.text(`<h4 role="" class="js-main-screen form js-question1">Question ${num}</h4></h4>`);
         // goToNextQuestion();
         });
