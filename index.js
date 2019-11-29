@@ -159,28 +159,21 @@ function handleQuiz() {
 
     function showQuestion1() {
         let questionSet = QUIZ.map(item => {
-                let question = `${item.question}`;
-                let questionOptions = `
-                ${item.options["option1"]}
-                ${item.options["option2"]}
-                ${item.options["option3"]}
-                ${item.options["option4"]}`;
-                let option1 = `${item.options["option1"]}`;
-                let option2 = `${item.options["option2"]}`;
-                let option3 = `${item.options["option3"]}`;
-                let option4 = `${item.options["option4"]}`;
-                let questionSet = `${question} ${questionOptions}`;
-                return questionSet;
+                let question1 = `${item.question1}`;
+                console.log(question1);
+        let num = 1;
+        $("h4").text(`${question1}`);
+        $("h4").attr("id", `js-question-${num}`)
+        //update js-question ID to match question number user is currently on
+        $("h4").attr("id", `js-question-${num}`);
+        let attr = $("h4").attr("id", `js-question-${num}`);
+        console.log(attr);
             }); 
     //display first question set when START button clicked
-        return questionSet;
+        console.log('showQuestion1 ran')
     };
     
     //create HANDLENEXTBUTTON for all functions?
-    function showOne(arr) {
-        
-        console.log(arr);
-    };
 
     function showNextQuestion() {
     //display question from QUIZ data model with a matching ID of that inside the H4 element
@@ -190,7 +183,7 @@ function handleQuiz() {
             return `${item.question}`;
         });
         
-        showOne(questions);
+        
         // console.log(questions);
         
         // function showOne(questionsArr) {
@@ -266,7 +259,6 @@ function handleQuiz() {
     showStartScreen();
     showQuestionNum();
     showQuestion1();
-    showOne();
     showNextQuestion();
     renderQuiz();
     
