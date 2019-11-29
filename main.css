@@ -86,11 +86,14 @@ time, mark, audio, video {
 
 
 /* display for START screen */
-.js-form-quiz, .js-main-quiz, .js-question-number {
+.js-main-screen {
     display: none;
 }
 .js-start-screen {
     /* display: none; */
+}
+.js-button-start {
+
 }
 
 /* display for MAIN screen */

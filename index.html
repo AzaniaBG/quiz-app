@@ -14,21 +14,24 @@
 <body>
     <header>
         <!-- start screen shows welcome, instructions, and start button -->
-        <h1 role="" class="header js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
+        <h1 role="header" class="js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
+        <p role="" class="header js-start-screen">Click the "START" button to begin the quiz</p>
+
         <!-- output: container element into which an app can inject the results of a calculation or the outcome of a user action -->
-        <h2 role="" class="header js-question-number">
+        <h2 role="header" class="js-main-screen js-question-number">
             <output>Question 0/5</output>
         
         <!--display question number, correct answers, etc. with either output or progress element-->
             <progress></progress>
-            <output role="" class="header js-answers-correct">Question 0/0 correct</output>
+            <output role="header" class="js-main-screen js-answers-correct">Question 0/0 correct</output>
         </h2>
     </header>
 
-    <p role="" class="header js-start-screen">Click the "START" button to begin the quiz</p>
-    <button role="button" class="button js-button-start">START</button>
+    <button role="button" class="button js-start-screen js-button-start">START</button>
+    <button role="button" class="button js-main-screen js-button-next">NEXT</button>
 
-    <main role="main" class="js-main-quiz">
+
+    <main role="main" class="js-main-screen js-main-quiz">
             
         <form role="form" class="form js-form-quiz">       
             <fieldset class="form js-fieldset"> 

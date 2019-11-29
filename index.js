@@ -128,21 +128,30 @@ function handleQuiz() {
     
     function showStartScreen() {
         //display start screen welcome, instructions, and start button
-        // $(".js-start-screen").toggle();
+        //$(".js-start-screen").toggle();
     
-        });
+        // });
+        console.log("showStartScreen ran")
     }
-    $(".js-button-start").click(function (event) {
-        //display first question and render it to the page
-        event.preventDefault();
+    function renderQuiz() {
+        $(".js-button-start").click(function (event) {
+            event.preventDefault();
+    //display main screen with question # correct answers, instruction, first question and answer options
+        // $(".js-form-quiz").toggle();
+        // $(".js-main-quiz").toggle(); 
+        // $(".js-question-number").toggle();
+        $(".js-main-screen").toggle();
+        $(".js-start-screen").toggle();    
+        });
         console.log("renderQuiz to page ran");
+    }
     
-    });
         
         
         
 
     showStartScreen();
+    renderQuiz();
     
 
 console.log(`handleQuiz ran`);
