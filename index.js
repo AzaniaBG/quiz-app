@@ -160,9 +160,13 @@ function handleQuiz() {
         });
         // showQuestionNum();
         console.log("renderQuiz to page ran");
-    //display first question set when START button clicked
-    
+
     }
+
+    function showQuestion1() {
+    //display first question set when START button clicked
+        let question = $("h4").text(`Question ${num}`);
+    };
     
     //create HANDLENEXTBUTTON for all functions?
     function showNextQuestion() {
