@@ -147,11 +147,13 @@ function handleQuiz() {
     //display main screen with question num user is on and increment by 1 when user clicks NEXT
         let num = 1;
     //insert num into html element using class ".js-question-number"
-        $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
+        let questionNum = $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
+        console.log(questionNum);
         $(".js-button-next").click(function (event) {
             event.preventDefault();
         //increment num by one and change num in header
         num += 1;
+        questionNum.html(`<output>Question ${num}/5 </output>`);
         // goToNextQuestion();
         });
         console.log("showQuestionNum to page ran");
@@ -169,7 +171,7 @@ function handleQuiz() {
     
     showStartScreen();
     showQuestionNum();
-    showNextQuestion();
+    // showNextQuestion();
     renderQuiz();
     
 
