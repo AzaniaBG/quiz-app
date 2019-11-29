@@ -2,7 +2,7 @@
 const QUIZ = [
            {
             id: "js-question1",
-            question: "How are you (informal)?",
+            question1: "How are you (informal)?",
             number: 1,
             options: {
                 option1: "¿Como estas?",
@@ -26,7 +26,7 @@ const QUIZ = [
 
         {
             id: "js-question2",
-            question: "What are you doing (formal)?",
+            question2: "What are you doing (formal)?",
             number: 2,
             options: {
                 option1: "¿Qué haga?",
@@ -50,7 +50,7 @@ const QUIZ = [
         
         {
             id: "js-question3",
-            question: "What have you done (informal)?",
+            question3: "What have you done (informal)?",
             number: 3,
             options: {
                 option1: "¿Qué has hecho?",
@@ -74,7 +74,7 @@ const QUIZ = [
         
         {
             id: "js-question4",
-            question: "What were you cooking (informal)?",
+            question4: "What were you cooking (informal)?",
             number: 4,
             options: {
                 option1: "¿Qué estás cocinando?",
@@ -98,7 +98,7 @@ const QUIZ = [
         
         {
             id: "js-question5",
-            question: "When will you visit (informal)?",
+            question5: "When will you visit (informal)?",
             number: 5,
             options: {
                 option1: "¿Cuándo visitaré?",
@@ -139,12 +139,6 @@ function handleQuiz() {
             let questionSet = `${question} ${questionOptions}`;
             console.log(questionSet);
         }); 
-    //questionsArray returns 
-    // console.log(questionsArray);
-    // questionsArray.forEach(showQuestion);
-    // function showQuestion(question) {
-    //     return question;   
-    // };
     
     function showStartScreen() {
         //display start screen welcome, instructions, and start button 
@@ -164,18 +158,55 @@ function handleQuiz() {
     }
 
     function showQuestion1() {
+        let questionSet = QUIZ.map(item => {
+                let question = `${item.question}`;
+                let questionOptions = `
+                ${item.options["option1"]}
+                ${item.options["option2"]}
+                ${item.options["option3"]}
+                ${item.options["option4"]}`;
+                let option1 = `${item.options["option1"]}`;
+                let option2 = `${item.options["option2"]}`;
+                let option3 = `${item.options["option3"]}`;
+                let option4 = `${item.options["option4"]}`;
+                let questionSet = `${question} ${questionOptions}`;
+                return questionSet;
+            }); 
     //display first question set when START button clicked
-        let question = $("h4").text(`Question ${num}`);
+        return questionSet;
     };
     
     //create HANDLENEXTBUTTON for all functions?
+    function showOne(arr) {
+        
+        console.log(arr);
+    };
+
     function showNextQuestion() {
     //display question from QUIZ data model with a matching ID of that inside the H4 element
-
-    //display next question number when NEXT button clicked in HEADER element
         let num = 1;
-        let question = $("h4").text(`Question ${num}`);
-         
+    //QUESTIONS returns an array of each question
+        let questions = QUIZ.map(item => {
+            return `${item.question}`;
+        });
+        
+        showOne(questions);
+        // console.log(questions);
+        
+        // function showOne(questionsArr) {
+        
+        //     for (let i=0; i < questionsArr.length; i++) {
+        //         let question = questionsArr[i];
+        //         console.log(question);
+        //         return question;
+        //     }
+        //     console.log("showOne ran");
+        // };
+        // showOne(questions);
+    //display next question number when NEXT button clicked in HEADER element
+        
+        let question = $("h4").text(`${questions} ${num}`);
+        question.text(`Question ${num}`);
         
         let attr = $("h4").attr("id");
         
@@ -196,8 +227,18 @@ function handleQuiz() {
     }
 
     function showQuestionNum() {
-    //display main screen with question num user is on and increment by 1 when user clicks NEXT
+    //questions returns an ARRAY of all questions 
         let num = 1;
+        let questions = QUIZ.map(item => {
+            let question = `${item.question}`;
+            return question;
+        });
+        // console.log(questions);
+        // let question = `${questions}[${num}]`;
+        // console.log(question);
+        
+    //display main screen with question num user is on and increment by 1 when user clicks NEXT
+        
     //insert num into html element using class ".js-question-number"
         let questionNum = $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
         $(".js-button-next").click(function (event) {
@@ -208,7 +249,9 @@ function handleQuiz() {
         // goToNextQuestion();
         });
         console.log("showQuestionNum to page ran");
+
     }
+    
 
     // function showNextQuestion() {
     // //when NEXT button clicked, increment question number in header by one to show which number user is on
@@ -222,6 +265,8 @@ function handleQuiz() {
     
     showStartScreen();
     showQuestionNum();
+    showQuestion1();
+    showOne();
     showNextQuestion();
     renderQuiz();
     
