@@ -119,43 +119,54 @@ const QUIZ = [
 
 function handleQuiz() {
 //create a question set from the QUIZ array using .map, which will be inserted into the HTML elements
-    let questionsArray = QUIZ.map(item => `${item.question}`); //returns an array of all questions
-    console.log(questionsArray);
-    questionsArray.forEach(showQuestion);
-    function showQuestion(question) {
-        return question;   
-    };
+    // let questionsArray = QUIZ.map(item => `${item.question}`); 
+    // //returns an array of all questions
+    // console.log(questionsArray);
+    // questionsArray.forEach(showQuestion);
+    // function showQuestion(question) {
+    //     return question;   
+    // };
     
     function showStartScreen() {
-        //display start screen welcome, instructions, and start button
-        //$(".js-start-screen").toggle();
-    
-        // });
+        //display start screen welcome, instructions, and start button 
         console.log("showStartScreen ran")
     }
+
     function renderQuiz() {
+    //display main screen with question # correct answers, instruction, first question and answer options
         $(".js-button-start").click(function (event) {
             event.preventDefault();
-    //display main screen with question # correct answers, instruction, first question and answer options
-        // $(".js-form-quiz").toggle();
-        // $(".js-main-quiz").toggle(); 
-        // $(".js-question-number").toggle();
         $(".js-main-screen").toggle();
         $(".js-start-screen").toggle();    
         });
+        // showQuestionNum();
         console.log("renderQuiz to page ran");
     }
     
-        
-        
-        
-
+    function showQuestionNum() {
+    //display main screen with question num user is on and increment by 1 when user clicks NEXT
+        let num = 1;
+    //insert num into html element using class ".js-question-number"
+        $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
+        $(".js-button-next").click(function (event) {
+            event.preventDefault();
+        //increment num by one and change num in header
+        num += 1;
+        // $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
+        goToNextQuestion();
+        });
+        console.log("showQuestionNum to page ran");
+    }
+    
     showStartScreen();
+    showQuestionNum();
+    goToNextQuestion();
     renderQuiz();
     
 
-console.log(`handleQuiz ran`);
-
-
-}
+    console.log(`handleQuiz ran`);
+};
+        
+        
 $(handleQuiz);
+
