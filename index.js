@@ -124,8 +124,22 @@ const QUIZ = [
 
 function handleQuiz() {
 //create a question set from the QUIZ array using .map, which will be inserted into the HTML elements
-    // let questionsArray = QUIZ.map(item => `${item.question}`); 
-    // //returns an array of all questions
+    let questionsArray = QUIZ.map(item => 
+        {
+            let question = `${item.question}`;
+            let questionOptions = `
+            ${item.options["option1"]}
+            ${item.options["option2"]}
+            ${item.options["option3"]}
+            ${item.options["option4"]}`;
+            let option1 = `${item.options["option1"]}`;
+            let option2 = `${item.options["option2"]}`;
+            let option3 = `${item.options["option3"]}`;
+            let option4 = `${item.options["option4"]}`;
+            let questionSet = `${question} ${questionOptions}`;
+            console.log(questionSet);
+        }); 
+    //questionsArray returns 
     // console.log(questionsArray);
     // questionsArray.forEach(showQuestion);
     // function showQuestion(question) {
@@ -146,31 +160,33 @@ function handleQuiz() {
         });
         // showQuestionNum();
         console.log("renderQuiz to page ran");
+    //display first question set when START button clicked
+    
     }
     
     //create HANDLENEXTBUTTON for all functions?
     function showNextQuestion() {
-    //display next question when NEXT button clicked
+    //display question from QUIZ data model with a matching ID of that inside the H4 element
+
+    //display next question number when NEXT button clicked in HEADER element
         let num = 1;
         let question = $("h4").text(`Question ${num}`);
-        // (`<h4 role="" class="js-main-screen form js-question1">Question ${num}</h4>`);
-        console.log(question);
+         
+        
         let attr = $("h4").attr("id");
-        console.log(attr);
+        
+
         $(".js-button-next").click(function (event) {
             event.preventDefault();
-        //increment num by one and change num in header
+        //increment num by one and change num in HEADER
         num += 1;
         question.text(`Question ${num}`);
         $("h4").attr("id", `js-question-${num}`)
-        // question.text(`<h4 role="" class="js-main-screen form js-question1">Question ${num}</h4></h4>`);
-        // goToNextQuestion();
+        //update js-question ID to match question number user is currently on
         $("h4").attr("id", `js-question-${num}`);
         let attr = $("h4").attr("id", `js-question-${num}`);
         console.log(attr);
-        // question.text(`<h4 role="" class="js-main-screen form js-question1">Question ${num}</h4></h4>`);
-        // goToNextQuestion();
-        console.log("showNextQuestion to page ran");
+    
         });
         console.log("showNextQuestion to page ran");
     }
