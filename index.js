@@ -1,6 +1,7 @@
 'use strict'
 const QUIZ = [
            {
+            id: "js-question1",
             question: "How are you (informal)?",
             number: 1,
             options: {
@@ -24,6 +25,7 @@ const QUIZ = [
         },
 
         {
+            id: "js-question2",
             question: "What are you doing (formal)?",
             number: 2,
             options: {
@@ -47,6 +49,7 @@ const QUIZ = [
         },
         
         {
+            id: "js-question3",
             question: "What have you done (informal)?",
             number: 3,
             options: {
@@ -70,6 +73,7 @@ const QUIZ = [
         },
         
         {
+            id: "js-question4",
             question: "What were you cooking (informal)?",
             number: 4,
             options: {
@@ -93,6 +97,7 @@ const QUIZ = [
         },
         
         {
+            id: "js-question5",
             question: "When will you visit (informal)?",
             number: 5,
             options: {
