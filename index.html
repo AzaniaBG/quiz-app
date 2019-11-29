@@ -13,22 +13,24 @@
 
 <body>
     <header>
-        <h1>Intro Content</h1>
+        <!-- start screen shows welcome, instructions, and start button -->
+        <h1 role="" class="header js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
         <!-- output: container element into which an app can inject the results of a calculation or the outcome of a user action -->
-        <h2>
+        <h2 role="" class="header js-question-number">
             <output>Question 0/5</output>
         
         <!--display question number, correct answers, etc. with either output or progress element-->
             <progress></progress>
-            <output>Question 0/0 correct</output>
+            <output role="" class="header js-answers-correct">Question 0/0 correct</output>
         </h2>
     </header>
 
-    <main role="main" class="js-main-quiz">
-            <button role="button" class="button js-button-start">START</button>
-        <form role="form" class="form js-form-quiz">
-        
+    <p role="" class="header js-start-screen">Click the "START" button to begin the quiz</p>
+    <button role="button" class="button js-button-start">START</button>
 
+    <main role="main" class="js-main-quiz">
+            
+        <form role="form" class="form js-form-quiz">       
             <fieldset class="form js-fieldset"> 
                 <legend>Instructions</legend>
                 <h3 class="form js-question"></h3>
