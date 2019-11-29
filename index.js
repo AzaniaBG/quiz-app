@@ -125,84 +125,33 @@ function handleQuiz() {
     function showQuestion(question) {
         return question;   
     };
-    // function renderQuestiontoPage(questionsArray) {
-    // //only return/show one question at a time
-
-    // };
-    // let answersArray = QUIZ.map(item => {
-    //     return `<li role="listitem" class="form js-quiz-option1" data-value="${item.options["option1"]}" data-answer="incorrect">${item.options["option1"]}</li>
-    //     <input role="button" class="radio js-button-option1" type="radio" name="options" data-value="${item.options["option1"]}" checked id="option1">
-    //     `
-    // });
-    // answersArray.forEach(showOptions);
-    // function showOptions(answer) {
-    //     return `${answer}`;
-    // };
-
-    // function renderQuiztoPage() {
-    //     console.log(`"renderQuiztoPage" ran`);
-    // //display questions by inserting them into the html elements
-    //     // $("h3").append(`${questionsArray}`);
-
-    //     $("ul").append(`<li>${answersArray}</li>`);
-    // }
     
+    function showStartScreen() {
+        //display start screen welcome, instructions, and start button
+        //$(".js-start-screen").toggle();
     
-    
-    $(".js-button-start").click(function (event) {
-        //display first question and render it to the page
-        event.preventDefault();
+        // });
+        console.log("showStartScreen ran")
+    }
+    function renderQuiz() {
+        $(".js-button-start").click(function (event) {
+            event.preventDefault();
+    //display main screen with question # correct answers, instruction, first question and answer options
+        // $(".js-form-quiz").toggle();
+        // $(".js-main-quiz").toggle(); 
+        // $(".js-question-number").toggle();
+        $(".js-main-screen").toggle();
+        $(".js-start-screen").toggle();    
+        });
         console.log("renderQuiz to page ran");
+    }
     
-    });
         
         
         
 
-    // };
-    
-    // function generateQuestionSetElement(question) {
-    //     //function generates an html element question/answer set from the QUIZ data model as a string
-        
-    //     console.log("show first question set");
-    //     return
-    //     `<h3 data-role="question" class="form js-question" data-value="${question.number}" data-answer="${question.options[question.answer]}" data-hidden="false">${question1.question}</h3>
-
-    //             <ul role="options-list" class="form js-quiz-question-options">
-    //                 
-
-    //                 <li role="listitem" class="form js-quiz-option2" data-value="${question.option2}" data-answer="correct">
-    //                 <input role="button" class="radio js-button-option2" type="radio" name="options" data-value="${question.option2}" checked id="option2">
-    //                 <label for="option2" lang="es">${question.options["option2"]}</label>
-    //                 </li>
-
-    //                 <li role="listitem" class="form js-quiz-option3" data-value="${question.option3}" data-answer="incorrect">                    
-    //                 <input role="button" class="radio js-button-option3" type="radio" name="options" data-value="${question.option3}" checked id="option3">
-    //                 <label for="option2" lang="es">${question.options["option3"]}</label>
-    //                 </li>
-
-    //                 <li role="listitem" class="form js-quiz-option4" data-value="${question.option4}" data-answer="incorrect">       
-    //                 <input role="button" class="radio js-button-option4" type="radio" name="options" data-value="${question.option4}" checked id="option4">
-    //                 <label for="option4" lang="es">{question.options["option4"]}</label>
-    //                 </li>
-    //             </ul>`
-    // }
-    
-    // }
-    
-    // function renderQuiz() {
-    //     console.log("renderQuiz to page ran");
-    //     const quizQuestionSetString =
-    //     generateQuestionSetString(QUIZ);
-
-    //     $(".js-main-quiz").html(quizQuestionSetString);
-    // }
-    
-    // generateQuestionSetsArray();
-    // generateQuestionSetElements();
-    
-    // renderQuestiontoPage();
-    // renderQuiztoPage();
+    showStartScreen();
+    renderQuiz();
     
 
 console.log(`handleQuiz ran`);
