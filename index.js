@@ -213,7 +213,23 @@ function handleQuiz() {
     //         }); 
     //     console.log('showQuestion1 ran')
     // };
+    function showQuestion1() {
+        let questions = QUIZ.map(item => {
+            return `${item.question}`;
+        });
+        let question1 = questions[0];
+        let question2 = questions[1];
+        let question3 = questions[2];
+        let question4 = questions[3];
+        let question5 = questions[4];  
 
+        $(".js-button-start").click(function (event) {
+            event.preventDefault();
+        
+            $("h4").append(`${question1}`);
+            });
+    }
+    
     function showNextQuestion() {
     //display question from QUIZ data model with a matching ID of that inside the H4 element
         let num = 1;
@@ -221,6 +237,7 @@ function handleQuiz() {
         let questions = QUIZ.map(item => {
             return `${item.question}`;
         });
+        
      
         
 
@@ -287,7 +304,7 @@ function handleQuiz() {
     
     showStartScreen();
     showQuestionNum();
-    // showQuestion1();
+    showQuestion1();
     showNextQuestion();
     renderQuiz();
     
