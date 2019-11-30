@@ -121,10 +121,33 @@ const QUIZ = [
         },
 
 ]
-let questions = QUIZ.map(item => {
-    return item.question;
-});
+
+let returnAllQuestions = function(quiz) {
+    let questions = QUIZ.map(item => {
+        return item.question;
+    });
+    
+    console.log(`questions is ${questions}`);
+    return questions;
+};
+let returnOneQuestion = function(questions) { 
+    let question = questions.question;  
+    console.log(question)
+    return question;
+}
+// returnAllQuestions();
+
+
 function handleQuiz() {
+    
+
+    // function returnQuestions(quiz) {
+    
+    //     console.log(`${quiz}.${questions}`);
+    // };
+    // returnQuestions(QUIZ);
+    
+    
     console.log(`handleQuiz ran`);
 
      //GENERATE QUESTION STRING returns a string of the h4 element, with QUESTION inserted as content
@@ -135,8 +158,8 @@ function handleQuiz() {
         return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`;
     };
 
-    let question1 = generateQuestionString(questions, 1);
-    console.log(`question1 is ${question1}`);
+    // let question1 = generateQuestionString(questions, 1);
+    // console.log(`question1 is ${question1}`);
 
     function showStartScreen() {
         //display start screen welcome, instructions, and start button 
@@ -276,11 +299,14 @@ function handleQuiz() {
     // }
     
     // handleQuiz();
-    showStartScreen();
-    // showQuestionNum();
-    showOneQuestion();
-    generateQuestionString();
-    showNextQuestion();
+    // showStartScreen();
+    // // showQuestionNum();
+    // showOneQuestion();
+    // generateQuestionString();
+    // showNextQuestion();
+    // returnQuestions();
+    returnAllQuestions();
+    returnOneQuestion();
     renderQuiz();
     
 
