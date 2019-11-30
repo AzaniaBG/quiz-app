@@ -2,7 +2,7 @@
 const QUIZ = [
            {
             id: "js-question1",
-            question1: "How are you (informal)?",
+            question: "How are you (informal)?",
             number: 1,
             options: {
                 option1: "¿Como estas?",
@@ -26,7 +26,7 @@ const QUIZ = [
 
         {
             id: "js-question2",
-            question2: "What are you doing (formal)?",
+            question: "What are you doing (formal)?",
             number: 2,
             options: {
                 option1: "¿Qué haga?",
@@ -50,7 +50,7 @@ const QUIZ = [
         
         {
             id: "js-question3",
-            question3: "What have you done (informal)?",
+            question: "What have you done (informal)?",
             number: 3,
             options: {
                 option1: "¿Qué has hecho?",
@@ -74,7 +74,7 @@ const QUIZ = [
         
         {
             id: "js-question4",
-            question4: "What were you cooking (informal)?",
+            question: "What were you cooking (informal)?",
             number: 4,
             options: {
                 option1: "¿Qué estás cocinando?",
@@ -98,7 +98,7 @@ const QUIZ = [
         
         {
             id: "js-question5",
-            question5: "When will you visit (informal)?",
+            question: "When will you visit (informal)?",
             number: 5,
             options: {
                 option1: "¿Cuándo visitaré?",
@@ -157,23 +157,62 @@ function handleQuiz() {
 
     }
 
-    function showQuestion1() {
-        let questionSet = QUIZ.map(item => {
-                let question1 = `${item.question1}`;
-                console.log(question1);
-        let num = 1;
-        $("h4").text(`${question1}`);
-        $("h4").attr("id", `js-question-${num}`)
-        //update js-question ID to match question number user is currently on
-        $("h4").attr("id", `js-question-${num}`);
-        let attr = $("h4").attr("id", `js-question-${num}`);
-        console.log(attr);
-            }); 
-    //display first question set when START button clicked
-        console.log('showQuestion1 ran')
-    };
+    // function showQuestion1() {
+    //     let questionSet = QUIZ.map(item => {
+    //             let question1 = `${item.question1}`;
+    //             console.log(question1);
+    //             $(".js-button-start").click(function (event) {
+    //                 event.preventDefault();
+    //             //increment num by one and change num in HEADER
+    //             num += 1;
+    //             ("h4").text(`Question ${num}`);
+    //             $("h4").attr("id", `js-question-${num}`)
+    //     let num = 1;
+    //     $("h4").append(`${question1}`);
+    //     $("h4").attr("id", `js-question-${num}`)
+    //     //update js-question ID to match question number user is currently on
+    //     $("h4").attr("id", `js-question-${num}`);
+    //     let attr = $("h4").attr("id", `js-question-${num}`);
+    //     console.log(attr);
+    //         }); 
+    // //display first question set when START button clicked
+    //     console.log('showQuestion1 ran')
+    // };
     
     //create HANDLENEXTBUTTON for all functions?
+
+    // function showQuestion1() {
+    //     let num = 1;
+    //     let questions = QUIZ.map((item) => {
+    //         return item.number;    
+    //         // return `${questions}[${index}]`;
+            
+    //             // let question1 = item.question1;
+    //             //  let question2 = item.question2;
+    //             //  let question3 = item.question3;
+    //             //  let question4 = item.question4;
+    //             //  let question5 = item.question5;
+
+    //              return questions;
+    //             // console.log(question1)
+    //         });
+    //         console.log(questions)
+    //     $(".js-button-start").click(function (event) {
+    //         event.preventDefault();
+        
+    //     console.log(question1)
+    //     $("h4").text(`${question1}`);
+    //     $("h4").attr("id", `js-question-${num}`)
+        
+    //     // $("h4").append(`${question1}`);
+    //     // $("h4").attr("id", `js-question-${num}`)
+    //     //update js-question ID to match question number user is currently on
+    //     // $("h4").attr("id", `js-question-${num}`);
+    //     // let attr = $("h4").attr("id", `js-question-${num}`);
+    //     // console.log(attr);
+    //         }); 
+    //     console.log('showQuestion1 ran')
+    // };
 
     function showNextQuestion() {
     //display question from QUIZ data model with a matching ID of that inside the H4 element
@@ -182,20 +221,9 @@ function handleQuiz() {
         let questions = QUIZ.map(item => {
             return `${item.question}`;
         });
+     
         
-        
-        // console.log(questions);
-        
-        // function showOne(questionsArr) {
-        
-        //     for (let i=0; i < questionsArr.length; i++) {
-        //         let question = questionsArr[i];
-        //         console.log(question);
-        //         return question;
-        //     }
-        //     console.log("showOne ran");
-        // };
-        // showOne(questions);
+
     //display next question number when NEXT button clicked in HEADER element
         
         let question = $("h4").text(`${questions} ${num}`);
@@ -226,6 +254,7 @@ function handleQuiz() {
             let question = `${item.question}`;
             return question;
         });
+        console.log(questions);
         // console.log(questions);
         // let question = `${questions}[${num}]`;
         // console.log(question);
@@ -258,7 +287,7 @@ function handleQuiz() {
     
     showStartScreen();
     showQuestionNum();
-    showQuestion1();
+    // showQuestion1();
     showNextQuestion();
     renderQuiz();
     
