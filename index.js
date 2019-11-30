@@ -122,25 +122,45 @@ const QUIZ = [
 
 ]
 
-let returnAllQuestions = function(quiz) {
-    let questions = QUIZ.map(item => {
+//QUESTIONS is an array of all questions from the QUIZ data model
+let questions = QUIZ.map(item => {        
         return item.question;
     });
-    
-    console.log(`questions is ${questions}`);
-    return questions;
-};
-let returnOneQuestion = function(questions) { 
-    let question = questions.question;  
-    console.log(question)
-    return question;
-}
-// returnAllQuestions();
+    // console.log(questions);
+
+//return a specific question at the given index
+
+// let question1 = questions[0]
+// console.log(`question is ${question1}`);
 
 
 function handleQuiz() {
-    
+    let question1 = generateQuestionElement(questions, 0);
 
+    function returnOneQuestion(questions, index) {
+        let question = questions[index];   
+        console.log(`question is ${question}`);
+        return `${question}`;   
+    };
+// returnOneQuestion(questions, 2);
+    function generateQuestionElement(questions, index) {
+        let question = returnOneQuestion(questions, index);
+        console.log(`question x is ${question}`);
+        return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`;
+    };
+// let question1 = generateQuestionElement(questions, 0);
+
+function showStartScreen() {
+    
+    //display start screen welcome, instructions, and start button 
+    $(".js-button-start").click(function (event) {
+        event.preventDefault();   
+        // let question1 = generateQuestionElement(questions, 0);
+        console.log(`question 1 is ${question1}`)
+        $("h4").append(`${question1}`)
+    });
+    console.log("showStartScreen ran")
+};
     // function returnQuestions(quiz) {
     
     //     console.log(`${quiz}.${questions}`);
@@ -151,24 +171,17 @@ function handleQuiz() {
     console.log(`handleQuiz ran`);
 
      //GENERATE QUESTION STRING returns a string of the h4 element, with QUESTION inserted as content
-     function generateQuestionString(questions, index) {
-        let questionIndex = showOneQuestion(questions, index);
-        // console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`);
-        console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`);
-        return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`;
-    };
+    //  function generateQuestionString(questions, index) {
+    //     let questionIndex = showOneQuestion(questions, index);
+    //     // console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`);
+    //     console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`);
+    //     return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`;
+    // };
 
     // let question1 = generateQuestionString(questions, 1);
     // console.log(`question1 is ${question1}`);
 
-    function showStartScreen() {
-        //display start screen welcome, instructions, and start button 
-        $(".js-button-start").click(function (event) {
-            event.preventDefault();
-        $("h4").append(`${question1}`)
-        });
-        console.log("showStartScreen ran")
-    };
+    
 
     function renderQuiz() {
     //display main screen with question # correct answers, instruction, first question and answer options
@@ -181,12 +194,6 @@ function handleQuiz() {
         console.log("renderQuiz to page ran");
     }
 
-    function showOneQuestion(questions, index) {
-        let question = `${questions}+[${index}].question`;
-
-        // console.log(`question is ${question}`);
-        return question; 
-    };
    
     // function showQuestion1() {
     //     let questionSet = QUIZ.map(item => {
@@ -299,14 +306,15 @@ function handleQuiz() {
     // }
     
     // handleQuiz();
-    // showStartScreen();
-    // // showQuestionNum();
+    // showQuestionNum();
     // showOneQuestion();
     // generateQuestionString();
     // showNextQuestion();
     // returnQuestions();
-    returnAllQuestions();
+    // returnAllQuestions();
     returnOneQuestion();
+    generateQuestionElement();
+    showStartScreen();
     renderQuiz();
     
 
