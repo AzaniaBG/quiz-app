@@ -121,56 +121,31 @@ const QUIZ = [
         },
 
 ]
-
+let questions = QUIZ.map(item => {
+    return item.question;
+});
 function handleQuiz() {
-//create a question set from the QUIZ array using .map, which will be inserted into the HTML elements
-    // let questionsArray = QUIZ.map(item => 
-    //     {
-    //         let question = `${item.question}`;
-    //         let questionOptions = `
-    //         ${item.options["option1"]}
-    //         ${item.options["option2"]}
-    //         ${item.options["option3"]}
-    //         ${item.options["option4"]}`;
-    //         let option1 = `${item.options["option1"]}`;
-    //         let option2 = `${item.options["option2"]}`;
-    //         let option3 = `${item.options["option3"]}`;
-    //         let option4 = `${item.options["option4"]}`;
-    //         let questionSet = `${question} ${questionOptions}`;
-    //         console.log(questionSet);
-    //     }); 
-    //QUESTIONS returns an array of all questions from QUIZ
-    let questions = QUIZ.map(item => {
-        return item.question;
-    });
-    
-    
-    // $(".js-button-start").click(function(event) {
-    //     event.preventDefault();
-        
-    //     $("h4").append(`${question1}`);
-    // });
-    // function showQuestion1() {
-    //     let questions = QUIZ.map(item => {
-    //         return `${item.question}`;
-    //     });
-    //     let question1 = questions[0];
-    //     let question2 = questions[1];
-    //     let question3 = questions[2];
-    //     let question4 = questions[3];
-    //     let question5 = questions[4];  
+    console.log(`handleQuiz ran`);
 
-    //     $(".js-button-start").click(function (event) {
-    //         event.preventDefault();
-        
-    //         $("h4").append(`${question1}`);
-    //         });
-    // }
-    
+     //GENERATE QUESTION STRING returns a string of the h4 element, with QUESTION inserted as content
+     function generateQuestionString(questions, index) {
+        let questionIndex = showOneQuestion(questions, index);
+        // console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`);
+        console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`);
+        return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`;
+    };
+
+    let question1 = generateQuestionString(questions, 1);
+    console.log(`question1 is ${question1}`);
+
     function showStartScreen() {
         //display start screen welcome, instructions, and start button 
+        $(".js-button-start").click(function (event) {
+            event.preventDefault();
+        $("h4").append(`${question1}`)
+        });
         console.log("showStartScreen ran")
-    }
+    };
 
     function renderQuiz() {
     //display main screen with question # correct answers, instruction, first question and answer options
@@ -181,9 +156,15 @@ function handleQuiz() {
         });
         // showQuestionNum();
         console.log("renderQuiz to page ran");
-
     }
 
+    function showOneQuestion(questions, index) {
+        let question = `${questions}+[${index}].question`;
+
+        // console.log(`question is ${question}`);
+        return question; 
+    };
+   
     // function showQuestion1() {
     //     let questionSet = QUIZ.map(item => {
     //             let question1 = `${item.question1}`;
@@ -241,39 +222,27 @@ function handleQuiz() {
     //     console.log('showQuestion1 ran')
     // };
     
-    function showOneQuestion(questions, index) {
-        let question = questions[index];
-        // console.log(`question is ${question}`);
-        return question; 
-    };
-    //GENERATE QUESTION STRING returns a string of the h4 element, with QUESTION inserted as content
-    function generateQuestionString(questions, index) {
-        let question = showOneQuestion(questions, index);
-        // console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`);
-        return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`;
-    };
-    let question1 = generateQuestionString(questions, 1);
-    console.log(`question1 is ${question1}`)
+    
     
     function showNextQuestion() {
     //display question from QUIZ data model with a matching ID of that inside the H4 element
         let num = 1;
     //display next question number when NEXT button clicked in HEADER element      
-        let question = $("h4").text(`${questions} ${num}`);
-        question.text(`Question ${num}`);
-        let attr = $("h4").attr("id");
+        // let question = $("h4").text(`${questions} ${num}`);
+        // question.text(`Question ${num}`);
+        // let attr = $("h4").attr("id");
         
-        $(".js-button-next").click(function (event) {
-            event.preventDefault();
-        //increment num by one and change num in HEADER
-        num += 1;
-        question.text(`Question ${num}`);
-        $("h4").attr("id", `js-question-${num}`)
-        //update js-question ID to match question number user is currently on
-        $("h4").attr("id", `js-question-${num}`);
-        let attr = $("h4").attr("id", `js-question-${num}`);
-        console.log(attr);
-        });
+        // $(".js-button-next").click(function (event) {
+        //     event.preventDefault();
+        // //increment num by one and change num in HEADER
+        // num += 1;
+        // question.text(`Question ${num}`);
+        // $("h4").attr("id", `js-question-${num}`)
+        // //update js-question ID to match question number user is currently on
+        // $("h4").attr("id", `js-question-${num}`);
+        // let attr = $("h4").attr("id", `js-question-${num}`);
+        // console.log(attr);
+        // });
         console.log("showNextQuestion to page ran");
     }
 
@@ -283,14 +252,14 @@ function handleQuiz() {
     //display main screen with question num user is on and increment by 1 when user clicks NEXT
         
     //insert num into html element using class ".js-question-number"
-        let questionNum = $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
-        $(".js-button-next").click(function (event) {
-            event.preventDefault();
-        //increment num by one and change num in header
-        num += 1;
-        questionNum.html(`<output>Question ${num}/5 </output>`);
-        // goToNextQuestion();
-        });
+        // let questionNum = $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
+        // $(".js-button-next").click(function (event) {
+        //     event.preventDefault();
+        // //increment num by one and change num in header
+        // num += 1;
+        // questionNum.html(`<output>Question ${num}/5 </output>`);
+        // // goToNextQuestion();
+        // });
         console.log("showQuestionNum to page ran");
 
     }
@@ -306,15 +275,16 @@ function handleQuiz() {
     //     });
     // }
     
+    // handleQuiz();
     showStartScreen();
-    showQuestionNum();
+    // showQuestionNum();
     showOneQuestion();
     generateQuestionString();
     showNextQuestion();
     renderQuiz();
     
 
-    console.log(`handleQuiz ran`);
+    
 };
         
         
