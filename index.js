@@ -124,21 +124,48 @@ const QUIZ = [
 
 function handleQuiz() {
 //create a question set from the QUIZ array using .map, which will be inserted into the HTML elements
-    let questionsArray = QUIZ.map(item => 
-        {
-            let question = `${item.question}`;
-            let questionOptions = `
-            ${item.options["option1"]}
-            ${item.options["option2"]}
-            ${item.options["option3"]}
-            ${item.options["option4"]}`;
-            let option1 = `${item.options["option1"]}`;
-            let option2 = `${item.options["option2"]}`;
-            let option3 = `${item.options["option3"]}`;
-            let option4 = `${item.options["option4"]}`;
-            let questionSet = `${question} ${questionOptions}`;
-            console.log(questionSet);
-        }); 
+    // let questionsArray = QUIZ.map(item => 
+    //     {
+    //         let question = `${item.question}`;
+    //         let questionOptions = `
+    //         ${item.options["option1"]}
+    //         ${item.options["option2"]}
+    //         ${item.options["option3"]}
+    //         ${item.options["option4"]}`;
+    //         let option1 = `${item.options["option1"]}`;
+    //         let option2 = `${item.options["option2"]}`;
+    //         let option3 = `${item.options["option3"]}`;
+    //         let option4 = `${item.options["option4"]}`;
+    //         let questionSet = `${question} ${questionOptions}`;
+    //         console.log(questionSet);
+    //     }); 
+    //QUESTIONS returns an array of all questions from QUIZ
+    let questions = QUIZ.map(item => {
+        return item.question;
+    });
+    
+    
+    // $(".js-button-start").click(function(event) {
+    //     event.preventDefault();
+        
+    //     $("h4").append(`${question1}`);
+    // });
+    // function showQuestion1() {
+    //     let questions = QUIZ.map(item => {
+    //         return `${item.question}`;
+    //     });
+    //     let question1 = questions[0];
+    //     let question2 = questions[1];
+    //     let question3 = questions[2];
+    //     let question4 = questions[3];
+    //     let question5 = questions[4];  
+
+    //     $(".js-button-start").click(function (event) {
+    //         event.preventDefault();
+        
+    //         $("h4").append(`${question1}`);
+    //         });
+    // }
     
     function showStartScreen() {
         //display start screen welcome, instructions, and start button 
@@ -213,42 +240,29 @@ function handleQuiz() {
     //         }); 
     //     console.log('showQuestion1 ran')
     // };
-    function showQuestion1() {
-        let questions = QUIZ.map(item => {
-            return `${item.question}`;
-        });
-        let question1 = questions[0];
-        let question2 = questions[1];
-        let question3 = questions[2];
-        let question4 = questions[3];
-        let question5 = questions[4];  
+    
+    function showOneQuestion(questions, index) {
+        let question = questions[index];
+        // console.log(`question is ${question}`);
+        return question; 
+    };
+    function generateQuestionString(questions) {
+        let question = showOneQuestion(questions, 1);
+        let question1 = ``
+        console.log(`question1 is ${question1}`);
+        return question1;
+    };
+    generateQuestionElement(questions);
 
-        $(".js-button-start").click(function (event) {
-            event.preventDefault();
-        
-            $("h4").append(`${question1}`);
-            });
-    }
     
     function showNextQuestion() {
     //display question from QUIZ data model with a matching ID of that inside the H4 element
         let num = 1;
-    //QUESTIONS returns an array of each question
-        let questions = QUIZ.map(item => {
-            return `${item.question}`;
-        });
-        
-     
-        
-
-    //display next question number when NEXT button clicked in HEADER element
-        
+    //display next question number when NEXT button clicked in HEADER element      
         let question = $("h4").text(`${questions} ${num}`);
         question.text(`Question ${num}`);
-        
         let attr = $("h4").attr("id");
         
-
         $(".js-button-next").click(function (event) {
             event.preventDefault();
         //increment num by one and change num in HEADER
@@ -259,23 +273,13 @@ function handleQuiz() {
         $("h4").attr("id", `js-question-${num}`);
         let attr = $("h4").attr("id", `js-question-${num}`);
         console.log(attr);
-    
         });
         console.log("showNextQuestion to page ran");
     }
 
     function showQuestionNum() {
     //questions returns an ARRAY of all questions 
-        let num = 1;
-        let questions = QUIZ.map(item => {
-            let question = `${item.question}`;
-            return question;
-        });
-        console.log(questions);
-        // console.log(questions);
-        // let question = `${questions}[${num}]`;
-        // console.log(question);
-        
+        let num = 1; 
     //display main screen with question num user is on and increment by 1 when user clicks NEXT
         
     //insert num into html element using class ".js-question-number"
@@ -304,7 +308,8 @@ function handleQuiz() {
     
     showStartScreen();
     showQuestionNum();
-    showQuestion1();
+    showOneQuestion();
+    generateQuestionString();
     showNextQuestion();
     renderQuiz();
     
