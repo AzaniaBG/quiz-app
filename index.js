@@ -246,14 +246,14 @@ function handleQuiz() {
         // console.log(`question is ${question}`);
         return question; 
     };
-    function generateQuestionString(questions) {
-        let question = showOneQuestion(questions, 1);
-        let question1 = ``
-        console.log(`question1 is ${question1}`);
-        return question1;
+    //GENERATE QUESTION STRING returns a string of the h4 element, with QUESTION inserted as content
+    function generateQuestionString(questions, index) {
+        let question = showOneQuestion(questions, index);
+        // console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`);
+        return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`;
     };
-    generateQuestionElement(questions);
-
+    let question1 = generateQuestionString(questions, 1);
+    console.log(`question1 is ${question1}`)
     
     function showNextQuestion() {
     //display question from QUIZ data model with a matching ID of that inside the H4 element
