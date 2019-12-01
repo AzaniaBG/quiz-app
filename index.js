@@ -142,17 +142,14 @@ function handleQuiz() {
         console.log(`question is ${question}`);
         return `${question}`;   
     };
-// returnOneQuestion(questions, 2);
+// return one question, specified by the index passed as a parameter
     function generateQuestionElement(questions, index) {
         let question = returnOneQuestion(questions, index);
         console.log(`question x is ${question}`);
-        return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`;
+        return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>`;
     };
-// let question1 = generateQuestionElement(questions, 0);
-
+//display start screen welcome, instructions, and start button 
 function showStartScreen() {
-    
-    //display start screen welcome, instructions, and start button 
     $(".js-button-start").click(function (event) {
         event.preventDefault();   
         // let question1 = generateQuestionElement(questions, 0);
@@ -160,167 +157,41 @@ function showStartScreen() {
         $("h4").append(`${question1}`)
     });
     console.log("showStartScreen ran")
-};
-    // function returnQuestions(quiz) {
-    
-    //     console.log(`${quiz}.${questions}`);
-    // };
-    // returnQuestions(QUIZ);
-    
-    
+};  
     console.log(`handleQuiz ran`);
 
-     //GENERATE QUESTION STRING returns a string of the h4 element, with QUESTION inserted as content
-    //  function generateQuestionString(questions, index) {
-    //     let questionIndex = showOneQuestion(questions, index);
-    //     // console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>)`);
-    //     console.log(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`);
-    //     return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${questionIndex}</h4>`;
-    // };
-
-    // let question1 = generateQuestionString(questions, 1);
-    // console.log(`question1 is ${question1}`);
-
-    
-
+//display main screen with question # correct answers, instruction, first question and answer options in HEADER
     function renderQuiz() {
-    //display main screen with question # correct answers, instruction, first question and answer options
         $(".js-button-start").click(function (event) {
             event.preventDefault();
         $(".js-main-screen").toggle();
         $(".js-start-screen").toggle();    
         });
-        // showQuestionNum();
         console.log("renderQuiz to page ran");
     }
-
-   
-    // function showQuestion1() {
-    //     let questionSet = QUIZ.map(item => {
-    //             let question1 = `${item.question1}`;
-    //             console.log(question1);
-    //             $(".js-button-start").click(function (event) {
-    //                 event.preventDefault();
-    //             //increment num by one and change num in HEADER
-    //             num += 1;
-    //             ("h4").text(`Question ${num}`);
-    //             $("h4").attr("id", `js-question-${num}`)
-    //     let num = 1;
-    //     $("h4").append(`${question1}`);
-    //     $("h4").attr("id", `js-question-${num}`)
-    //     //update js-question ID to match question number user is currently on
-    //     $("h4").attr("id", `js-question-${num}`);
-    //     let attr = $("h4").attr("id", `js-question-${num}`);
-    //     console.log(attr);
-    //         }); 
-    // //display first question set when START button clicked
-    //     console.log('showQuestion1 ran')
-    // };
-    
-    //create HANDLENEXTBUTTON for all functions?
-
-    // function showQuestion1() {
-    //     let num = 1;
-    //     let questions = QUIZ.map((item) => {
-    //         return item.number;    
-    //         // return `${questions}[${index}]`;
-            
-    //             // let question1 = item.question1;
-    //             //  let question2 = item.question2;
-    //             //  let question3 = item.question3;
-    //             //  let question4 = item.question4;
-    //             //  let question5 = item.question5;
-
-    //              return questions;
-    //             // console.log(question1)
-    //         });
-    //         console.log(questions)
-    //     $(".js-button-start").click(function (event) {
-    //         event.preventDefault();
-        
-    //     console.log(question1)
-    //     $("h4").text(`${question1}`);
-    //     $("h4").attr("id", `js-question-${num}`)
-        
-    //     // $("h4").append(`${question1}`);
-    //     // $("h4").attr("id", `js-question-${num}`)
-    //     //update js-question ID to match question number user is currently on
-    //     // $("h4").attr("id", `js-question-${num}`);
-    //     // let attr = $("h4").attr("id", `js-question-${num}`);
-    //     // console.log(attr);
-    //         }); 
-    //     console.log('showQuestion1 ran')
-    // };
-    
-    
-    
-    function showNextQuestion() {
-    //display question from QUIZ data model with a matching ID of that inside the H4 element
-        let num = 1;
-    //display next question number when NEXT button clicked in HEADER element      
-        // let question = $("h4").text(`${questions} ${num}`);
-        // question.text(`Question ${num}`);
-        // let attr = $("h4").attr("id");
-        
-        // $(".js-button-next").click(function (event) {
-        //     event.preventDefault();
-        // //increment num by one and change num in HEADER
-        // num += 1;
-        // question.text(`Question ${num}`);
-        // $("h4").attr("id", `js-question-${num}`)
-        // //update js-question ID to match question number user is currently on
-        // $("h4").attr("id", `js-question-${num}`);
-        // let attr = $("h4").attr("id", `js-question-${num}`);
-        // console.log(attr);
-        // });
-        console.log("showNextQuestion to page ran");
-    }
-
+//display main screen with question num user is on and increment by 1 when user clicks NEXT
     function showQuestionNum() {
-    //questions returns an ARRAY of all questions 
-        let num = 1; 
-    //display main screen with question num user is on and increment by 1 when user clicks NEXT
-        
-    //insert num into html element using class ".js-question-number"
-        // let questionNum = $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
-        // $(".js-button-next").click(function (event) {
-        //     event.preventDefault();
-        // //increment num by one and change num in header
-        // num += 1;
-        // questionNum.html(`<output>Question ${num}/5 </output>`);
-        // // goToNextQuestion();
-        // });
+        let num = 1;       
+//insert num into html element using class ".js-question-number"
+        let questionNum = $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
+        $(".js-button-next").click(function (event) {
+        event.preventDefault();
+//increment num by one and change num in header
+        num += 1;
+        questionNum.html(`<output>Question ${num}/5 </output>`);
+        });
         console.log("showQuestionNum to page ran");
-
     }
-    
 
-    // function showNextQuestion() {
-    // //when NEXT button clicked, increment question number in header by one to show which number user is on
-    //     $(".js-button-next").click(function (event) {
-    //         event.preventDefault();
-    //         //increment num by one and change num in header
-    //         num += 1;
-    //         $("h2 .js-question-number").append(`<output>Question ${num}/5 </output>`);
-    //     });
-    // }
     
-    // handleQuiz();
-    // showQuestionNum();
-    // showOneQuestion();
-    // generateQuestionString();
-    // showNextQuestion();
-    // returnQuestions();
-    // returnAllQuestions();
-    returnOneQuestion();
-    generateQuestionElement();
+    
+    // returnOneQuestion(questions, 0);
+    // generateQuestionElement();
     showStartScreen();
+    showQuestionNum();
     renderQuiz();
-    
-
-    
+       
 };
-        
-        
+               
 $(handleQuiz);
 
