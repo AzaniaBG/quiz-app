@@ -127,11 +127,7 @@ let questions = QUIZ.map(item => {
         return item.question;
     });
 // console.log(questions);
-let answerSet = QUIZ.map(item => {
-    // let answers = item.options
-    console.log(item.options);
-    return item.options;
-});
+
 
 function handleQuiz() {
 
@@ -140,12 +136,52 @@ function handleQuiz() {
         // console.log(`question is ${question}`);
         return `${question}`;   
     };
+//generate an array of answers/options based on given arguments passed in
+function generateMultipleChoiceOptions(index) {
+    console.log(`generateMultipleChoiceOptions ran`);
+//answerSet is an array of options
+    let answerSet = QUIZ[index].options;
+    let answers = Object.values(answerSet);
+    console.log(`answers is ${answers}`);
+//return an array, with each item as an option/answer
+    return answers;
+    
+};
+generateMultipleChoiceOptions(0);
     function generateAnswerOption(index, option) {
-        console.log(answerSet[index][option]);    
-        return answerSet[index][option];
-              
+        // console.log(answerSet[index][option]);    
+        return answerSet[index][option];          
     };
     generateAnswerOption(1, "option1");
+//generate an html element and content to insert as an answer option
+    function generateAnswerElement(index, option) {
+        let option1 = generateAnswerOption(index, option);
+        let option2 = generateAnswerOption(index, option);
+        let option3 = generateAnswerOption(index, option);
+        let option4 = generateAnswerOption(index, option);
+        return `
+        <li role="listitem" class="form js-quiz-${option1}">
+        <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
+        <label for="option1" lang="es">${option1}</label>
+        </li>
+
+        <li role="listitem" class="form js-quiz-${option2}">
+        <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
+        <label for="option2" lang="es">${option2}</label>
+        </li>
+
+        <li role="listitem" class="form js-quiz-${option3}">
+        <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
+        <label for="option3" lang="es">${option3}</label>
+        </li>
+
+        <li role="listitem" class="form js-quiz-${option4}">
+        <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
+        <label for="option4" lang="es">${option4}</label>
+        </li>
+        `;
+
+    };
     
 // return one question, specified by the index passed as a parameter
     function generateQuestionElement(questions, index) {
@@ -158,16 +194,17 @@ function handleQuiz() {
     console.log(`handleQuiz ran`);
 
 //display main screen with question # correct answers, instruction, first question and answer options in HEADER
-    function renderQuiz() {
-         
+    function renderQuiz() {    
         $(".js-button-start").click(function (event) {   
             event.preventDefault();
             $(".js-main-screen").toggle();
             $(".js-start-screen").toggle();     
         });
         let question1 = generateQuestionElement(questions, 0);  
-        $("h4").html(`${question1}`) ;
+        $("h4").html(`${question1}`);
         // console.log(`h4 shows is ${question1}`);
+        
+        
         console.log("renderQuiz to page ran");
     }
 //display main screen with question num user is on and increment by 1 when user clicks NEXT
@@ -190,7 +227,8 @@ function handleQuiz() {
     // generateQuestionElement();
     // showStartScreen();
     showQuestionNum();
-    generateAnswerOption();
+    // generateAnswerOption();
+    generateAnswerElement()
     renderQuiz();
        
 };
