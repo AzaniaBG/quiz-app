@@ -211,6 +211,11 @@ console.log(`option2 is ${generateOptionString(1, "option2")}`)
         });
         let question1 = generateQuestionElement(questions, 0);  
         $("h4").html(`${question1}`);
+        $("ul").html(`
+        ${optionElement1Set1}
+        ${optionElement2Set1} 
+        ${optionElement3Set1} 
+        ${optionElement4Set1}`);
         // console.log(`h4 shows is ${question1}`);
         
         
