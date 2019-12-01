@@ -126,22 +126,27 @@ const QUIZ = [
 let questions = QUIZ.map(item => {        
         return item.question;
     });
-    // console.log(questions);
-
-//return a specific question at the given index
-
-// let question1 = questions[0]
-// console.log(`question is ${question1}`);
-
+// console.log(questions);
+let answerSet = QUIZ.map(item => {
+    // let answers = item.options
+    console.log(item.options);
+    return item.options;
+});
 
 function handleQuiz() {
 
-    let question1 = generateQuestionElement(questions, 0);
     function returnOneQuestion(questions, index) {
         let question = questions[index];   
         // console.log(`question is ${question}`);
         return `${question}`;   
     };
+    function generateAnswerOption(index, option) {
+        console.log(answerSet[index][option]);    
+        return answerSet[index][option];
+              
+    };
+    generateAnswerOption(1, "option1");
+    
 // return one question, specified by the index passed as a parameter
     function generateQuestionElement(questions, index) {
         let question = returnOneQuestion(questions, index);
@@ -185,6 +190,7 @@ function handleQuiz() {
     // generateQuestionElement();
     // showStartScreen();
     showQuestionNum();
+    generateAnswerOption();
     renderQuiz();
        
 };
