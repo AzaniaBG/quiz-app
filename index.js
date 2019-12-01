@@ -135,17 +135,17 @@ let questions = QUIZ.map(item => {
 
 
 function handleQuiz() {
-    let question1 = generateQuestionElement(questions, 0);
 
+    let question1 = generateQuestionElement(questions, 0);
     function returnOneQuestion(questions, index) {
         let question = questions[index];   
-        console.log(`question is ${question}`);
+        // console.log(`question is ${question}`);
         return `${question}`;   
     };
 // return one question, specified by the index passed as a parameter
     function generateQuestionElement(questions, index) {
         let question = returnOneQuestion(questions, index);
-        console.log(`question x is ${question}`);
+        // console.log(`question x is ${question}`);
         return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>`;
     };
 //display start screen welcome, instructions, and start button 
@@ -154,14 +154,15 @@ function handleQuiz() {
 
 //display main screen with question # correct answers, instruction, first question and answer options in HEADER
     function renderQuiz() {
-        let question1 = generateQuestionElement(questions, 0);
-        $(".js-button-start").click(function (event) {
+         
+        $(".js-button-start").click(function (event) {   
             event.preventDefault();
-        $(".js-main-screen").toggle();
-        $(".js-start-screen").toggle(); 
-        $("h4").append(`${question1}`) ;
-        console.log(`question 1 is ${question1}`);  
+            $(".js-main-screen").toggle();
+            $(".js-start-screen").toggle();     
         });
+        let question1 = generateQuestionElement(questions, 0);  
+        $("h4").html(`${question1}`) ;
+        // console.log(`h4 shows is ${question1}`);
         console.log("renderQuiz to page ran");
     }
 //display main screen with question num user is on and increment by 1 when user clicks NEXT
