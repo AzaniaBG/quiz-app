@@ -158,39 +158,48 @@ function generateOptionString(index, optionNum) {
     let option = answerSets[optionNum];
     return option;
 }
-// generateOptionString(0, "option1");
-let option1Set1 = generateOptionString(0, "option1");
-console.log(`option1Set1 is ${option1Set1}`)
+let option1 = generateOptionString(0, "option1");
+console.log(`option1 is ${generateOptionString(0, "option1")}`)
+// let option2 = generateOptionString(0, "option2");
+// let option3 = generateOptionString(0, "option3");
+// let option4 = generateOptionString(0, "option4");
+
+console.log(`option1Set1 is ${option1}`)
 
 //generate an html element and content to insert as an answer option
-    function generateAnswerElement(index, option) {
-        let option1 = generateAnswerOption(index, option);
-        let option2 = generateAnswerOption(index, option);
-        let option3 = generateAnswerOption(index, option);
-        let option4 = generateAnswerOption(index, option);
-        return `
-        <li role="listitem" class="form js-quiz-${option1}">
+    function generateOptionElement() {
+        console.log(`generateOptionElement ran`);
+        // let option1 = option;
+        // console.log(`option1 is ${option1}`)
+        // console.log(`generateoptionElement is: `)
+        return `<li role="listitem" class="form js-quiz-${option1}">${option1}
         <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
         <label for="option1" lang="es">${option1}</label>
-        </li>
+        </li>`
+        //  `
+        // // <li role="listitem" class="form js-quiz-${option1}">${option1}
+        // // <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
+        // // <label for="option1" lang="es">${option1}</label>
+        // // </li>`
 
-        <li role="listitem" class="form js-quiz-${option2}">
-        <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
-        <label for="option2" lang="es">${option2}</label>
-        </li>
+        // <li role="listitem" class="form js-quiz-${option2}">
+        // <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
+        // <label for="option2" lang="es">${option2}</label>
+        // </li>
 
-        <li role="listitem" class="form js-quiz-${option3}">
-        <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
-        <label for="option3" lang="es">${option3}</label>
-        </li>
+        // <li role="listitem" class="form js-quiz-${option3}">
+        // <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
+        // <label for="option3" lang="es">${option3}</label>
+        // </li>
 
-        <li role="listitem" class="form js-quiz-${option4}">
-        <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
-        <label for="option4" lang="es">${option4}</label>
-        </li>
-        `;
-
+        // <li role="listitem" class="form js-quiz-${option4}">
+        // <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
+        // <label for="option4" lang="es">${option4}</label>
+        // </li>
+        // ;
     };
+    let options1 = generateOptionElement()
+    console.log(`generateOptionElement is ${options1}`);
     
 // return one question, specified by the index passed as a parameter
     function generateQuestionElement(questions, index) {
