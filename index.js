@@ -179,30 +179,15 @@ console.log(`option2 is ${generateOptionString(1, "option2")}`)
         <input role="button" class="radio js-button-${optionNum}" type="radio" name="options" value="${optionNum}" checked id="${optionNum}">
         <label for="${optionNum}" lang="es">${specificAnswerOption}</label>
         </li>`;
-        //  `
-        // // <li role="listitem" class="form js-quiz-${option1}">${option1}
-        // // <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
-        // // <label for="option1" lang="es">${option1}</label>
-        // // </li>`
-
-        // <li role="listitem" class="form js-quiz-${option2}">
-        // <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
-        // <label for="option2" lang="es">${option2}</label>
-        // </li>
-
-        // <li role="listitem" class="form js-quiz-${option3}">
-        // <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
-        // <label for="option3" lang="es">${option3}</label>
-        // </li>
-
-        // <li role="listitem" class="form js-quiz-${option4}">
-        // <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
-        // <label for="option4" lang="es">${option4}</label>
-        // </li>
-        // ;
     };
-    let optionElement1 = generateOptionElement("option1", generateMultipleChoiceOptions(0), 0);
-    console.log(`optionElement1 is ${optionElement1}`);
+    let optionElement1Set1 = generateOptionElement("option1", generateMultipleChoiceOptions(0), 0);
+    console.log(`optionElement1Set1 is ${optionElement1Set1}`);
+    let optionElement2Set1 = generateOptionElement("option2", generateMultipleChoiceOptions(0), 1);
+    console.log(`optionElement2Set1 is ${optionElement2Set1}`);
+    let optionElement3Set1 = generateOptionElement("option3", generateMultipleChoiceOptions(0), 2);
+    console.log(`optionElement3Set1 is ${optionElement3Set1}`);
+    let optionElement4Set1 = generateOptionElement("option4", generateMultipleChoiceOptions(0), 3);
+    console.log(`optionElement4Set1 is ${optionElement4Set1}`);
 
     // let options2 = generateOptionElement("option2", option2setTwo)
     // console.log(`generateOptionElement is ${options2}`);
