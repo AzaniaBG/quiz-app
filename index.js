@@ -128,7 +128,6 @@ let questions = QUIZ.map(item => {
     });
 // console.log(questions);
 
-
 function handleQuiz() {
 
     function returnOneQuestion(questions, index) {
@@ -136,6 +135,9 @@ function handleQuiz() {
         // console.log(`question is ${question}`);
         return `${question}`;   
     };
+let index = 0;
+console.log(`BEFORE: index is ${index}`);
+
 //generate an array of answers/options based on given arguments passed in
 function generateMultipleChoiceOptions(index) {
     console.log(`generateMultipleChoiceOptions ran`);
@@ -143,11 +145,10 @@ function generateMultipleChoiceOptions(index) {
     let answerSet = QUIZ[index].options;
     let answers = Object.values(answerSet);
     console.log(`answers is ${answers}`);
-//return an array, with each item as an option/answer
-    return answers;
-    
+//ANSWER returns an array, with each item as an option/answer
+    return answers;  
 };
-generateMultipleChoiceOptions(0);
+generateMultipleChoiceOptions(index);
 
 //return a specified answer option based on the given argument
 function generateOptionString(index, optionNum) {
@@ -158,24 +159,25 @@ function generateOptionString(index, optionNum) {
     let option = answerSets[optionNum];
     return option;
 }
-let option1 = generateOptionString(0, "option1");
-console.log(`option1 is ${generateOptionString(0, "option1")}`)
-// let option2 = generateOptionString(0, "option2");
-// let option3 = generateOptionString(0, "option3");
-// let option4 = generateOptionString(0, "option4");
+// let option1setOne = generateOptionString(0, "option1");
+// console.log(`option1 is ${generateOptionString(1, "option2")}`)
+let option2setTwo = generateOptionString(1, "option2");
+console.log(`option2 is ${generateOptionString(1, "option2")}`)
+// console.log(`option1SetOne is ${option1setOne}`)
 
-console.log(`option1Set1 is ${option1}`)
-
-//generate an html element and content to insert as an answer option
-    function generateOptionElement() {
+//generate an html element and content to insert as an answer option with content associated with the argument passed in
+    function generateOptionElement(optionNum, option, index) {
         console.log(`generateOptionElement ran`);
-        // let option1 = option;
-        // console.log(`option1 is ${option1}`)
-        // console.log(`generateoptionElement is: `)
-        return `<li role="listitem" class="form js-quiz-${option1}">${option1}
-        <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
-        <label for="option1" lang="es">${option1}</label>
-        </li>`
+        
+        console.log(`generateoptionElement returns: <li role="listitem" class="form js-quiz-${optionNum}">
+        <input role="button" class="radio js-button-${optionNum}" type="radio" name="options" value="option1" checked id="${optionNum}">
+        <label for="${optionNum}" lang="es">${option}</label>
+        </li>`);
+        //return an HTML string  of elements, with content specified by the argument passed in
+        return `generateoptionElement returns: <li role="listitem" class="form js-quiz-${optionNum}">
+        <input role="button" class="radio js-button-${optionNum}" type="radio" name="options" value="${optionNum}" checked id="${optionNum}">
+        <label for="${optionNum}" lang="es">${option}</label>
+        </li>`;
         //  `
         // // <li role="listitem" class="form js-quiz-${option1}">${option1}
         // // <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
@@ -198,8 +200,9 @@ console.log(`option1Set1 is ${option1}`)
         // </li>
         // ;
     };
-    let options1 = generateOptionElement()
-    console.log(`generateOptionElement is ${options1}`);
+    generateOptionElement("option2", option2setTwo)
+    // let options2 = generateOptionElement("option2", option2setTwo)
+    // console.log(`generateOptionElement is ${options2}`);
     
 // return one question, specified by the index passed as a parameter
     function generateQuestionElement(questions, index) {
@@ -239,14 +242,12 @@ console.log(`option1Set1 is ${option1}`)
         console.log("showQuestionNum to page ran");
     }
 
-    
-    
     // returnOneQuestion(questions, 0);
     // generateQuestionElement();
     // showStartScreen();
     showQuestionNum();
     // generateAnswerOption();
-    generateAnswerElement()
+    // generateAnswerElement()
     renderQuiz();
        
 };
