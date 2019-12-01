@@ -149,23 +149,18 @@ function handleQuiz() {
         return `<h4 role="" class="js-main-screen form js-question" id="js-question1">${question}</h4>`;
     };
 //display start screen welcome, instructions, and start button 
-function showStartScreen() {
-    $(".js-button-start").click(function (event) {
-        event.preventDefault();   
-        // let question1 = generateQuestionElement(questions, 0);
-        console.log(`question 1 is ${question1}`)
-        $("h4").append(`${question1}`)
-    });
-    console.log("showStartScreen ran")
-};  
+
     console.log(`handleQuiz ran`);
 
 //display main screen with question # correct answers, instruction, first question and answer options in HEADER
     function renderQuiz() {
+        let question1 = generateQuestionElement(questions, 0);
         $(".js-button-start").click(function (event) {
             event.preventDefault();
         $(".js-main-screen").toggle();
-        $(".js-start-screen").toggle();    
+        $(".js-start-screen").toggle(); 
+        $("h4").append(`${question1}`) ;
+        console.log(`question 1 is ${question1}`);  
         });
         console.log("renderQuiz to page ran");
     }
@@ -187,7 +182,7 @@ function showStartScreen() {
     
     // returnOneQuestion(questions, 0);
     // generateQuestionElement();
-    showStartScreen();
+    // showStartScreen();
     showQuestionNum();
     renderQuiz();
        
