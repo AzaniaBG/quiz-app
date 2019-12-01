@@ -148,11 +148,20 @@ function generateMultipleChoiceOptions(index) {
     
 };
 generateMultipleChoiceOptions(0);
-    function generateAnswerOption(index, option) {
-        // console.log(answerSet[index][option]);    
-        return answerSet[index][option];          
-    };
-    generateAnswerOption(1, "option1");
+
+//return a specified answer option based on the given argument
+function generateOptionString(index, optionNum) {
+    console.log(`generateOptionString ran`);
+//create a variable that stores an object containing all options at the specified index
+    let answerSets = QUIZ[index].options; //answerSets is an OBJECT  
+//create a variable that returns one answer option given the specified value
+    let option = answerSets[optionNum];
+    return option;
+}
+// generateOptionString(0, "option1");
+let option1Set1 = generateOptionString(0, "option1");
+console.log(`option1Set1 is ${option1Set1}`)
+
 //generate an html element and content to insert as an answer option
     function generateAnswerElement(index, option) {
         let option1 = generateAnswerOption(index, option);
