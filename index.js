@@ -168,15 +168,16 @@ console.log(`option2 is ${generateOptionString(1, "option2")}`)
 //generate an html element and content to insert as an answer option with content associated with the argument passed in
     function generateOptionElement(optionNum, option, index) {
         console.log(`generateOptionElement ran`);
-        
-        console.log(`generateoptionElement returns: <li role="listitem" class="form js-quiz-${optionNum}">
-        <input role="button" class="radio js-button-${optionNum}" type="radio" name="options" value="option1" checked id="${optionNum}">
-        <label for="${optionNum}" lang="es">${option}</label>
-        </li>`);
+        let specificAnswerOption = option[index];
+        console.log(`specificAnswerOption is: ${specificAnswerOption}`);
+        // console.log(`generateoptionElement returns: <li role="listitem" class="form js-quiz-${optionNum}">
+        // <input role="button" class="radio js-button-${optionNum}" type="radio" name="options" value="option1" checked id="${optionNum}">
+        // <label for="${optionNum}" lang="es">${specificAnswerOption}</label>
+        // </li>`);
         //return an HTML string  of elements, with content specified by the argument passed in
-        return `generateoptionElement returns: <li role="listitem" class="form js-quiz-${optionNum}">
+        return `<li role="listitem" class="form js-quiz-${optionNum}">
         <input role="button" class="radio js-button-${optionNum}" type="radio" name="options" value="${optionNum}" checked id="${optionNum}">
-        <label for="${optionNum}" lang="es">${option}</label>
+        <label for="${optionNum}" lang="es">${specificAnswerOption}</label>
         </li>`;
         //  `
         // // <li role="listitem" class="form js-quiz-${option1}">${option1}
@@ -200,7 +201,9 @@ console.log(`option2 is ${generateOptionString(1, "option2")}`)
         // </li>
         // ;
     };
-    generateOptionElement("option2", option2setTwo)
+    let optionElement1 = generateOptionElement("option1", generateMultipleChoiceOptions(0), 0);
+    console.log(`optionElement1 is ${optionElement1}`);
+
     // let options2 = generateOptionElement("option2", option2setTwo)
     // console.log(`generateOptionElement is ${options2}`);
     
