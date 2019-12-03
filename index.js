@@ -125,59 +125,48 @@ const QUIZ = [
 //QUESTIONS is an array of all questions from the QUIZ data model
 let number = 0;
 let num = 1;
-
-let answers = QUIZ.map(item =>{
-    return item.options
+let questions = QUIZ.map(item => {        
+        return item.question;
     });
-    //answer is an array of all answer sets
-    
-  
-//   console.log(`answers is ${returnEachAnswer(0)}`)
-// function returnEachAnswer(options) {
-//     let questionSet = returnAnswers(index);
-//     console.log(`questionSet1 is ${questionSet1[2]}`)
-//     return questionSet1[options];
-
-// };
-
-// returnEachAnswer(0);
-
+// console.log(questions);
+let answers = QUIZ.map(item =>{ 
+    return item.options 
+});
 
 function handleQuiz() {
-    function returnAnswers(num) {
-        console.log(`returnAnswers ran`)
-        let answer = answers[num]
-        let answerArr = Object.values(answer);
-        console.log(`answerArr is ${answerArr} `)
-        return answerArr
-    }
-    returnAnswers(`${num}`);
-function generateAnswerElement(option) {
+    function returnAnswers(num) { 
+        console.log(`returnAnswers ran`) 
+        let answer = answers[num]; 
+        let answerArr = Object.values(answer); 
+        console.log(`answerArr is ${answerArr} `) 
+        return answerArr 
+    } 
+returnAnswers(`${num}`); 
+
+function generateAnswerElement(option) { 
     console.log(`generateAnswerElement ran`); 
-    let answerSet = returnAnswers(`${num}`);
-    let answer = answerSet[option];
-    console.log(`answerSet is ${answer}`);
+    let answerSet = returnAnswers(`${num}`); 
+    let answer = answerSet[option]; 
+    console.log(`answerSet is ${answer}`); 
+} 
+generateAnswerElement(1); 
+let h4Question = `<h4>${returnQuestionAtI()}<h4>`; 
 
-}
-generateAnswerElement(1);
+let option1 = `${generateAnswerElement(1)}`; 
+let option2 = `${generateAnswerElement(2)}`; 
+let option3 = `${generateAnswerElement(3)}`; 
+let option4 = `${generateAnswerElement(4)}`;
 
-    let h4Question = `<h4>${returnQuestionAtI()}<h4>`;
-    let option1 = `${generateAnswerElement(1)}`;
-    let option2 = `${generateAnswerElement(2)}`;
-    let option3 = `${generateAnswerElement(3)}`;
-    let option4 = `${generateAnswerElement(4)}`;
-
-
+    
     function showQuestionNumber() {
         
         let questionNumber = $(".js-question-number").html(`<output class="js-question-number">Question ${num}</output>`);
         return questionNumber
     }
-    
     function returnQuestionAtI() {
         let question = questions[`${number}`- 0] ;
         // console.log(`question is ${question}`)
-        // return question;
+        return question;
     };
     // $(".js-button-start").click(function() {
     //     console.log(`showFirstQ ran`);
@@ -194,10 +183,6 @@ generateAnswerElement(1);
             $(".js-main-screen").toggle();
             $("h4").html(`${h4Question}`)
             });
-            $("ul").append(`<li role="listitem" class="form js-quiz-option1">
-            <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
-            <label for="option1" lang="es">${option1}</label>
-            </li>`)
             // number++
     }
     
@@ -211,12 +196,12 @@ generateAnswerElement(1);
             event.preventDefault();
             showQuestionNumber();
             `${num++}`
-            // console.log(`question number is: ${showQuestionNumber()}`)
+            console.log(`question number is: ${showQuestionNumber()}`)
             h4Question = `<h4>${returnQuestionAtI()}<h4>`;
             $("h4").html(`<h4>${h4Question}<h4>`);
-            // console.log(`num is: ${number}`)
+            console.log(`num is: ${number}`)
             // number++
-            // console.log(`num is now: ${number}`)
+            console.log(`num is now: ${number}`)
 
             showQuestionNumber();
 
@@ -265,12 +250,9 @@ generateAnswerElement(1);
     
 
 // returnQuestionAtI(0);
-// restartQuiz();
-// showNextQuestion();
-// showQuestionNumber();
-// returnEachAnswer();
-
-returnAnswers();
+restartQuiz();
+showNextQuestion();
+showQuestionNumber();
 startQuiz();
 // handleNextButton();
 
