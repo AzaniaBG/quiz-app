@@ -124,12 +124,19 @@ const QUIZ = [
 
 //QUESTIONS is an array of all questions from the QUIZ data model
 let number = 0;
+let num = 1;
 let questions = QUIZ.map(item => {        
         return item.question;
     });
 // console.log(questions);
 
 function handleQuiz() {
+    let h4Question = `<h4>${returnQuestionAtI()}<h4>`;
+    function showQuestionNumber() {
+        
+        let questionNumber = $(".js-question-number").html(`<output class="js-question-number">Question ${num}</output>`);
+        return questionNumber
+    }
     function returnQuestionAtI() {
         let question = questions[`${number}`- 0] ;
         // console.log(`question is ${question}`)
@@ -144,22 +151,53 @@ function handleQuiz() {
     //     });
     
     function startQuiz() {
-        // let question1 = `${returnQuestionAtI(0)}`
-
+    
         $(".js-button-start").click(function() {
             event.preventDefault();
             $(".js-main-screen").toggle();
-            $("h4").html(`<h4>${returnQuestionAtI()}<h4>`)
+            $("h4").html(`${h4Question}`)
             });
-
-        // $(".js-button-next").click(function() {
-        //     event.preventDefault();
-        //     let questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
-        //     number++;
-        //     questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
-        //     });
-        //     console.log(`startQuiz ran`);
+            // number++
     }
+    
+    function showNextQuestion() { 
+        // number++
+        // h4Question = `<h4>${returnQuestionAtI()}<h4>`;
+        // console.log(`number now is ${number}`)
+        //     number++
+        // console.log(`number now is ${number}`)
+        $(".js-button-next").click(function() {
+            event.preventDefault();
+            showQuestionNumber();
+            `${num++}`
+            console.log(`question number is: ${showQuestionNumber()}`)
+            h4Question = `<h4>${returnQuestionAtI()}<h4>`;
+            $("h4").html(`<h4>${h4Question}<h4>`);
+            console.log(`num is: ${number}`)
+            // number++
+            console.log(`num is now: ${number}`)
+
+            showQuestionNumber();
+
+            h4Question = `<h4>${returnQuestionAtI()}<h4>`;
+            $("h4").html(`<h4>${h4Question}<h4>`)
+            // number++
+            
+            h4Question = `<h4>${returnQuestionAtI()}<h4>`;
+            $("h4").html(`<h4>${h4Question}<h4>`)
+            number++
+            console.log(`question is now ${h4Question}`)
+           $(".js-button-start").hide();
+           
+           restartQuiz();     
+            // $("h4").html(`<h4>${h4Question}<h4>`)
+        });
+        console.log(`showNextQuestion ran`)
+        // `${number}`++
+    };
+    function restartQuiz() {
+        
+    };
     //function returns a question at the specified index (based on the argument passed in);
     // function handleNextButton() {
     //     // question1 = `${returnQuestionAtI(1)}`
@@ -177,25 +215,18 @@ function handleQuiz() {
 
     // }
     
-    function showNextQuestion() { 
-
-        $(".js-button-next").click(function() {
-            event.preventDefault();
-            
-        });
-                
-    };
+    
     // returnQuestionAtI(index);
-    showNextQuestion();
+   
     // handleNextButton();
     
-    $(".js-button-next").click(function() {
-        event.preventDefault();
-    });
 
     
 
 // returnQuestionAtI(0);
+restartQuiz();
+showNextQuestion();
+showQuestionNumber();
 startQuiz();
 // handleNextButton();
 
