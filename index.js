@@ -122,64 +122,84 @@ const QUIZ = [
 
 ]
 
-//QUESTIONS is an array of all questions from the QUIZ data model
-let number = 0;
-let num = 1;
+//QUESTIONS returns an array of all questions from the QUIZ data model
 let questions = QUIZ.map(item => {        
-        return item.question;
-    });
-// console.log(questions);
+    return item.question;
+});
+// console.log(`questions is ${questions}`);
+
+//ANSWERS returns an array of objects
 let answers = QUIZ.map(item =>{ 
     return item.options 
 });
+// console.log(`answers is ${answers}`);
+
+//NUMBER is INDEX used for functions: 1) returnQuestionAtI() 2) returnAnswers(number)
+let number = 0;
+
+//NUM is used to determine the question number user is on
+let num = 1;
 
 function handleQuiz() {
-    function returnAnswers(num) { 
-        console.log(`returnAnswers ran`) 
-        let answer = answers[num]; 
-        let answerArr = Object.values(answer); 
-        console.log(`answerArr is ${answerArr} `) 
-        return answerArr 
-    } 
-returnAnswers(`${num}`); 
-
-function generateAnswerElement(option) { 
-    console.log(`generateAnswerElement ran`); 
-    let answerSet = returnAnswers(`${num}`); 
-    let answer = answerSet[option]; 
-    console.log(`answerSet is ${answer}`); 
-} 
-generateAnswerElement(1); 
-let h4Question = `<h4>${returnQuestionAtI()}<h4>`; 
-
-let option1 = `${generateAnswerElement(1)}`; 
-let option2 = `${generateAnswerElement(2)}`; 
-let option3 = `${generateAnswerElement(3)}`; 
-let option4 = `${generateAnswerElement(4)}`;
-
-    
-    function showQuestionNumber() {
-        
-        let questionNumber = $(".js-question-number").html(`<output class="js-question-number">Question ${num}</output>`);
-        return questionNumber
-    }
+//returnQuestionAtI() returns a question at the specified index, i.e., `NUMBER` 
     function returnQuestionAtI() {
-        let question = questions[`${number}`- 0] ;
+        let question = questions[`${number}`] ;
         // console.log(`question is ${question}`)
         return question;
     };
-    // $(".js-button-start").click(function() {
-    //     console.log(`showFirstQ ran`);
-    //     event.preventDefault();
-    //     $(".js-main-screen").toggle();
+    // console.log(`returnQuestionAtI() returns ${returnQuestionAtI()}`)
+
+//H4QUESTION updates based on NUMBER by using returnQuestionAtI() function
+    let h4Question = `<h4>${returnQuestionAtI()}<h4>`; 
+    // console.log(`h4Question is ${h4Question}`)
+//returnAnswers(number) returns an array of answer options at the specified index, i.e., `NUMBER` (references global variable `ANSWERS`)
+    function returnAnswers(number) { 
+        console.log(`returnAnswers ran`) 
+        let answer = answers[number]; 
+        let answerArr = Object.values(answer); 
+        // console.log(`answerArr is ${answerArr} `) 
+        return answerArr 
+    } 
+returnAnswers(`${number}`); 
+
+    function generateAnswerElement(answersIndex) { 
+        // console.log(`generateAnswerElement ran`); 
+        let answerSet = returnAnswers(`${num}`); 
+        let answer = answerSet[answersIndex]; 
         
-    //     $("h4").append(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${returnQuestionAtI(0)}</h4>`)
-    //     });
+        return answer;
+    } 
+// console.log(`generateAnswerElement returns: ${generateAnswerElement(`${number}`)}`); 
+
+
+let option1 = `${generateAnswerElement(0)}`; 
+console.log(`option1 is ${option1}`)
+let option2 = `${generateAnswerElement(1)}`; 
+let option3 = `${generateAnswerElement(2)}`; 
+let option4 = `${generateAnswerElement(3)}`;
+
+    function generateAnswerSet() {
+        return `
+        <li>${option1} </li>
+        <li>${option2} </li>
+        <li>${option3} </li>
+        <li>${option4} </li>`
+
+    }
+generateAnswerSet();
+// console.log(`answer set is ${generateAnswerSet()}`)
+    
+    function showQuestionNumber() {     
+        let questionNumber = $(".js-question-number").html(`<output class="js-question-number">Question ${num}</output>`);
+        return questionNumber
+    }
     
     function startQuiz() {
     
         $(".js-button-start").click(function() {
             event.preventDefault();
+            $(".js-start-screen").toggle();
+            $(".js-button-start").toggle(); 
             $(".js-main-screen").toggle();
             $("h4").html(`${h4Question}`)
             });
