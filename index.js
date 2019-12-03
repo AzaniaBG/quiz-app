@@ -123,50 +123,82 @@ const QUIZ = [
 ]
 
 //QUESTIONS is an array of all questions from the QUIZ data model
-let number = 1;
+let number = 0;
 let questions = QUIZ.map(item => {        
         return item.question;
     });
 // console.log(questions);
 
 function handleQuiz() {
-    //function returns a question at the specified index (based on the argument passed in);
-    function returnQuestionAtI(index) {
-        return questions[index];
-    };
-
-    function test() {
-
-        console.log(`test ran`);
-        let question;
-        for(let i = 0; i <= questions.length; i++) {
-            let num =+ i;
-            console.log(`num is ${number}`);
- 
-            if(num === 1) {
-                question = returnQuestionAtI(0);      
-            } else if (num === 2) {
-                question = returnQuestionAtI(1);
-            } else if (num === 3) {            
-                question = returnQuestionAtI(2);
-            } else if (num === 4) {
-                question = returnQuestionAtI(3);
-            } else if (num === 5) {
-                question = returnQuestionAtI(4);
-            } else {
-                console.log(`restart quiz`)
-            }
-            num++
-            console.log(`num is now ${num}`);
-        }
-        console.log(`question is ${question}`)
+    function returnQuestionAtI() {
+        let question = questions[`${number}`- 0] ;
+        // console.log(`question is ${question}`)
         return question;
-    }
+    };
+    // $(".js-button-start").click(function() {
+    //     console.log(`showFirstQ ran`);
+    //     event.preventDefault();
+    //     $(".js-main-screen").toggle();
+        
+    //     $("h4").append(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${returnQuestionAtI(0)}</h4>`)
+    //     });
     
-test();
-returnQuestionAtI();
+    function startQuiz() {
+        // let question1 = `${returnQuestionAtI(0)}`
 
- };
-               
+        $(".js-button-start").click(function() {
+            event.preventDefault();
+            $(".js-main-screen").toggle();
+            $("h4").html(`<h4>${returnQuestionAtI()}<h4>`)
+            });
+
+        // $(".js-button-next").click(function() {
+        //     event.preventDefault();
+        //     let questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
+        //     number++;
+        //     questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
+        //     });
+        //     console.log(`startQuiz ran`);
+    }
+    //function returns a question at the specified index (based on the argument passed in);
+    // function handleNextButton() {
+    //     // question1 = `${returnQuestionAtI(1)}`
+    //     $(".js-button-next").click(function() {
+    //         event.preventDefault();
+    //         let questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
+            
+    //         questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
+    //         });
+
+            
+    //         $("h4").add(`<h4 role="" class="js-main-screen form js-question" id="js-question"> ${returnQuestionAtI(1)}</h4>`)
+    //         number++;
+    //         console.log(`handleNextButton ran`);
+
+    // }
+    
+    function showNextQuestion() { 
+
+        $(".js-button-next").click(function() {
+            event.preventDefault();
+            
+        });
+                
+    };
+    // returnQuestionAtI(index);
+    showNextQuestion();
+    // handleNextButton();
+    
+    $(".js-button-next").click(function() {
+        event.preventDefault();
+    });
+
+    
+
+// returnQuestionAtI(0);
+startQuiz();
+// handleNextButton();
+
+ };             
 $(handleQuiz);
 
