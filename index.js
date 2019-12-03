@@ -172,21 +172,25 @@ returnAnswers(`${number}`);
 // console.log(`generateAnswerElement returns: ${generateAnswerElement(`${number}`)}`); 
 
 
-let option1 = `${generateAnswerElement(0)}`; 
-console.log(`option1 is ${option1}`)
-let option2 = `${generateAnswerElement(1)}`; 
-let option3 = `${generateAnswerElement(2)}`; 
-let option4 = `${generateAnswerElement(3)}`;
+let option1 = `<li role="listitem" class="form js-quiz-option1">
+<input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
+<label for="option1" lang="es">${generateAnswerElement(0)}<label>
+</li>`; 
+// console.log(`option1 is ${option1}`)
+let option2 = `<li role="listitem" class="form js-quiz-option2">
+                <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
+                <label for="option2" lang="es">${generateAnswerElement(1)}</label>
+                </li>`; 
+let option3 = `<li role="listitem" class="form js-quiz-option3">
+                <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
+                <label for="option3" lang="es">${generateAnswerElement(2)}</label>
+                </li>`; 
+let option4 = `<li role="listitem" class="form js-quiz-option4">
+                <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
+                <label for="option4" lang="es">${generateAnswerElement(3)}</label>
+                </li>`;
 
-    function generateAnswerSet() {
-        return `
-        <li>${option1} </li>
-        <li>${option2} </li>
-        <li>${option3} </li>
-        <li>${option4} </li>`
-
-    }
-generateAnswerSet();
+//     
 // console.log(`answer set is ${generateAnswerSet()}`)
     
     function showQuestionNumber() {     
@@ -201,7 +205,10 @@ generateAnswerSet();
             $(".js-start-screen").toggle();
             $(".js-button-start").toggle(); 
             $(".js-main-screen").toggle();
-            $("h4").html(`${h4Question}`)
+            $("h4").html(`${h4Question}`);
+            $("ul").append(`${option1}`, `${option2}`, `${option3}`, `${option4}`);
+            // $("ul").append(`${option2}`);
+
             });
             // number++
     }
