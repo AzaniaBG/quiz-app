@@ -242,7 +242,7 @@ console.log(`answerSet2 is ${answerSet4}`)
             $("h4").html(`${h4Question}`);
             // answerSet = returnAnswers(`${number}`)
             // let answerSet = `${option1} ${option2} ${option3} ${option4}`;
-            $("ul").append(`${option1} ${option2} ${option3} ${option4}`)
+            $("ul").append(`${answerSet1} ${answerSet2} ${option3} ${option4}`)
             });
             
             // number++
