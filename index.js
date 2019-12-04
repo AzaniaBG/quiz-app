@@ -230,56 +230,68 @@ console.log(`answerSet5 is ${answerSet5}`)
             $(".js-start-screen").toggle();
             $(".js-button-start").toggle(); 
             $(".js-main-screen").toggle();
+            // returnQuestionAtI();
+            // showNextQuestionSet();
             $("h4").html(`${h4Question}`);
-            $("ul").append(`${answerSet1}`)
-            });
-            
+            $("ul").append(`${answerSet1}`);
+            $(".js-button-start").hide();
+            // handleNextButton();
+            showQuestionNumber();
+            });        
     }
+
+    function handleStartButton() {
+        $(".js-button-next").click(function() {
+            event.preventDefault();
+            showQuestionNumber();
+            `${num++}`
+            // showNextQuestionSet();
+            
+        });
+
+    }
+
     function handleNextButton() {
         $(".js-button-next").click(function() {
             event.preventDefault();
             showQuestionNumber();
             `${num++}`
+            // showNextQuestionSet();
+            
         });
-
     }
 
     //change function name to showNextQuestionSet???
     function showNextQuestionSet() { 
         $(".js-button-next").click(function() {
-            event.preventDefault();
-                      
+            event.preventDefault();       
+            
+            // showQuestionNumber();
             // console.log(`question number is: ${showQuestionNumber()}`)
             h4Question = `<h4>${returnQuestionAtI()}<h4>`;
             $("h4").html(`<h4>${h4Question}<h4>`);
             $("ul").html(`${answerSet2}`);
-            console.log(`answerSet2 is ${answerSet2}`);
-
+            // console.log(`answerSet2 is ${answerSet2}`);
             `${number++}`
-            // generateAnswerElement(`${number}`, 2);
-            // let answerSet = `${option1} ${option2} ${option3} ${option4}`;
-            // returnAnswers(`${number}`)
-            // $("ul").html(`${generateAnswerSet(2)}`);
             
-            showQuestionNumber();
 
             h4Question = `<h4>${returnQuestionAtI()}<h4>`;
             $("h4").html(`<h4>${h4Question}<h4>`);
             $("ul").html(`${answerSet3}`);
-            console.log(`answerSet3 is ${answerSet3}`);
-
-            
-
-            
+            // console.log(`answerSet3 is ${answerSet3}`);
             
             h4Question = `<h4>${returnQuestionAtI()}<h4>`;
             $("h4").html(`<h4>${h4Question}<h4>`)
+            // $("ul").html(`${answerSet4}`);
+
+            
             // number++
-            console.log(`question is now ${h4Question}`)
-           $(".js-button-start").hide();
+            // console.log(`question is now ${h4Question}`)
+           
            
            restartQuiz();     
             // $("h4").html(`<h4>${h4Question}<h4>`)
+
         });
         console.log(`showNextQuestion ran`)
         // `${number}`++
@@ -294,6 +306,7 @@ restartQuiz();
 showNextQuestionSet();
 showQuestionNumber();
 handleNextButton();
+handleStartButton();
 startQuiz();
 // handleNextButton();
 
