@@ -143,7 +143,7 @@ let num = 1;
 function handleQuiz() {
 //returnQuestionAtI() returns a question at the specified index, i.e., `NUMBER` 
     function returnQuestionAtI() {
-        let question = questions[`${number}`] ;
+        let question = questions[number] ;
         // console.log(`question is ${question}`)
         return question;
     };
@@ -156,7 +156,7 @@ function handleQuiz() {
 //returnAnswers(number) returns an array of answer options at the specified index, i.e., `NUMBER` (references global variable `ANSWERS`)
     function returnAnswers(number) { 
         console.log(`returnAnswers ran`) 
-        let answer = answers[`${number}`]; 
+        let answer = answers[number]; 
         let answerArr = Object.values(answer);
         // console.log(`answerArr is ${answerArr} `) 
         
@@ -185,19 +185,19 @@ function handleQuiz() {
         let questionSetAtI = `
                     <li role="listitem" class="form js-quiz-option1">
                     <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
-                    <label for="option1" lang="es">${generateAnswerElement(`${answerSetIndex}`, 0)}<label>
+                    <label for="option1" lang="es">${generateAnswerElement(answerSetIndex, 0)}<label>
                     </li>; 
                     <li role="listitem" class="form js-quiz-option2">
                     <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
-                    <label for="option2" lang="es">${generateAnswerElement(`${answerSetIndex}`, 1)}</label>
+                    <label for="option2" lang="es">${generateAnswerElement(answerSetIndex, 1)}</label>
                     </li>; 
                     <li role="listitem" class="form js-quiz-option3">
                     <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
-                    <label for="option3" lang="es">${generateAnswerElement(`${answerSetIndex}`, 2)}</label>
+                    <label for="option3" lang="es">${generateAnswerElement(answerSetIndex, 2)}</label>
                     </li>; 
                     <li role="listitem" class="form js-quiz-option4">
                     <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
-                    <label for="option4" lang="es">${generateAnswerElement(`${answerSetIndex}`, 3)}</label>
+                    <label for="option4" lang="es">${generateAnswerElement(answerSetIndex, 3)}</label>
                     </li>;`
         // console.log(`questionSetAtI is ${questionSetAtI}`)
         return questionSetAtI;
@@ -254,15 +254,15 @@ console.log(`answerSet5 is ${answerSet5}`)
 
     }
 
-    function handleNextButton() {
-        $(".js-button-next").click(function() {
-            event.preventDefault();
-            `${num++}`
-            showQuestionNumber();
-            // `${num++}`
-            // showNextQuestionSet();         
-        });
-    }
+    // function handleNextButton() {
+    //     $(".js-button-next").click(function() {
+    //         event.preventDefault();
+    //         `${num++}`
+    //         showQuestionNumber();
+    //         // `${num++}`
+    //         // showNextQuestionSet();         
+    //     });
+    // }
 
     //change function name to showNextQuestionSet???
     function showNextQuestionSet() { 
@@ -275,7 +275,7 @@ console.log(`answerSet5 is ${answerSet5}`)
             $("h4").html(`<h4>${h4Question}<h4>`);
             $("ul").html(`${answerSet2}`);
             // console.log(`answerSet2 is ${answerSet2}`);
-            `${number++}`
+            number++;
             
 
             h4Question = `<h4>${returnQuestionAtI()}<h4>`;
@@ -308,7 +308,7 @@ console.log(`answerSet5 is ${answerSet5}`)
 restartQuiz();
 showNextQuestionSet();
 showQuestionNumber();
-handleNextButton();
+// handleNextButton();
 handleStartButton();
 startQuiz();
 // handleNextButton();
