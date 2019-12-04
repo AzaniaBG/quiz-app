@@ -180,56 +180,47 @@ function handleQuiz() {
 
 // number++
 // generateAnswerElement(`${number}`, 1)
-function generateAnswerSet(answerSetIndex) {
-    
-    let questionSetAtI = `
-let option1 = <li role="listitem" class="form js-quiz-option1">
-                <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
-                <label for="option1" lang="es">${generateAnswerElement(`${answerSetIndex}`, 0)}<label>
-                </li>; 
-let option2 = <li role="listitem" class="form js-quiz-option2">
-                <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
-                <label for="option2" lang="es">${generateAnswerElement(`${answerSetIndex}`, 1)}</label>
-                </li>; 
-let option3 = <li role="listitem" class="form js-quiz-option3">
-                <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
-                <label for="option3" lang="es">${generateAnswerElement(`${answerSetIndex}`, 2)}</label>
-                </li>; 
-let option4 = <li role="listitem" class="form js-quiz-option4">
-                <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
-                <label for="option4" lang="es">${generateAnswerElement(`${answerSetIndex}`, 3)}</label>
-                </li>;`
-    // console.log(`questionSetAtI is ${questionSetAtI}`)
-    return questionSetAtI;
-}
-let answerSet1 = generateAnswerSet(0);
-console.log(`answerSet1 is ${answerSet1}`)
-generateAnswerSet(1);
-let answerSet2 = generateAnswerSet(1);
+    function generateAnswerSetAtI(answerSetIndex) {
+        
+        let questionSetAtI = `
+                    <li role="listitem" class="form js-quiz-option1">
+                    <input role="button" class="radio js-button-option1" type="radio" name="options" value="option1" checked id="option1">
+                    <label for="option1" lang="es">${generateAnswerElement(`${answerSetIndex}`, 0)}<label>
+                    </li>; 
+                    <li role="listitem" class="form js-quiz-option2">
+                    <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
+                    <label for="option2" lang="es">${generateAnswerElement(`${answerSetIndex}`, 1)}</label>
+                    </li>; 
+                    <li role="listitem" class="form js-quiz-option3">
+                    <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
+                    <label for="option3" lang="es">${generateAnswerElement(`${answerSetIndex}`, 2)}</label>
+                    </li>; 
+                    <li role="listitem" class="form js-quiz-option4">
+                    <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
+                    <label for="option4" lang="es">${generateAnswerElement(`${answerSetIndex}`, 3)}</label>
+                    </li>;`
+        // console.log(`questionSetAtI is ${questionSetAtI}`)
+        return questionSetAtI;
+    }
+let answerSet1 = generateAnswerSetAtI(0);
+// console.log(`answerSet1 is ${answerSet1}`)
+// generateAnswerSet(1);
+let answerSet2 = generateAnswerSetAtI(1);
 console.log(`answerSet2 is ${answerSet2}`)
-let answerSet3 = generateAnswerSet(2);
-console.log(`answerSet2 is ${answerSet3}`)
-let answerSet4 = generateAnswerSet(3);
-console.log(`answerSet2 is ${answerSet4}`)
-// generateAnswerSet(1)
-// console.log(`questionSetAtI is now  ${generateAnswerSet(1)}`)
-// generateAnswerSet(`${number}`);
-// number++
-// generateAnswerSet(`${number}`);
 
-// let answerSet = `${option1} ${option2} ${option3} ${option4}`;
-  
-// console.log(`answer set is ${generateAnswerSet()}`)
-// `${number++}`
-// generateAnswerElement(4)
-// console.log(`option1 is ${option1}`)
+let answerSet3 = generateAnswerSetAtI(2);
+console.log(`answerSet3 is ${answerSet3}`)
 
+let answerSet4 = generateAnswerSetAtI(3);
+console.log(`answerSet4 is ${answerSet4}`)
 
+let answerSet5 = generateAnswerSetAtI(4);
+console.log(`answerSet5 is ${answerSet5}`)
 
 
     function showQuestionNumber() {     
         let questionNumber = $(".js-question-number").html(`<output class="js-question-number">Question ${num}</output>`);
-        return questionNumber
+        return questionNumber;
     }
     
     function startQuiz() {
@@ -240,38 +231,46 @@ console.log(`answerSet2 is ${answerSet4}`)
             $(".js-button-start").toggle(); 
             $(".js-main-screen").toggle();
             $("h4").html(`${h4Question}`);
-            // answerSet = returnAnswers(`${number}`)
-            // let answerSet = `${option1} ${option2} ${option3} ${option4}`;
-            $("ul").append(`${answerSet1} ${answerSet2} ${option3} ${option4}`)
+            $("ul").append(`${answerSet1}`)
             });
             
-            // number++
     }
-    
-    //change function name to showNextQuestionSet???
-    function showNextQuestion() { 
+    function handleNextButton() {
         $(".js-button-next").click(function() {
             event.preventDefault();
             showQuestionNumber();
             `${num++}`
-            
+        });
+
+    }
+
+    //change function name to showNextQuestionSet???
+    function showNextQuestionSet() { 
+        $(".js-button-next").click(function() {
+            event.preventDefault();
+                      
             // console.log(`question number is: ${showQuestionNumber()}`)
             h4Question = `<h4>${returnQuestionAtI()}<h4>`;
             $("h4").html(`<h4>${h4Question}<h4>`);
+            $("ul").html(`${answerSet2}`);
+            console.log(`answerSet2 is ${answerSet2}`);
+
             `${number++}`
-            generateAnswerElement(`${number}`, 2);
+            // generateAnswerElement(`${number}`, 2);
             // let answerSet = `${option1} ${option2} ${option3} ${option4}`;
             // returnAnswers(`${number}`)
-            $("ul").append(`${option1} ${option2} ${option3} ${option4}`);
-            // console.log(`num is: ${number}`)
-            // number++
-            // console.log(`num is now: ${number}`)
-
+            // $("ul").html(`${generateAnswerSet(2)}`);
+            
             showQuestionNumber();
 
             h4Question = `<h4>${returnQuestionAtI()}<h4>`;
-            $("h4").html(`<h4>${h4Question}<h4>`)
-            // number++
+            $("h4").html(`<h4>${h4Question}<h4>`);
+            $("ul").html(`${answerSet3}`);
+            console.log(`answerSet3 is ${answerSet3}`);
+
+            
+
+            
             
             h4Question = `<h4>${returnQuestionAtI()}<h4>`;
             $("h4").html(`<h4>${h4Question}<h4>`)
@@ -288,35 +287,13 @@ console.log(`answerSet2 is ${answerSet4}`)
     function restartQuiz() {
         
     };
-    //function returns a question at the specified index (based on the argument passed in);
-    // function handleNextButton() {
-    //     // question1 = `${returnQuestionAtI(1)}`
-    //     $(".js-button-next").click(function() {
-    //         event.preventDefault();
-    //         let questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
-            
-    //         questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
-    //         });
-
-            
-    //         $("h4").add(`<h4 role="" class="js-main-screen form js-question" id="js-question"> ${returnQuestionAtI(1)}</h4>`)
-    //         number++;
-    //         console.log(`handleNextButton ran`);
-
-    // }
-    
-    
-    // returnQuestionAtI(index);
-   
-    // handleNextButton();
-    
-
     
 
 // returnQuestionAtI(0);
 restartQuiz();
-showNextQuestion();
+showNextQuestionSet();
 showQuestionNumber();
+handleNextButton();
 startQuiz();
 // handleNextButton();
 
