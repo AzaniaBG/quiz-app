@@ -230,21 +230,24 @@ console.log(`answerSet5 is ${answerSet5}`)
             $(".js-start-screen").toggle();
             $(".js-button-start").toggle(); 
             $(".js-main-screen").toggle();
+            showQuestionNumber();
             // returnQuestionAtI();
             // showNextQuestionSet();
-            $("h4").html(`${h4Question}`);
-            $("ul").append(`${answerSet1}`);
+            // $("h4").html(`${h4Question}`);
+            // $("ul").append(`${answerSet1}`);
             $(".js-button-start").hide();
             // handleNextButton();
-            showQuestionNumber();
+            // showQuestionNumber();
             });        
     }
 
     function handleStartButton() {
-        $(".js-button-next").click(function() {
+        $(".js-button-start").click(function() {
             event.preventDefault();
             showQuestionNumber();
-            `${num++}`
+            $("h4").html(`${h4Question}`);
+            $("ul").append(`${answerSet1}`);
+            
             // showNextQuestionSet();
             
         });
@@ -254,10 +257,10 @@ console.log(`answerSet5 is ${answerSet5}`)
     function handleNextButton() {
         $(".js-button-next").click(function() {
             event.preventDefault();
-            showQuestionNumber();
             `${num++}`
-            // showNextQuestionSet();
-            
+            showQuestionNumber();
+            // `${num++}`
+            // showNextQuestionSet();         
         });
     }
 
