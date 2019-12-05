@@ -202,6 +202,8 @@ function handleQuiz() {
         // console.log(`questionSetAtI is ${questionSetAtI}`)
         return questionSetAtI;
     }
+
+
 let answerSet1 = generateAnswerSetAtI(0);
 // console.log(`answerSet1 is ${answerSet1}`)
 // generateAnswerSet(1);
@@ -278,7 +280,7 @@ console.log(`answerSet5 is ${answerSet5}`)
             number++;
             
 
-            h4Question = `<h4>${returnQuestionAtI()}<h4>`;
+            // h4Question = `<h4>${returnQuestionAtI()}<h4>`;
             $("h4").html(`<h4>${h4Question}<h4>`);
             $("ul").html(`${answerSet3}`);
             // console.log(`answerSet3 is ${answerSet3}`);
