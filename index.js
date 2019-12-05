@@ -11,17 +11,7 @@ const QUIZ = [
                 option4: "¿Qué cómo?"
             },
             answer: "option2",//refers to `options` index ("¿Cómo estás?")
-            selected: null,//need to toggle `selected` class
-            feedback: function(answer) {
-                let correctAnswer = this.options["option2"];
-                if(answer === null) {
-                    return "Please select an answer."
-                } else if(answer === correctAnswer) {
-                    return `Great! "${correctAnswer}" is correct; "estar" is the correct verb to use here. Note that "esta" without an accent means "this".`
-                } else {
-                    return `Oops! "${correctAnswer}" is the correct answer.`
-                }
-            }
+            
         },
 
         {
@@ -83,17 +73,6 @@ const QUIZ = [
                 option4: "¿Qué cocinabas?"
             },
             answer: "option4",//refers to `options` index ("¿Cómo estás?")
-            selected: null,//need to toggle `selected` class
-            feedback: function(answer) {
-                let correctAnswer = this.options["option4"];
-                if(answer === null) {
-                    return "Please select an answer."
-                } else if(answer === correctAnswer) {
-                    return `Great! "${correctAnswer}" is correct. The imperfect tense is used for ongoing events happening in the past, with no definitive time period`
-                } else {
-                    return `Oops! "${correctAnswer}" is the correct answer.`
-                }
-            }
         },
         
         {
@@ -107,17 +86,6 @@ const QUIZ = [
                 option4: "¿Cuándo vas a venir?"
             },
             answer: "option3",//refers to `options` index ("¿Cómo estás?")
-            selected: null,//need to toggle `selected` class
-            feedback: function(answer) {
-                let correctAnswer = this.options["option3"];
-                if(answer === null) {
-                    return "Please select an answer."
-                } else if(answer === correctAnswer) {
-                    return `Great! "${correctAnswer}" is correct. You can also say, “¿Cuándo vas a visitar?`
-                } else {
-                    return `Oops! "${correctAnswer}" is the correct answer.`
-                }
-            }
         },
 
 ]
@@ -141,6 +109,14 @@ let number = 0;
 let num = 1;
 
 function handleQuiz() {
+    function feedback (answer) {
+        let correctAnswer = this.options["option2"];
+        if(answer === correctAnswer) {        
+            return `Great! "${correctAnswer}" is correct;`
+        } else {
+            return `Oops! "${correctAnswer}" is the correct answer.`
+        }
+    }
 //returnQuestionAtI() returns a question at the specified index, i.e., `NUMBER` 
     function returnQuestionAtI() {
         let question = questions[number] ;
@@ -307,6 +283,7 @@ console.log(`answerSet5 is ${answerSet5}`)
     
 
 // returnQuestionAtI(0);
+function handleQuiz() {
 restartQuiz();
 showNextQuestionSet();
 showQuestionNumber();
@@ -314,7 +291,8 @@ showQuestionNumber();
 handleStartButton();
 startQuiz();
 // handleNextButton();
+}
 
  };             
-$(handleQuiz);
+$(handleQuiz;
 
