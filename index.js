@@ -10,18 +10,8 @@ const QUIZ = [
                 option3: "¿Cómo eres?",
                 option4: "¿Qué cómo?"
             },
-            answer: "option2",//refers to `options` index ("¿Cómo estás?")
-            selected: null,//need to toggle `selected` class
-            feedback: function(answer) {
-                let correctAnswer = this.options["option2"];
-                if(answer === null) {
-                    return "Please select an answer."
-                } else if(answer === correctAnswer) {
-                    return `Great! "${correctAnswer}" is correct; "estar" is the correct verb to use here. Note that "esta" without an accent means "this".`
-                } else {
-                    return `Oops! "${correctAnswer}" is the correct answer.`
-                }
-            }
+            answer: "option2",
+            
         },
 
         {
@@ -34,18 +24,7 @@ const QUIZ = [
                 option3: "¿Qué haciendo?",
                 option4: "¿Qué está haciendo?"
             },
-            answer: "option4",//refers to `options` index ("¿Cómo estás?")
-            selected: null,//need to toggle `selected` class
-            feedback: function(answer) {
-                let correctAnswer = this.options["option4"];
-                if(answer === null) {
-                    return "Please select an answer."
-                } else if(answer === correctAnswer) {
-                    return `Great! "${correctAnswer}" is correct. You can also say, “¿Qué haces?”.`
-                } else {
-                    return `Oops! "${correctAnswer}" is the correct answer.`
-                }
-            }
+            answer: "option4",
         },
         
         {
@@ -58,18 +37,7 @@ const QUIZ = [
                 option3: "¿Qué has hace?",
                 option4: "¿Qué habían hecho?"
             },
-            answer: "option1",//refers to `options` index ("¿Cómo estás?")
-            selected: null,//need to toggle `selected` class
-            feedback: function(answer) {
-                let correctAnswer = this.options["option1"];
-                if(answer === null) {
-                    return "Please select an answer."
-                } else if(answer === correctAnswer) {
-                    return `Great! "${correctAnswer}" is correct. Note “hecho” is the past participle of the verb “hacer.”`
-                } else {
-                    return `Oops! "${correctAnswer}" is the correct answer.`
-                }
-            }
+            answer: "option1",
         },
         
         {
@@ -82,18 +50,7 @@ const QUIZ = [
                 option3: "¿Qué cocinaba?",
                 option4: "¿Qué cocinabas?"
             },
-            answer: "option4",//refers to `options` index ("¿Cómo estás?")
-            selected: null,//need to toggle `selected` class
-            feedback: function(answer) {
-                let correctAnswer = this.options["option4"];
-                if(answer === null) {
-                    return "Please select an answer."
-                } else if(answer === correctAnswer) {
-                    return `Great! "${correctAnswer}" is correct. The imperfect tense is used for ongoing events happening in the past, with no definitive time period`
-                } else {
-                    return `Oops! "${correctAnswer}" is the correct answer.`
-                }
-            }
+            answer: "option4",
         },
         
         {
@@ -106,130 +63,124 @@ const QUIZ = [
                 option3: "¿Cuándo visitarás?",
                 option4: "¿Cuándo vas a venir?"
             },
-            answer: "option3",//refers to `options` index ("¿Cómo estás?")
-            selected: null,//need to toggle `selected` class
-            feedback: function(answer) {
-                let correctAnswer = this.options["option3"];
-                if(answer === null) {
-                    return "Please select an answer."
-                } else if(answer === correctAnswer) {
-                    return `Great! "${correctAnswer}" is correct. You can also say, “¿Cuándo vas a visitar?`
-                } else {
-                    return `Oops! "${correctAnswer}" is the correct answer.`
-                }
-            }
+            answer: "option3",
         },
 
 ]
 
-//QUESTIONS is an array of all questions from the QUIZ data model
-let number = 0;
-let num = 1;
+//QUESTIONS returns an array of all questions from the QUIZ data model
 let questions = QUIZ.map(item => {        
-        return item.question;
-    });
-// console.log(questions);
+    return item.question;
+});
+// console.log(`questions is ${questions}`);
 
-function handleQuiz() {
-    let h4Question = `<h4>${returnQuestionAtI()}<h4>`;
-    function showQuestionNumber() {
-        
-        let questionNumber = $(".js-question-number").html(`<output class="js-question-number">Question ${num}</output>`);
-        return questionNumber
+//ANSWERS returns an array of objects
+let answers = QUIZ.map(item =>{ 
+    return item.options 
+});
+// console.log(`answers is ${answers}`);
+
+//NUMBER is INDEX used for functions: 1) returnQuestionAtI() 2) returnAnswers(number)
+let number = 0;
+
+//NUM is used to determine the question number user is on
+let num = 1;
+
+
+    function generateQuestionElement(quiz) {
+//returns an html element with the QUESTION object property inserted as content
+// console.log(`generateQuestionElement returns: <h4>${quiz.question}</h4>`);
+        return `<h4>${quiz.question}</h4>`
     }
-    function returnQuestionAtI() {
-        let question = questions[`${number}`- 0] ;
-        // console.log(`question is ${question}`)
-        return question;
-    };
-    // $(".js-button-start").click(function() {
-    //     console.log(`showFirstQ ran`);
-    //     event.preventDefault();
-    //     $(".js-main-screen").toggle();
-        
-    //     $("h4").append(`<h4 role="" class="js-main-screen form js-question" id="js-question1">${returnQuestionAtI(0)}</h4>`)
-    //     });
     
+    function generateQuestionElementString(questions) {
+//declare a variable to store an array created by .map(): for each QUIZ question, create an element using generateQuestionElement (line 112)
+        const question = questions.map((question) => 
+        generateQuestionElement(question));    
+// console.log(`question is ${question}`)
+
+//join the array into a string and return that string, with each item separated by a comma
+        return question.join("");
+    }
+
+    function renderQuestionSet() {
+//declare a variable to store a QUESTION element string generated by generateQuestionElementString (line 118)
+        const questionString = 
+//pass that QUESTION string element (generated from the QUIZ store) as the argument
+        generateQuestionElementString(QUIZ);
+//insert that ELEMENT into the DOM at <h4>
+        $("h4").html(questionString);
+
+// console.log(`questionString is ${questionString}`)
+// console.log(`renderQuestionSet returns:`)
+        // return questionString;
+    }
+    function generateAnswerElement(quiz) {
+        let answers = quiz.options;
+        answers.join(" ");
+console.log(`answers is ${answers}`)
+
+        let answerSet = Object.values(answers);
+        console.log(`answerSet is:`)
+        return answerSet.join("");
+
+    }
+
+    function generateAnswerElementString() {
+
+    };
+
+    
+  // generateQuestionElement()
     function startQuiz() {
-    
-        $(".js-button-start").click(function() {
-            event.preventDefault();
-            $(".js-main-screen").toggle();
-            $("h4").html(`${h4Question}`)
-            });
-            // number++
+
     }
+
+    function showQuestionNumber() {
+
+    }
+    function handleNextButton() {
+
+    }
+    function handleStartButton() {
+
+    }
+
+  
+  
+
+    function showFeedback(answer) {
+        // let correctAnswer = this.options["option2"];
+        // if(answer === correctAnswer) {        
+        //     return `Great! "${correctAnswer}" is correct;`
+        // } else {
+        //     return `Oops! "${correctAnswer}" is the correct answer.`
+        // }
+    }
+//returnQuestionAtI() returns a question at the specified index, i.e., `NUMBER` 
     
-    function showNextQuestion() { 
-        // number++
-        // h4Question = `<h4>${returnQuestionAtI()}<h4>`;
-        // console.log(`number now is ${number}`)
-        //     number++
-        // console.log(`number now is ${number}`)
-        $(".js-button-next").click(function() {
-            event.preventDefault();
-            showQuestionNumber();
-            `${num++}`
-            console.log(`question number is: ${showQuestionNumber()}`)
-            h4Question = `<h4>${returnQuestionAtI()}<h4>`;
-            $("h4").html(`<h4>${h4Question}<h4>`);
-            console.log(`num is: ${number}`)
-            // number++
-            console.log(`num is now: ${number}`)
-
-            showQuestionNumber();
-
-            h4Question = `<h4>${returnQuestionAtI()}<h4>`;
-            $("h4").html(`<h4>${h4Question}<h4>`)
-            // number++
-            
-            h4Question = `<h4>${returnQuestionAtI()}<h4>`;
-            $("h4").html(`<h4>${h4Question}<h4>`)
-            number++
-            console.log(`question is now ${h4Question}`)
-           $(".js-button-start").hide();
-           
-           restartQuiz();     
-            // $("h4").html(`<h4>${h4Question}<h4>`)
-        });
-        console.log(`showNextQuestion ran`)
-        // `${number}`++
-    };
+    
     function restartQuiz() {
         
     };
-    //function returns a question at the specified index (based on the argument passed in);
-    // function handleNextButton() {
-    //     // question1 = `${returnQuestionAtI(1)}`
-    //     $(".js-button-next").click(function() {
-    //         event.preventDefault();
-    //         let questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
-            
-    //         questionNum = $(".js-question-number").html(` <output class="js-question-number" value="num">Question ${number} </output>`);
-    //         });
-
-            
-    //         $("h4").add(`<h4 role="" class="js-main-screen form js-question" id="js-question"> ${returnQuestionAtI(1)}</h4>`)
-    //         number++;
-    //         console.log(`handleNextButton ran`);
-
-    // }
-    
-    
-    // returnQuestionAtI(index);
-   
-    // handleNextButton();
-    
-
     
 
 // returnQuestionAtI(0);
-restartQuiz();
-showNextQuestion();
-showQuestionNumber();
-startQuiz();
-// handleNextButton();
+function handleQuiz() {
+    restartQuiz();
+    showQuestionNumber();
+    handleNextButton();
+    handleStartButton();
+    startQuiz();
+    // handleNextButton();
+    showFeedback();
+    renderQuestionSet();
+    generateAnswerElementString();
+    generateAnswerElement(QUIZ);
+    generateQuestionElementString(QUIZ);
+    generateQuestionElement(QUIZ);
+}
 
- };             
+             
 $(handleQuiz);
 
