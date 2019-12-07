@@ -63,30 +63,57 @@ const QUIZ = [
 
 ]
 
+
+let number = 0;
 //QUESTIONS returns an array of all questions from the QUIZ data model
-let questions = QUIZ.map(item => {        
-    return item.question;
+let questions = QUIZ.map(quiz => {        
+    return quiz.question;
 });
 // console.log(`questions is ${questions}`);
+// console.log(typeof questions);
 
 //ANSWERS returns an array of objects
-let answers = QUIZ.map(item =>{ 
-    return item.options 
+let answers = QUIZ.map(quiz =>{ 
+    return quiz.answers; 
 });
 // console.log(`answers is ${answers}`);
 
-//NUMBER is INDEX used for functions: 1) returnQuestionAtI() 2) returnAnswers(number)
-let number = 0;
+    function renderQuestionSet() {
+        //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75)
+        
+        function renderOneQuestion(index) {
+            let question = questions[index];
+            console.log(`question is ${question}`);
+            let questionElement = `<h4>${question}</h4>`
+            return questionElement;         
+        }
 
-//NUM is used to determine the question number user is on
+console.log(`renderOneQuestion returns:`)
+renderOneQuestion(number);
+// generateQuestionElement();
+        function renderAnswerSet(answers) {
+        //each answer is a set of 4 answers:
+                let answer = answers.map((answer) => {
+                // console.log(`answer is: ${answer}`)
+                    return answer;
+                });
+                return answer;
+            }
+        
+        function renderOneAnswerSet(index) {
+            let answerSet = answers[index];
+            console.log(`answerSet is ${answerSet}`);
+             
+            return answerSet;
 
+        }
 
+console.log(`renderAnswerSet returns:`);
+    renderAnswerSet(answers);
+console.log(`renderOneAnswerSet returns: `)
+    renderOneAnswerSet(number)
+    }
 
-    
-    
-    // function showQuestionNumber() {
-
-    // }
 //when START button clicked, START button hides, SUBMIT and NEXT button display
     function handleStartButton() {
 
@@ -94,20 +121,15 @@ let number = 0;
             event.preventDefault();
             $(".js-start-screen").toggle();
             $(".js-main-screen").toggle();
-        })
-
-        //hide START page content
-
-
+        });
     }
-    function handleNextButton() {
 
+    function handleNextButton() {
+        //show next Question Number
+        //show questions correct
+        //show next question set
     }
     
-
-  
-  
-
     // function showFeedback(answer) {
     //     // let correctAnswer = this.options["option2"];
     //     // if(answer === correctAnswer) {        
@@ -133,6 +155,9 @@ function handleQuiz() {
 
     // showQuestionNumber();
     handleNextButton();
+    // renderOneQuestion();
+    // renderAnswerSet();
+    renderQuestionSet();
     handleStartButton();
     // startQuiz();
     
