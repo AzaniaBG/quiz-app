@@ -4,13 +4,12 @@ const QUIZ = [
             id: "js-question1",
             question: "How are you (informal)?",
             number: 1,
-            options: {
-                option1: "¿Como estas?",
-                option2: "¿Cómo estás?",
-                option3: "¿Cómo eres?",
-                option4: "¿Qué cómo?"
-            },
-            answer: "option2",
+            answers: [
+            "¿Como estas?",
+             "¿Cómo estás?",
+             "¿Cómo eres?",
+             "¿Qué cómo?"],
+            answer: 1,
             
         },
 
@@ -18,52 +17,48 @@ const QUIZ = [
             id: "js-question2",
             question: "What are you doing (formal)?",
             number: 2,
-            options: {
-                option1: "¿Qué haga?",
-                option2: "¿Qué haces?",
-                option3: "¿Qué haciendo?",
-                option4: "¿Qué está haciendo?"
-            },
-            answer: "option4",
+            answers: [
+                "¿Qué haga?",
+                "¿Qué haces?",
+                "¿Qué haciendo?",
+                "¿Qué está haciendo?"],
+            answer: 3,
         },
         
         {
             id: "js-question3",
             question: "What have you done (informal)?",
             number: 3,
-            options: {
-                option1: "¿Qué has hecho?",
-                option2: "¿Qué ha hecho?",
-                option3: "¿Qué has hace?",
-                option4: "¿Qué habían hecho?"
-            },
-            answer: "option1",
+            answers: [
+                "¿Qué has hecho?",
+                "¿Qué ha hecho?",
+                "¿Qué has hace?",
+                "¿Qué habían hecho?"],
+            answer: 0,
         },
         
         {
             id: "js-question4",
             question: "What were you cooking (informal)?",
             number: 4,
-            options: {
-                option1: "¿Qué estás cocinando?",
-                option2: "¿Qué cocinas?",
-                option3: "¿Qué cocinaba?",
-                option4: "¿Qué cocinabas?"
-            },
-            answer: "option4",
+            answers: [
+                "¿Qué estás cocinando?",
+                "¿Qué cocinas?",
+                "¿Qué cocinaba?",
+                "¿Qué cocinabas?"],
+            answer: 3,
         },
         
         {
             id: "js-question5",
             question: "When will you visit (informal)?",
             number: 5,
-            options: {
-                option1: "¿Cuándo visitaré?",
-                option2: "¿Cuándo visitará?",
-                option3: "¿Cuándo visitarás?",
-                option4: "¿Cuándo vas a venir?"
-            },
-            answer: "option3",
+            answers: [
+                "¿Cuándo visitaré?",
+                "¿Cuándo visitará?",
+                "¿Cuándo visitarás?",
+                "¿Cuándo vas a venir?"],
+            answer: 2,
         },
 
 ]
@@ -93,6 +88,16 @@ let num = 1;
         return `<h4>${quiz.question}</h4>`
     }
     
+    function generateAnswer(answers) {
+        const answerSet = answers.map((options) => 
+        generateAnswerElementString())
+
+    }
+
+    function generateAnswerElementString() {
+        return `<li>${quiz.options["option1"]} </li>`;
+    }
+
     function generateQuestionElementString(questions) {
 //declare a variable to store an array created by .map(): for each QUIZ question, create an element using generateQuestionElement (line 112)
         const question = questions.map((question) => 
@@ -117,18 +122,15 @@ let num = 1;
     }
     function generateAnswerElement(quiz) {
         let answers = quiz.options;
-        answers.join(" ");
+        
 console.log(`answers is ${answers}`)
 
         let answerSet = Object.values(answers);
-        console.log(`answerSet is:`)
+        answerSet.join("")
+console.log(`answerSet is: ${answerSet}`)
         return answerSet.join("");
-
     }
 
-    function generateAnswerElementString() {
-
-    };
 
     
   // generateQuestionElement()
@@ -167,18 +169,8 @@ console.log(`answers is ${answers}`)
 
 // returnQuestionAtI(0);
 function handleQuiz() {
-    restartQuiz();
-    showQuestionNumber();
-    handleNextButton();
-    handleStartButton();
-    startQuiz();
-    // handleNextButton();
-    showFeedback();
-    renderQuestionSet();
-    generateAnswerElementString();
-    generateAnswerElement(QUIZ);
-    generateQuestionElementString(QUIZ);
-    generateQuestionElement(QUIZ);
+
+    
 }
 
              
