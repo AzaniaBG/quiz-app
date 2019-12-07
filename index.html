@@ -20,48 +20,44 @@
 
         <!-- output: container element into which an app can inject the results of a calculation or the outcome of a user action -->
         <h2 role="header" class="js-main-screen js-question-number">
-            <output class="js-question-number" value="num"> Question Number </output>
+            <output role="header" class="info js-question-number" value="number"> Question Number </output>
         
         <!--display question number, correct answers, etc. with either output or progress element-->
             <progress></progress>
-            <output role="header" class="js-main-screen js-answers-correct">Answers correct 0/0 </output>
+            <output role="header" class="info js-answers-correct">Answers correct 0/0 </output>
         </h2>
     </header>
-
-    
-    
-
 
     <main role="main" class="js-main-screen js-main-quiz">
             <button role="button" class="button js-main-screen js-button-next">NEXT</button>
             <!-- <button role="button" class="button js-main-screen js-button-submit">SUBMIT</button> -->
             
-        <form role="form" class="form js-main-screen js-form-quiz">       
-            <fieldset class="form js-main-screen js-fieldset"> 
-                <legend role="legend" class="form js-main-screen js-form-instruction">Select the Correct Spanish Translation for the Question Below</legend>
-                <h4 role="" class="form js-main-screen js-question-set" id="js-question1"> </h4>
+        <form role="form" class="form js-form-quiz">       
+            <fieldset class="form js-fieldset"> 
+                <legend role="legend" class="form js-form-instruction">Select the Correct Spanish Translation for the Question Below</legend>
+                    <h4 role="" class="form js-question-set" id="js-question${number}">${oneQuestion}</h4>
+                    <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
+                    <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label>
+                    <button role="button" class="button js-question-set js-button-index0"> ${answer[0]}</button>
+                    <br>
 
-               
-                    <input role="" class="radio js-button-index0" type="radio" name="options" value="option1" checked id="index0">
-                    <label for="index0" class="radio js-button-index0" lang="es">Option1</label>
-                    <button role="button" class="button js-main-screen js-button-index0">SUBMIT</button>
-                   
+                    <!-- <h4 role="" class="form js-main-screen js-question-set" id="js-question${number}">${oneQuestion}</h4>
+                    <input role="" class="radio js-button-index1" type="radio" name="options" value="1" checked id="index1">
+                    <label for="index1" class="radio js-button-index1" lang="es"> </label>
+                    <button role="button" class="button js-main-screen js-button-index1"> ${answer[1]}</button>
+                    <br>
 
-                    <li role="listitem" class="form js-quiz-option2">
-                    <input role="button" class="radio js-button-option2" type="radio" name="options" value="option2" id="option2">
-                    <label for="option2" lang="es">Option2</label>
-                    </li>
+                    <h4 role="" class="form js-main-screen js-question-set" id="js-question${number}">${oneQuestion}</h4>
+                    <input role="" class="radio js-button-index2" type="radio" name="options" value="2" checked id="index2">
+                    <label for="index2" class="radio js-button-index2" lang="es"> </label>
+                    <button role="button" class="button js-main-screen js-button-index2"> ${answer[2]}</button>
+                    <br>
 
-                    <li role="listitem" class="form js-quiz-option3">
-                    <input role="button" class="radio js-button-option3" type="radio" name="options" value="option3" id="option3">
-                    <label for="option3" lang="es">Option3</label>
-                    </li>
-
-                    <li role="listitem" class="form js-quiz-option4">
-                    <input role="button" class="radio js-button-option4" type="radio" name="options" value="option4" id="option4">
-                    <label for="option4" lang="es">Option4</label>
-                    </li>
-                </ul> 
+                    <h4 role="" class="form js-main-screen js-question-set" id="js-question${number}">${oneQuestion}</h4>
+                    <input role="" class="radio js-button-index2" type="radio" name="options" value="2" checked id="index2">
+                    <label for="index3" class="radio js-button-index3" lang="es"> </label>
+                    <button role="button" class="button js-main-screen js-button-index3"> ${answer[3]}</button> -->
+                    
                 <!-- <aside class="callout js-callout-box">Answer feedback</aside>
                     <output class="callout correct js-correct-callout-header">Correct!</output> -->
                     <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->

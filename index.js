@@ -76,79 +76,107 @@ let questions = QUIZ.map(quiz => {
 let answers = QUIZ.map(quiz =>{ 
     return quiz.answers; 
 });
+let questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
+
+let questionsCorrect = `<output role="header" class="info js-answers-correct">Answers correct 0/0 </output>`;
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
     function renderQuestionSet() {
     //create a question set from global variable QUESTIONS (69) and pass in NUMBER (67) as the index  
         function renderOneQuestion(index) {
             let question = questions[index];
-            // console.log(`question is ${question}`);
+        // console.log(`question is ${question}`);
             // let questionElement = `<h4>${question}</h4>`
             return question;         
         }
         
 //create an answer set from global variable ANSWERS (line 75) and pass in NUMBER (line 67) as the index 
-        function renderOneAnswerSet(index) {
+        function renderOneAnswerSet(index) {//generateAnswerElement
                 let answerSet = answers[index];
-        // console.log(`answerSet is ${answerSet}`);         
+        console.log(`answerSet is ${answerSet}`);      
                 return answerSet;
             }
-
+        
         function generateQuestionSet(number) {
             let answer = renderOneAnswerSet(number);
-            console.log(`answer is ${answer}`);
-            let oneQuestion = renderOneQuestion(number);
+        console.log(`answer is ${answer}`);
+        //     let question = renderOneQuestion(number);
+        // console.log(`question is ${question}`)
+            let questionsSet = `<h4>${questions[number]}</h4>`
+            // questionsSet.join("");
+        console.log(`questionsSet is ${questionsSet}`); 
+
+            let answersSet = answer.map((answers) =>{
+                return `<label>${answers}</label>`})
+            answersSet.join("");
+            console.log(`answersSet is ${answersSet}`)
 
             let questionSet = `
-            <h4 role="" class="form js-main-screen js-question-set" id="js-question${number}">${oneQuestion}</h4>
-            <input role="" class="radio js-button-index0" type="radio" name="options" value="0" checked id="index0">
-            <label for="index0" class="radio js-button-index0" lang="es"> </label>
-            <button role="button" class="button js-main-screen js-button-index0"> ${answer[0]}</button>
-            <br>
-            <input role="" class="radio js-button-index1" type="radio" name="options" value="1" checked id="index1">
-            <label for="index1" class="radio js-button-index1" lang="es"> </label>
-            <button role="button" class="button js-main-screen js-button-index1"> ${answer[1]}</button>
-            <br>
-            <input role="" class="radio js-button-index2" type="radio" name="options" value="2" checked id="index2">
-            <label for="index2" class="radio js-button-index2" lang="es"> </label>
-            <button role="button" class="button js-main-screen js-button-index2"> ${answer[2]}</button>
-            <br>
-            <input role="" class="radio js-button-index2" type="radio" name="options" value="2" checked id="index2">
-            <label for="index3" class="radio js-button-index3" lang="es"> </label>
-            <button role="button" class="button js-main-screen js-button-index3"> ${answer[3]}</button>
+            ${questionsSet}
+            ${answersSet}       
             `
             $(".js-button-start").click(function(event) {
                 event.preventDefault();
+            // $(".js-question-set").toggle();
             $(".js-question-set").html(questionSet);
             });
 
         console.log(`questionSet is ${questionSet}`)
             return questionSet;
         }
-
-
+        function showNextQuestion(questionNumber) {
+            let nextQuestion = generateQuestionSet(questionNumber);
+            console.log(`nextQuestion is ${nextQuestion}`)
+            // $(".js-question-set").text(nextQuestion);
+            return nextQuestion;
+        }
     console.log(`generateQuestionSet returns:`)
         generateQuestionSet(number);
     console.log(`renderOneQuestion returns:`)
         renderOneQuestion(number);
     console.log(`renderOneAnswerSet returns: `)
         renderOneAnswerSet(number)
+        handleNextButton(number);
+        handleStartButton();
+console.log(`showNextQuestion returns: ${showNextQuestion(0)}`);
+
+        
+
+        function handleNextButton(number) {
+            $(".js-button-next").click(function(event) {
+                event.preventDefault();
+                console.log(`number is  ${number}`)
+                number++;
+                questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
+                $(".js-question-number").html(`${questionNumber}`);
+                $(".js-answers-correct").html(`${questionsCorrect}`)
+                // $("legend").text(test);
+                let questionSet = showNextQuestion(number);
+                $(".js-question-set").html(questionSet);
+                console.log(`number is now ${number}`);
+                
+            });
     }
 
 //when START button clicked, START button hides, SUBMIT and NEXT button display
     function handleStartButton() {
-
+        // let questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
+        // let questionsCorrect = `<output role="header" class="info js-answers-correct">Answers correct 0/0 </output>`;
+        
+        // let questionSet = generateQuestionSet(number);
         $(".js-button-start").click(function(event) {
             event.preventDefault();
             $(".js-start-screen").toggle();
             $(".js-main-screen").toggle();
+            
+            $(".js-question-number").html(`${questionNumber}`);
+            $(".js-answers-correct").html(`${questionsCorrect}`);
+            // $("h2").append(`${questionNumber}`);
+            // $(".js-question-number").append(`<output role="header" class="js-main-screen js-question-number" value="num"> ${number+1} </output>`);
         });
+        
     }
-
-    function handleNextButton() {
-        //show next Question Number
-        //show questions correct
-        //show next question set
+   
     }
     
     // function showFeedback(answer) {
@@ -172,14 +200,14 @@ function handleQuiz() {
     restartQuiz();
 
     // showFeedback();
-
+    // showNextQuestion();
     // showQuestionNumber();
-    handleNextButton();
-    //generateQuestionSet();
+    // handleNextButton(number);
+    // generateQuestionSet(number);
     // renderOneQuestion();
     // renderAnswerSet();
     renderQuestionSet();
-    handleStartButton();
+    // handleStartButton();
     // startQuiz();
     
 }
