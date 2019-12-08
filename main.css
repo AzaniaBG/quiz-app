@@ -108,6 +108,9 @@ form, fieldset {
     display: none;
 
 }
+.js-results-screen {
+    display: none;
+}
 
 /* display for MAIN screen */
 
