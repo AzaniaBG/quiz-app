@@ -85,61 +85,33 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
     function handleQuiz() {
-    //create a question set from global variable QUESTIONS (69) and pass in NUMBER (67) as the index  
-        if(number <= 5) {
+    
+        if(number < 5) {
             startQuiz();
         } else {
             showResultsScreen();
         }
-        
-//create an answer set from global variable ANSWERS (line 75) and pass in NUMBER (line 67) as the index 
-
-        
-
-           
-
-        
-    //when START button clicked, START button hides, SUBMIT and NEXT button display
-        
-        
-        // console.log(`showResultsScreen() returns:`)
-    //     showResultsScreen();
-// console.log(`checkQuestionSet returns:`)
-//     checkQuestionSet();
-// console.log(`generateQuestionSet returns:`)
-//     generateQuestionSet(number);
-// console.log(`renderOneQuestion returns:`)
-//     renderOneQuestion(number);
-// console.log(`renderOneAnswerSet returns: `)
-//     renderOneAnswerSet(number)
-//     handleNextButton(number);
-//     handleStartButton();
-// console.log(`showNextQuestion returns: ${showNextQuestion(0)}`);
+              
     }
-    
-    // function showFeedback(answer) {
-    //     // let correctAnswer = this.options["option2"];
-    //     // if(answer === correctAnswer) {        
-    //     //     return `Great! "${correctAnswer}" is correct;`
-    //     // } else {
-    //     //     return `Oops! "${correctAnswer}" is the correct answer.`
-    //     // }
-    // }
-//returnQuestionAtI() returns a question at the specified index, i.e., `NUMBER` 
-    
-function handleStartButton() {
-        $(".js-button-start").click(function(event) {
-            event.preventDefault();
-            $(".js-start-screen").toggle();
-            $(".js-main-screen").toggle();
-            
-            $(".js-question-number").html(`${questionNumber}`);
-            $(".js-answers-correct").html(`${questionsCorrect}`);
-        });       
-    }
+//when START button clicked, START button hides, SUBMIT and NEXT button display 
+    function handleStartButton() {
+            $(".js-button-start").click(function(event) {
+                event.preventDefault();
+                $(".js-start-screen").toggle();
+                $(".js-main-screen").toggle();
+                
+                $(".js-question-number").html(`${questionNumber}`);
+                $(".js-answers-correct").html(`${questionsCorrect}`);
+            });       
+        }
 
     function showResultsScreen() {
-        // console.log(`showResultsScreen is:`);
+    //if QUESTION NUMBER <= 5 && ANSWER = correct, show correct
+    // console.log(`showResultsScreen is:`);
+    //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
+
+    //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS
+
         $(".js-button-restart").toggle();
         $(".js-start-screen").toggle();
     }
@@ -148,13 +120,14 @@ function handleStartButton() {
         let question = questions[index];
     // console.log(`question is ${question}`);
         return question;         
-    }    
+    } 
+//create an answer set from global variable ANSWERS (line 75) and pass in NUMBER (line 67) as the index 
     function renderOneAnswerSet(index) {//generateAnswerElement
             let answerSet = answers[index];
         console.log(`answerSet is ${answerSet}`);      
             return answerSet;
         }  
-
+//create a question set from global variable QUESTIONS (69) and pass in NUMBER (line 67) as the index  
     function generateQuestionSet(number) {
         let answer = renderOneAnswerSet(number);
     // console.log(`answer is ${answer}`);
@@ -189,8 +162,9 @@ function handleStartButton() {
         // checkQuestionSet(number);
         $(".js-button-next").click(function(event) {
             event.preventDefault();
-            if(number <= 5) {
             number++;
+            checkQuestionSet(number);
+            if(number < 5) {           
             // checkQuestionSet(number)
             questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
             $(".js-question-number").html(`${questionNumber}`);
@@ -201,71 +175,70 @@ function handleStartButton() {
             $(".js-question-set").html(questionSet);              
             // console.log(`number is now ${number}`);   
         } else {
-            $(".js-button-next").click(function(event) {
+            // showResultsScreen();
+                $(".js-button-next").click(function(event) {
                 event.preventDefault();
-                // showResultsScreen();
                 number = 0;
                 questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number} </output>`;
+                
                 $(".js-question-number").html(`${questionNumber}`);
-                // number = 0;
-            // $(".js-question-number").html(`${number}`);
-            // $(".js-button-restart").toggle();
-            $(".js-start-screen").toggle();
-            $(".js-main-screen").toggle();
-            // number = 0;
-            });
-
-        }
-
+                showResultsScreen();
+                
+                    
+                    
+                    // number = 0;
+                    });
+                };   
 
             });
-        
-            // $(".js-button-next").click(function(event) {
-            //     event.preventDefault();
-            // // $(".js-question-number").html(`${number}`);
-            // // $(".js-button-restart").toggle();
-            // $(".js-start-screen").toggle();
-            // $(".js-main-screen").toggle();
-            // number = 0;
-            // });
-        
     }
+
     function showNextQuestion(questionNumber) {
         let nextQuestion = generateQuestionSet(questionNumber);
     // console.log(`nextQuestion is ${nextQuestion}`)
-        // $(".js-question-set").text(nextQuestion);
-        if(questionNumber <= 5) {
             return nextQuestion;
-        } else {
-            number = 0;
-            nextQuestion = generateQuestionSet(0);
-            showResultsScreen();
-        }
     }
+
     function checkQuestionSet(number) {
         if(number <= 5) {
             // number++;
             $(".js-button-next").click(function(event) {
             event.preventDefault();
-            number++;
+            // number++;
             showNextQuestion(number);
+            // showResultsScreen();
             });
             // number++
+            
         } else {
-            // number = 0;
-            $(".js-button-next").click(function(event) {
-            event.preventDefault();
-            number = 0;
+            $(".js-button-restart").toggle();
+            $(".js-start-screen").toggle();
             $("results").toggle();
-            });
+            // showResultsScreen();
+            // number = 0;
+            // $(".js-button-next").click(function(event) {
+            // event.preventDefault();
+            // // showResultsScreen();
+            // // number = 0;
+            // // showResultsScreen();
+            // // $("results").toggle();
+            // });
         }
     }  
+    // function showFeedback(answer) {
+    //     // let correctAnswer = this.options["option2"];
+    //     // if(answer === correctAnswer) {        
+    //     //     return `Great! "${correctAnswer}" is correct;`
+    //     // } else {
+    //     //     return `Oops! "${correctAnswer}" is the correct answer.`
+    //     // }
+    // }
 
     function restartQuiz() {
         
     };
-// returnQuestionAtI(0);
-function handleQuiz() {
+
+    function handleQuiz() {
 
     restartQuiz();
     // showResultsScreen();

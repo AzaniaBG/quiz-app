@@ -104,6 +104,10 @@ form, fieldset {
 .js-button-start {
 
 }
+.js-button-restart {
+    display: none;
+
+}
 
 /* display for MAIN screen */
 
