@@ -111,9 +111,12 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
     //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
 
     //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS
-
-        $(".js-button-restart").toggle();
-        $(".js-start-screen").toggle();
+        let results = $("legend.js-results-screen").html();
+    // console.log(`results is ${results}`)
+        
+        $(".js-question-set").toggle();
+        $(".js-results-screen").toggle();
+        
     }
 
     function renderOneQuestion(index) {
@@ -175,18 +178,19 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             $(".js-question-set").html(questionSet);              
             // console.log(`number is now ${number}`);   
         } else {
-            // showResultsScreen();
-                $(".js-button-next").click(function(event) {
+
+            showResultsScreen();
+            // let results = $("legend.js-results-screen").html();
+            // console.log(`results is ${results}`)
+
+            $(".js-button-next").click(function(event) {
                 event.preventDefault();
-                number = 0;
-                questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number} </output>`;
-                
-                $(".js-question-number").html(`${questionNumber}`);
+                // // number = 0;
+                questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${0} </output>`;
+                $(".js-final-callout-header").toggle();
+                $(".js-question-set").toggle();
+                $(".js-question-number").toggle();
                 showResultsScreen();
-                
-                    
-                    
-                    // number = 0;
                     });
                 };   
 

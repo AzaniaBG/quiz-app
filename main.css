@@ -111,6 +111,10 @@ form, fieldset {
 .js-results-screen {
     display: none;
 }
+.js-results-feedback {
+    display: none;
+
+}
 
 /* display for MAIN screen */
 

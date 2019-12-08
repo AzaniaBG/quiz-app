@@ -32,7 +32,7 @@
             <button role="button" class="button js-main-screen js-button-next"> NEXT</button>
             <!-- <button role="button" class="button js-main-screen js-button-submit">SUBMIT</button> -->
             
-        <form role="form" class="form js-form-quiz">       
+        <form role="form" class="form js-main-screen js-form-quiz">       
             <fieldset class="form js-fieldset"> 
                 <legend role="legend" class="form js-form-instruction">Select the Correct Spanish Translation for the Question Below</legend>
                     <!-- <h4 role="" class="form js-question-set" id="js-question${number}"> ${oneQuestion} </h4> -->
@@ -40,22 +40,26 @@
                     <!-- <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label> -->
                     <button role="button" class="button js-question-set js-button-index0"> ${answer[0]}</button>
                     <br>
-                    
-                <aside class="callout feedback js-results-screen js-callout-box">Answer feedback</aside>
-                    <output class="callout feedback js-results-screen js-correct-callout-header">Correct!</output> 
-                    <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->          
-                     <span class="callout js-results-screen js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
-                    <div class="callout feedback js-results-screen js-callout-container"></div>
-                        <p class="js-results-screen js-correct-callout-header">explanation</p>
 
-                    <output class="callout feedback js-results-screen js-incorrect-callout-header">Oops!</output>                     
-                    <!-- <img src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face"> -->
-                    <span class="callout js-results-screen js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
-                    <div class="callout js-results-screen js-callout-container"></div>
-                        <p class ="js-results-screen js-incorrect-callout-header" >explanation</p>
-                <!-- <button role="button" class="button js-results-screen js-button-next">NEXT</button>  -->
-
+                <h2 class="feedback js-results-screen">You did it! </h2>
+                <h3 class="feedback js-results-screen">Final Score: </h3>
+                <legend role="legend" class="feedback js-results-screen">Answers correct:</legend>
+                <output class="callout feedback js-results-screen js-final-callout-header" value="100"> Answers correct 0/0  </output><br>  
                 <button role="button" class="button js-results-screen js-button-restart">RE-START QUIZ</button> 
+                    
+                <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
+                    <output class="callout feedback js-results-feedback js-correct-callout-header">Correct!</output> 
+                    <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->          
+                     <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
+                    <div class="callout feedback js-results-feedback js-callout-container"></div>
+                        <p class="js-results-feedback js-correct-callout-header">explanation</p>
+
+                    <output class="callout feedback js-results-feedback js-incorrect-callout-header">Oops!</output>                     
+                    <!-- <img src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face"> -->
+                    <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
+                    <div class="callout js-results-feedback js-callout-container"></div>
+                        <p class ="js-results-feedback js-incorrect-callout-header" >explanation</p>
+                <!-- <button role="button" class="button js-results-screen js-button-next">NEXT</button>  -->            
             </fieldset>          
         </form>
     </main>
