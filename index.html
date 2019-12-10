@@ -14,20 +14,25 @@
 <body>
     <header>
         <!-- start screen shows welcome, instructions, and start button -->
-        <h1 role="header" class="js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
-        <p role="" class="header js-start-screen">Click the "START" button to begin the quiz</p>
-        <button role="button" class="button js-start-screen js-button-start">START</button>
+        <section id="start-screen"> 
+            <h1 role="header" class="js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
+            <p role="" class="header js-start-screen">Click the "START" button to begin the quiz</p>
+            <button role="button" class="button js-start-screen js-start-button">START</button>
+        </section>
 
-        <!-- output: container element into which an app can inject the results of a calculation or the outcome of a user action -->
-        <h2 role="header" class="js-main-screen js-question-number">
-            <output role="header" class="info js-question-number" value="number"> Question Number </output>
-        
-        <!--display question number, correct answers, etc. with either output or progress element-->
-            <progress></progress>
-            <output role="header" class="info results js-answers-correct">Answers correct 0/0 </output>
-        </h2>
+        <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
+        <section id="main-screen-header">
+            <h2 role="header" class="js-main-screen js-question-number">
+                <!-- output: container element into which an app can inject the results of a calculation or the outcome of a user action -->
+                <output role="header" class="info js-question-number" value="number"> Question Number </output>      
+            <!--display question number, correct answers, etc. with either output or progress element-->
+                <progress></progress>
+                <output role="header" class="info results js-answers-correct">Answers correct 0/0 </output>
+            </h2>
+        </section>
     </header>
 
+    <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
     <main role="main" class="js-main-screen js-main-quiz">
             <button role="button" class="button js-main-screen js-button-next"> NEXT</button>
             <!-- <button role="button" class="button js-main-screen js-button-submit">SUBMIT</button> -->
@@ -40,28 +45,33 @@
                     <!-- <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label> -->
                     <button role="button" class="button js-question-set js-button-index0"> ${answer[0]}</button>
                     <br>
-
-                <h2 class="feedback js-results-screen">You did it! </h2>
-                <h3 class="feedback js-results-screen">Final Score: </h3>
-                <legend role="legend" class="feedback js-results-screen">Answers correct:</legend>
-                <output class="callout feedback js-results-screen js-final-callout-header" value="100"> Answers correct 0/0  </output><br>  
-                <button role="button" class="button js-results-screen js-button-restart">RE-START QUIZ</button> 
-                    
+                    <button role="button" class="button js-main-screen js-submit-button">SUBMIT</button>
+                          
                 <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
                     <output class="callout feedback js-results-feedback js-correct-callout-header">Correct!</output> 
                     <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->          
                      <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
                     <div class="callout feedback js-results-feedback js-callout-container"></div>
                         <p class="js-results-feedback js-correct-callout-header">explanation</p>
+                        <button role="button" class="button js-feedback-next-button"> NEXT </button>
 
                     <output class="callout feedback js-results-feedback js-incorrect-callout-header">Oops!</output>                     
                     <!-- <img src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face"> -->
                     <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
                     <div class="callout js-results-feedback js-callout-container"></div>
                         <p class ="js-results-feedback js-incorrect-callout-header" >explanation</p>
+                        <button role="button" class="button js-feedback-next-button"> NEXT </button>
                 <!-- <button role="button" class="button js-results-screen js-button-next">NEXT</button>  -->            
             </fieldset>          
         </form>
+        
+        <section id="finalscore-screen">       
+            <h2 class="feedback js-results-screen">You did it! </h2>
+            <h3 class="feedback js-results-screen">Final Score: </h3>
+            <legend role="legend" class="feedback js-results-screen">Answers correct:</legend>
+            <output class="callout feedback js-results-screen js-final-callout-header" value="100"> Answers correct 0/0  </output><br>                  
+            <button role="button" class="button js-results-screen js-restart-button">RE-START QUIZ</button> 
+        </section>
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

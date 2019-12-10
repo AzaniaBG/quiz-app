@@ -98,24 +98,42 @@ form, fieldset {
 .js-main-screen {
     display: none;
 }
+.js-question-screen {
+    display: none;
+}
+.js-submit-button {
+    display: none;
+}
 .js-start-screen {
     /* display: none; */
 }
-.js-button-start {
+.js-start-button {
 
 }
-.js-button-restart {
+/* display for MAIN screen */
+.js-main-screen {
+    /* display: none; */
+}
+.js-submit-button {
+    /* display: none; */
+}
+
+/* display for FEEDBACK screen */
+.js-results-feedback {
     display: none;
-
 }
+.js-feedback-next-button {
+    display: none;
+}
+
+/* display for FINAL SCORE screen */
 .js-results-screen {
     display: none;
 }
-.js-results-feedback {
+/* #finalscore-screen {
+    display: none;
+} */
+.js-restart-button {
     display: none;
 
 }
-
-/* display for MAIN screen */
-
-/* display for FINAL SCORE screen */

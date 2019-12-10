@@ -95,7 +95,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
     }
 //when START button clicked, START button hides, SUBMIT and NEXT button display 
     function handleStartButton() {
-            $(".js-button-start").click(function(event) {
+            $(".js-start-button").click(function(event) {
                 event.preventDefault();
                 $(".js-start-screen").toggle();
                 $(".js-main-screen").toggle();
@@ -151,7 +151,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             ${questionsSet}
             ${answersSet}       
             `
-            $(".js-button-start").click(function(event) {
+            $(".js-start-button").click(function(event) {
                 event.preventDefault();
             // $(".js-question-set").toggle();
             $(".js-question-set").html(questionSet);
@@ -212,21 +212,11 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             showNextQuestion(number);
             // showResultsScreen();
             });
-            // number++
-            
+            // number++          
         } else {
-            $(".js-button-restart").toggle();
-            $(".js-start-screen").toggle();
-            $("results").toggle();
-            // showResultsScreen();
-            // number = 0;
-            // $(".js-button-next").click(function(event) {
-            // event.preventDefault();
-            // // showResultsScreen();
-            // // number = 0;
-            // // showResultsScreen();
-            // // $("results").toggle();
-            // });
+            $("form.js-main-screen").toggle();
+            $(".js-restart-button").toggle();
+            $("#finalscore-screen").toggle();
         }
     }  
     // function showFeedback(answer) {
