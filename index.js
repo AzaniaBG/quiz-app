@@ -96,7 +96,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
     function startQuiz() {
         handleStartButton();    
     }
-//when START button clicked, START button hides, SUBMIT and NEXT button display 
+//when START button clicked, START button hides, SUBMIT and NEXT button displays 
     function handleStartButton() {
 
         $(".js-start-button").click(function(event) {
@@ -109,19 +109,26 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             $(".js-answers-correct").html(`${questionsCorrect}`);
         }); 
     }
-
-    function showResultsScreen() {
-    //if QUESTION NUMBER <= 5 && ANSWER = correct, show correct
-    // console.log(`showResultsScreen is:`);
-    //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
-
-    //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS
-        let results = $("legend.js-results-screen").html();
-    // console.log(`results is ${results}`)
-        
-        $(".js-question-set").toggle();
-        $(".js-results-screen").toggle();
-        
+    function handleSubmitButton() {
+        $(".js-submit-button").click(function(event) {
+            event.preventDefault();
+            number++;
+            checkQuestionSet(number);
+            if(number < 5) {           
+            // checkQuestionSet(number)
+            questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
+            $(".js-question-number").html(`${questionNumber}`);
+            $(".js-answers-correct").html(`${questionsCorrect}`)
+            // $("legend").text(test);
+            showNextQuestion(number);
+            let questionSet = showNextQuestion(number);
+            $("#main-screen-question-set").html(questionSet);              
+            // console.log(`number is now ${number}`);   
+            } else {
+                $("#main-screen-question-set").toggle();
+                $(".js-results-screen").toggle();
+            }
+        });
     }
 
     function renderOneQuestion(index) {
@@ -147,7 +154,8 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
                 return `<input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
                 <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label>
                 <button role="button" class="button js-question-set js-button-index0"> ${answers} </button>
-                <br>`
+                <br>
+                `
                 
             })
             answersSet.join("");
@@ -165,7 +173,21 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
         }
-   
+    function handleFeedback() {
+
+        
+    }
+    function showResultsScreen() {
+        //if QUESTION NUMBER <= 5 && ANSWER = correct, show correct
+        // console.log(`showResultsScreen is:`);
+        //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
+        //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS
+            let results = $("legend.js-results-screen").html();
+        // console.log(`results is ${results}`)      
+            $(".js-question-set").toggle();
+            $(".js-results-screen").toggle();
+            
+        }
     function handleNextButton(number) {
         // checkQuestionSet(number);
         $(".js-button-next").click(function(event) {
@@ -246,13 +268,14 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
     checkQuestionSet(number);
     showNextQuestion(number);
     // showQuestionNumber();
+    handleSubmitButton();
     handleNextButton(number);
     // generateQuestionSet(number);
     renderOneQuestion(number);
     renderOneAnswerSet(number);
     // renderQuestionSet();
     generateQuestionSet(number);
-    // handleStartButton(); why don't i need to call this ?
+    // handleStartButton(); why don't i need to call this here ?
     startQuiz();
     
 }

@@ -35,20 +35,20 @@
     <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
     <main role="main" class="js-main-screen js-main-quiz">
             <button role="button" class="button js-main-screen js-button-next"> NEXT</button>
+            <button role="button" class="button js-main-screen js-submit-button">SUBMIT</button>
             <!-- <button role="button" class="button js-main-screen js-button-submit">SUBMIT</button> -->
             
         <form role="form" class="form js-main-screen js-form-quiz">       
-            <fieldset id="main-screen-question-set" class="form js-fieldset"> 
+            <fieldset id="main-screen-question-set" class="form js-main-screen js-fieldset"> 
             <legend role="legend" class="form js-form-instruction">Select the Correct Spanish Translation for the Question Below</legend>
                 <!-- <h4 role="" class="form js-question-set" id="js-question${number}"> ${oneQuestion} </h4> -->
                 <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
                 <!-- <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label> -->
                 <button role="button" class="button js-question-set js-button-index0"> ${answer[0]}</button>
-                <br>
-                <button role="button" class="button js-main-screen js-submit-button">SUBMIT</button>
+                <br>           
             </fieldset>
-
         </form> 
+
                 <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
                     <output class="callout feedback js-results-feedback js-correct-callout-header">Correct!</output> 
                     <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->          
