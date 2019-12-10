@@ -93,17 +93,22 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
         }
               
     }
+    function startQuiz() {
+        handleStartButton();    
+    }
 //when START button clicked, START button hides, SUBMIT and NEXT button display 
     function handleStartButton() {
-            $(".js-start-button").click(function(event) {
-                event.preventDefault();
-                $(".js-start-screen").toggle();
-                $(".js-main-screen").toggle();
-                
-                $(".js-question-number").html(`${questionNumber}`);
-                $(".js-answers-correct").html(`${questionsCorrect}`);
-            });       
-        }
+
+        $(".js-start-button").click(function(event) {
+            event.preventDefault();
+            $("#start-screen").toggle();
+            // $("#main-screen-header").toggle();
+            $(".js-main-screen").toggle();
+            
+            $(".js-question-number").html(`${questionNumber}`);
+            $(".js-answers-correct").html(`${questionsCorrect}`);
+        }); 
+    }
 
     function showResultsScreen() {
     //if QUESTION NUMBER <= 5 && ANSWER = correct, show correct
@@ -175,7 +180,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             // $("legend").text(test);
             showNextQuestion(number);
             let questionSet = showNextQuestion(number);
-            $(".js-question-set").html(questionSet);              
+            $("#main-screen-question-set").html(questionSet);              
             // console.log(`number is now ${number}`);   
         } else {
 
@@ -214,6 +219,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             });
             // number++          
         } else {
+
             $("form.js-main-screen").toggle();
             $(".js-restart-button").toggle();
             $("#finalscore-screen").toggle();
@@ -246,7 +252,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
     renderOneAnswerSet(number);
     // renderQuestionSet();
     generateQuestionSet(number);
-    handleStartButton();
+    // handleStartButton(); why don't i need to call this ?
     startQuiz();
     
 }

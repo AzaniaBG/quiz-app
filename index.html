@@ -24,10 +24,10 @@
         <section id="main-screen-header">
             <h2 role="header" class="js-main-screen js-question-number">
                 <!-- output: container element into which an app can inject the results of a calculation or the outcome of a user action -->
-                <output role="header" class="info js-question-number" value="number"> Question Number </output>      
+            <output role="header" class="info js-question-number" value="number"> Question Number </output>      
             <!--display question number, correct answers, etc. with either output or progress element-->
-                <progress></progress>
-                <output role="header" class="info results js-answers-correct">Answers correct 0/0 </output>
+            <progress></progress>
+            <output role="header" class="info results js-answers-correct">Answers correct 0/0 </output>
             </h2>
         </section>
     </header>
@@ -38,15 +38,17 @@
             <!-- <button role="button" class="button js-main-screen js-button-submit">SUBMIT</button> -->
             
         <form role="form" class="form js-main-screen js-form-quiz">       
-            <fieldset class="form js-fieldset"> 
-                <legend role="legend" class="form js-form-instruction">Select the Correct Spanish Translation for the Question Below</legend>
-                    <!-- <h4 role="" class="form js-question-set" id="js-question${number}"> ${oneQuestion} </h4> -->
-                    <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
-                    <!-- <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label> -->
-                    <button role="button" class="button js-question-set js-button-index0"> ${answer[0]}</button>
-                    <br>
-                    <button role="button" class="button js-main-screen js-submit-button">SUBMIT</button>
-                          
+            <fieldset id="main-screen-question-set" class="form js-fieldset"> 
+            <legend role="legend" class="form js-form-instruction">Select the Correct Spanish Translation for the Question Below</legend>
+                <!-- <h4 role="" class="form js-question-set" id="js-question${number}"> ${oneQuestion} </h4> -->
+                <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
+                <!-- <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label> -->
+                <button role="button" class="button js-question-set js-button-index0"> ${answer[0]}</button>
+                <br>
+                <button role="button" class="button js-main-screen js-submit-button">SUBMIT</button>
+            </fieldset>
+
+        </form> 
                 <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
                     <output class="callout feedback js-results-feedback js-correct-callout-header">Correct!</output> 
                     <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->          
@@ -62,8 +64,7 @@
                         <p class ="js-results-feedback js-incorrect-callout-header" >explanation</p>
                         <button role="button" class="button js-feedback-next-button"> NEXT </button>
                 <!-- <button role="button" class="button js-results-screen js-button-next">NEXT</button>  -->            
-            </fieldset>          
-        </form>
+            
         
         <section id="finalscore-screen">       
             <h2 class="feedback js-results-screen">You did it! </h2>

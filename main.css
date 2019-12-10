@@ -95,6 +95,9 @@ form, fieldset {
     /* margin: 10px auto; */
 }
 /* display for START screen */
+#start-screen {
+
+}
 .js-main-screen {
     display: none;
 }
@@ -111,6 +114,9 @@ form, fieldset {
 
 }
 /* display for MAIN screen */
+#main-screen-header {
+
+}
 .js-main-screen {
     /* display: none; */
 }
