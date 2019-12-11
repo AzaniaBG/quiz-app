@@ -76,6 +76,7 @@ let answers = QUIZ.map(quiz =>{
 });
 generateQuestionSet(number)
 let questionSet = generateQuestionSet(number);
+             
 
 let questionNumber = `<output role="header" class="js-questions-screen-header js-question-number" value="num"> Question Number ${number+1} </output>`;
 
@@ -116,14 +117,17 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             checkQuestionSet(number);
             if(number < 5) {           
             // checkQuestionSet(number)
-            questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
-            $(".js-question-number").html(`${questionNumber}`);
-            $(".js-answers-correct").html(`${questionsCorrect}`)
-            // $("legend").text(test);
-            showNextQuestion(number);
-            let questionSet = showNextQuestion(number);
             
-            $("#js-questions-screen").html(questionSet);              
+            // questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
+            // $(".js-question-number").html(`${questionNumber}`);
+            // $(".js-answers-correct").html(`${questionsCorrect}`)
+
+            // $("legend").text(test);
+            
+            
+            // let questionSet = showNextQuestion(number);
+            
+            // $("#js-questions-screen").html(questionSet);              
             
             } else {
                 showResultsScreen();
@@ -213,8 +217,9 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     }
 
     function showNextQuestion(questionNumber) {
+        
         let nextQuestion = generateQuestionSet(questionNumber);
-    // console.log(`nextQuestion is ${nextQuestion}`)
+    console.log(`nextQuestion is ${nextQuestion}`)
             return nextQuestion;
     }
 
@@ -224,12 +229,11 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             $(".js-feedback-next-button").click(function(event) {
             event.preventDefault();
             // number++;
-            showNextQuestion(number);
+            // showNextQuestion(number);
             // showResultsScreen();
             });
             // number++          
         } else {
-
             $("form.js-main-screen").toggle();
             $(".js-restart-button").toggle();
             $("#finalscore-screen").toggle();
@@ -255,7 +259,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     // showResultsScreen();
     // showFeedback();
     checkQuestionSet(number);
-    showNextQuestion(number);
+    // showNextQuestion(number);
     // showQuestionNumber();
     handleSubmitButton();
     handleNextButton(number);
