@@ -79,8 +79,7 @@ let questionSet = generateQuestionSet(number);
              
 
 let questionNumber = `<output role="header" class="js-questions-screen-header js-question-number" value="num"> Question Number ${number+1} </output>`;
-
-let questionsCorrect = `<output role="header" class="js-questions-screen-header js-answers-correct">Answers correct 0/0 </output>`;
+let questionsCorrect = `<output role="header" class="js-questions-screen-header js-answers-correct">Answers correct 0/${number} </output>`;
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
 ///////////////////////////////////////////////////// END GLOBAL VARIABLES
@@ -159,8 +158,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
                 <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label>
                 <button role="button" class="button js-question-set js-button-index0"> ${answers} </button>
                 <br>
-                `
-                
+                `               
             })
             answersSet.join("");
     // console.log(`answersSet is ${answersSet}`)
@@ -192,7 +190,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         $(".js-feedback-next-button").click(function(event) {
             event.preventDefault();
             number++;
-            checkQuestionSet(number);
+            // checkQuestionSet(number);
             if(number < 5) {           
             // checkQuestionSet(number)
             questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
@@ -212,10 +210,10 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     }
 
     function renderQuestionSet() {
+        // let questionSetHeader = 
         questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
             $(".js-question-number").html(`${questionNumber}`);
-            $(".js-answers-correct").html(`${questionsCorrect}`);
-            
+            $(".js-answers-correct").html(`${questionsCorrect}`);   
             $(".js-question-set").html(questionSet);
     }
 
