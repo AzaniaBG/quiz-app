@@ -84,6 +84,7 @@ let questionNumber = `<output role="header" class="info js-question-number" valu
 let questionsCorrect = `<output role="header" class="info js-answers-correct">Answers correct 0/0 </output>`;
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
+///////////////////////////////////////////////////// END GLOBAL VARIABLES
     function handleQuiz() {
     
         if(number < 5) {
@@ -104,6 +105,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             $("#start-screen").toggle();
             // $("#main-screen-header").toggle();
             $(".js-main-screen").toggle();
+            $("#questions-screen-header").toggle();
             
             $(".js-question-number").html(`${questionNumber}`);
             $(".js-answers-correct").html(`${questionsCorrect}`);

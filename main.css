@@ -117,9 +117,19 @@ form, fieldset {
 #main-screen-header {
 
 }
-.js-main-screen {
-    /* display: none; */
+#questions-screen-header {
+    display: none;
+
 }
+
+
+.js-questions-screen-header {
+
+}
+.js-questions-screen {
+
+}
+
 .js-submit-button {
     /* display: none; */
 }
