@@ -122,7 +122,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             // $("legend").text(test);
             showNextQuestion(number);
             let questionSet = showNextQuestion(number);
-            //$("#main-screen-question-set").html(questionSet);
+            
             $("#js-questions-screen").html(questionSet);              
             
             } else {
@@ -183,7 +183,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         // console.log(`showResultsScreen is:`);
         //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
         //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS
-            // $("#main-screen-question-set").toggle();
+           
             $("#js-questions-screen").toggle();
             $("#finalscore-screen").toggle();         
         }
@@ -202,7 +202,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             // $("legend").text(test);
             showNextQuestion(number);
             let questionSet = showNextQuestion(number);
-            //$("#main-screen-question-set").html(questionSet);
+            
             $("#js-questions-screen").html(questionSet);              
                
         } else {
@@ -245,6 +245,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     // }
 
     function restartQuiz() {
+        $(".js-restart-button").toggle();
         
     };
 
