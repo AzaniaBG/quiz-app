@@ -69,8 +69,6 @@ let number = 0;
 let questions = QUIZ.map(quiz => {        
     return quiz.question;
 });
-// console.log(`questions is ${questions}`);
-// console.log(typeof questions);
 
 //ANSWERS returns an array of objects
 let answers = QUIZ.map(quiz =>{ 
@@ -79,9 +77,9 @@ let answers = QUIZ.map(quiz =>{
 generateQuestionSet(number)
 let questionSet = generateQuestionSet(number);
 
-let questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
+let questionNumber = `<output role="header" class="js-questions-screen-header js-question-number" value="num"> Question Number ${number+1} </output>`;
 
-let questionsCorrect = `<output role="header" class="info js-answers-correct">Answers correct 0/0 </output>`;
+let questionsCorrect = `<output role="header" class="js-questions-screen-header js-answers-correct">Answers correct 0/0 </output>`;
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
 ///////////////////////////////////////////////////// END GLOBAL VARIABLES
@@ -124,8 +122,9 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             // $("legend").text(test);
             showNextQuestion(number);
             let questionSet = showNextQuestion(number);
-            $("#main-screen-question-set").html(questionSet);              
-            // console.log(`number is now ${number}`);   
+            //$("#main-screen-question-set").html(questionSet);
+            $("#js-questions-screen").html(questionSet);              
+            
             } else {
                 showResultsScreen();
             }
@@ -184,7 +183,8 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
         // console.log(`showResultsScreen is:`);
         //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
         //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS
-            $("#main-screen-question-set").toggle();
+            // $("#main-screen-question-set").toggle();
+            $("#js-questions-screen").toggle();
             $("#finalscore-screen").toggle();         
         }
 
@@ -202,8 +202,9 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             // $("legend").text(test);
             showNextQuestion(number);
             let questionSet = showNextQuestion(number);
-            $("#main-screen-question-set").html(questionSet);              
-            // console.log(`number is now ${number}`);   
+            //$("#main-screen-question-set").html(questionSet);
+            $("#js-questions-screen").html(questionSet);              
+               
         } else {
                 showResultsScreen();
                 };   
