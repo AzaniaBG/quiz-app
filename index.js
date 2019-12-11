@@ -192,12 +192,13 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             number++;
             // checkQuestionSet(number);
             if(number < 5) {           
-            // checkQuestionSet(number)
+            
             questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
             $(".js-question-number").html(`${questionNumber}`);
             $(".js-answers-correct").html(`${questionsCorrect}`)
             // $("legend").text(test);
-            showNextQuestion(number);
+            
+            
             let questionSet = showNextQuestion(number);
             
             $("#js-questions-screen").html(questionSet);              
