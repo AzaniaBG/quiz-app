@@ -117,7 +117,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             checkQuestionSet(number);
             if(number < 5) {           
             // checkQuestionSet(number)
-            
+
             // questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
             // $(".js-question-number").html(`${questionNumber}`);
             // $(".js-answers-correct").html(`${questionsCorrect}`)
@@ -168,11 +168,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             ${questionsSet}
             ${answersSet}       
             `
-            $(".js-start-button").click(function(event) {
-                event.preventDefault();
-            // $(".js-question-set").toggle();
-            $(".js-question-set").html(questionSet);
-            });
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
         }
@@ -214,6 +209,14 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
                 };   
 
             });
+    }
+
+    function renderQuestionSet() {
+        questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
+            $(".js-question-number").html(`${questionNumber}`);
+            $(".js-answers-correct").html(`${questionsCorrect}`);
+            
+            $(".js-question-set").html(questionSet);
     }
 
     function showNextQuestion(questionNumber) {
@@ -266,7 +269,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     // generateQuestionSet(number);
     renderOneQuestion(number);
     renderOneAnswerSet(number);
-    // renderQuestionSet();
+    renderQuestionSet();
     generateQuestionSet(number);
     // handleStartButton(); why don't i need to call this here ?
     startQuiz();
