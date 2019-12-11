@@ -34,12 +34,15 @@
 
     <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
     <main role="main" class="js-main-screen js-main-quiz">
-            <button role="button" class="button js-main-screen js-button-next"> NEXT</button>
-            <button role="button" class="button js-main-screen js-submit-button">SUBMIT</button>
+            <!-- <button role="button" class="button js-main-screen js-button-next"> NEXT</button> -->
+            <!-- <button role="button" class="button js-main-screen js-submit-button">SUBMIT</button> -->
             <!-- <button role="button" class="button js-main-screen js-button-submit">SUBMIT</button> -->
             
-        <form role="form" class="form js-main-screen js-form-quiz">       
-            <fieldset id="main-screen-question-set" class="form js-main-screen js-fieldset"> 
+        <form role="form" class="form js-main-screen js-form-quiz">    
+                <button role="button" class="button js-main-screen js-feedback-next-button"> NEXT</button>
+                <button role="button" class="button js-main-screen js-submit-button">SUBMIT</button>
+
+            <fieldset id="main-screen-question-set" class="form js-main-screen js-fieldset">               
             <legend role="legend" class="form js-form-instruction">Select the Correct Spanish Translation for the Question Below</legend>
                 <!-- <h4 role="" class="form js-question-set" id="js-question${number}"> ${oneQuestion} </h4> -->
                 <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
@@ -63,15 +66,14 @@
                     <div class="callout js-results-feedback js-callout-container"></div>
                         <p class ="js-results-feedback js-incorrect-callout-header" >explanation</p>
                         <button role="button" class="button js-feedback-next-button"> NEXT </button>
-                <!-- <button role="button" class="button js-results-screen js-button-next">NEXT</button>  -->            
             
         
         <section id="finalscore-screen">       
-            <h2 class="feedback js-results-screen">You did it! </h2>
-            <h3 class="feedback js-results-screen">Final Score: </h3>
-            <legend role="legend" class="feedback js-results-screen">Answers correct:</legend>
-            <output class="callout feedback js-results-screen js-final-callout-header" value="100"> Answers correct 0/0  </output><br>                  
-            <button role="button" class="button js-results-screen js-restart-button">RE-START QUIZ</button> 
+            <h2 class="feedback js-finalscore-screen">You did it! </h2>
+            <h3 class="feedback js-finalscore-screen">Final Score: </h3>
+            <legend role="legend" class="feedback js-finalscore-screen">Answers correct:</legend>
+            <output class="callout feedback js-finalscore-screen js-final-callout-header" value="100"> Answers correct 0/0  </output><br>                  
+            <button role="button" class="button js-finalscore-screen js-restart-button">RE-START QUIZ</button> 
         </section>
     </main>
 

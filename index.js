@@ -126,7 +126,8 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             // console.log(`number is now ${number}`);   
             } else {
                 $("#main-screen-question-set").toggle();
-                $(".js-results-screen").toggle();
+                $("#finalscore-screen").toggle();
+                // $(".js-results-screen").toggle();
             }
         });
     }
@@ -185,12 +186,12 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             let results = $("legend.js-results-screen").html();
         // console.log(`results is ${results}`)      
             $(".js-question-set").toggle();
-            $(".js-results-screen").toggle();
-            
+            $(".js-results-screen").toggle();           
         }
+
     function handleNextButton(number) {
         // checkQuestionSet(number);
-        $(".js-button-next").click(function(event) {
+        $(".js-feedback-next-button").click(function(event) {
             event.preventDefault();
             number++;
             checkQuestionSet(number);
@@ -205,19 +206,18 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             $("#main-screen-question-set").html(questionSet);              
             // console.log(`number is now ${number}`);   
         } else {
-
-            showResultsScreen();
             // let results = $("legend.js-results-screen").html();
             // console.log(`results is ${results}`)
 
-            $(".js-button-next").click(function(event) {
+            $(".js-feedback-next-button").click(function(event) {
                 event.preventDefault();
-                // // number = 0;
-                questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${0} </output>`;
-                $(".js-final-callout-header").toggle();
-                $(".js-question-set").toggle();
-                $(".js-question-number").toggle();
                 showResultsScreen();
+                // // number = 0;
+                // questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${0} </output>`;
+                // $(".js-final-callout-header").toggle();
+                // $(".js-question-set").toggle();
+                // $(".js-question-number").toggle();
+
                     });
                 };   
 
@@ -233,7 +233,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
     function checkQuestionSet(number) {
         if(number <= 5) {
             // number++;
-            $(".js-button-next").click(function(event) {
+            $(".js-feedback-next-button").click(function(event) {
             event.preventDefault();
             // number++;
             showNextQuestion(number);

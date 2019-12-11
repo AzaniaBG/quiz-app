@@ -133,9 +133,13 @@ form, fieldset {
 }
 
 /* display for FINAL SCORE screen */
-.js-results-screen {
+#finalscore-screen {
     display: none;
 }
+
+/* .js-finalscore-screen {
+    display: none;
+} */
 /* #finalscore-screen {
     display: none;
 } */
