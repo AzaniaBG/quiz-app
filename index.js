@@ -125,9 +125,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             $("#main-screen-question-set").html(questionSet);              
             // console.log(`number is now ${number}`);   
             } else {
-                $("#main-screen-question-set").toggle();
-                $("#finalscore-screen").toggle();
-                // $(".js-results-screen").toggle();
+                showResultsScreen();
             }
         });
     }
@@ -170,23 +168,22 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             // $(".js-question-set").toggle();
             $(".js-question-set").html(questionSet);
             });
-
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
         }
+
     function handleFeedback() {
 
         
     }
+
     function showResultsScreen() {
         //if QUESTION NUMBER <= 5 && ANSWER = correct, show correct
         // console.log(`showResultsScreen is:`);
         //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
         //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS
-            let results = $("legend.js-results-screen").html();
-        // console.log(`results is ${results}`)      
-            $(".js-question-set").toggle();
-            $(".js-results-screen").toggle();           
+            $("#main-screen-question-set").toggle();
+            $("#finalscore-screen").toggle();         
         }
 
     function handleNextButton(number) {
@@ -206,19 +203,7 @@ let questionsCorrect = `<output role="header" class="info js-answers-correct">An
             $("#main-screen-question-set").html(questionSet);              
             // console.log(`number is now ${number}`);   
         } else {
-            // let results = $("legend.js-results-screen").html();
-            // console.log(`results is ${results}`)
-
-            $(".js-feedback-next-button").click(function(event) {
-                event.preventDefault();
                 showResultsScreen();
-                // // number = 0;
-                // questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${0} </output>`;
-                // $(".js-final-callout-header").toggle();
-                // $(".js-question-set").toggle();
-                // $(".js-question-number").toggle();
-
-                    });
                 };   
 
             });
