@@ -135,6 +135,9 @@ form, fieldset {
 }
 
 /* display for FEEDBACK screen */
+.callout {
+    display: none;
+}
 .js-results-feedback {
     display: none;
 }

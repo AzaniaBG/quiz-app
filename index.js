@@ -83,15 +83,14 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
 ///////////////////////////////////////////////////// END GLOBAL VARIABLES
-    function handleQuiz() {
-    
+    function handleQuiz() { 
         if(number < 5) {
             startQuiz();
         } else {
-            showResultsScreen();
-        }
-              
+            showFinalScoreScreen();
+        }             
     }
+
     function startQuiz() {
         handleStartButton();    
     }
@@ -112,6 +111,8 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function handleSubmitButton() {
         $(".js-submit-button").click(function(event) {
             event.preventDefault();
+            handleFeedback()
+
             number++;
             checkQuestionSet(number);
             if(number < 5) {           
@@ -121,15 +122,8 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             // $(".js-question-number").html(`${questionNumber}`);
             // $(".js-answers-correct").html(`${questionsCorrect}`)
 
-            // $("legend").text(test);
-            
-            
-            // let questionSet = showNextQuestion(number);
-            
-            // $("#js-questions-screen").html(questionSet);              
-            
             } else {
-                showResultsScreen();
+                showFinalScoreScreen();
             }
         });
     }
@@ -171,16 +165,15 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         }
 
     function handleFeedback() {
-
         
+        $("#questions-screen-header").toggle();
+        $(".callout").toggle();  
     }
 
-    function showResultsScreen() {
+    function showFinalScoreScreen() {
         //if QUESTION NUMBER <= 5 && ANSWER = correct, show correct
-        // console.log(`showResultsScreen is:`);
         //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
-        //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS
-           
+        //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS           
             $("#js-questions-screen").toggle();
             $("#finalscore-screen").toggle();         
         }
@@ -196,26 +189,26 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
             $(".js-question-number").html(`${questionNumber}`);
             $(".js-answers-correct").html(`${questionsCorrect}`)
-            // $("legend").text(test);
-            
             
             let questionSet = showNextQuestion(number);
             
             $("#js-questions-screen").html(questionSet);              
                
         } else {
-                showResultsScreen();
+            showFinalScoreScreen();
                 };   
 
             });
     }
 
     function renderQuestionSet() {
-        // let questionSetHeader = 
+        
         questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
             $(".js-question-number").html(`${questionNumber}`);
             $(".js-answers-correct").html(`${questionsCorrect}`);   
-            $(".js-question-set").html(questionSet);
+            $(".js-question-set").html(questionSet);         
+            
+            $("#js-questions-screen").html(questionSet);
     }
 
     function showNextQuestion(questionNumber) {
@@ -232,7 +225,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             event.preventDefault();
             // number++;
             // showNextQuestion(number);
-            // showResultsScreen();
             });
             // number++          
         } else {
@@ -258,7 +250,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function handleQuiz() {
 
     restartQuiz();
-    // showResultsScreen();
     // showFeedback();
     checkQuestionSet(number);
     // showNextQuestion(number);
