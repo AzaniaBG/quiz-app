@@ -16,8 +16,8 @@
         <!-- start screen shows welcome, instructions, and start button -->
         <section id="start-screen"> 
             <h1 role="header" class="js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
-            <p role="" class="header js-start-screen">Click the "START" button to begin the quiz</p>
-            <button role="button" class="button js-start-screen js-start-button">START</button>
+            <p role="" class="js-start-screen">Click the "START" button to begin the quiz</p>
+            <button role="button" class="js-start-screen js-start-button">START</button>
         </section>
 
         <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
@@ -33,36 +33,37 @@
     </header>
 
     <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
-    <main role="main" class="js-main-screen js-main-quiz">
+    <main role="main">
             
             
         <form role="form" class="form js-main-screen js-questions-screen js-form-quiz">    
-                <button role="button" class="button js-main-screen js-questions-screen js-feedback-next-button"> NEXT</button>
-                <button role="button" class="button js-main-screen js-questions-screen js-submit-button">SUBMIT</button>
+                <!-- <button role="button" class="button js-main-screen js-questions-screen js-feedback-next-button"> NEXT</button>
+                <button role="button" class="button js-main-screen js-questions-screen js-submit-button">SUBMIT</button> -->
 
-            <fieldset id="js-questions-screen" class="form js-questions-screen js-fieldset">               
-            <legend role="legend" class="form js-questions-screen js-form-instruction">Select the Correct Spanish Translation for the Question Below</legend>
+            <fieldset id="questions-screen" class="form js-questions-screen js-fieldset">                              
+            <legend role="legend" class="form js-questions-screen js-form-instruction">Select the Correct Spanish Translation for the Question Below </legend>
+              
                 
-                <button role="button" class="button js-question-set js-button-index0"> ${answer[0]}</button>
-                <br>           
             </fieldset> 
         </form> 
 
-                <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
-                <button role="button" class="callout feedback js-feedback-next-button"> NEXT</button>
-                    <output class="callout feedback js-results-feedback js-correct-callout-header">Correct!</output> 
-                    <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->          
-                     <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
-                    <div class="callout feedback js-results-feedback js-callout-container"></div>
-                        <p class="callout js-results-feedback js-correct-callout-header">explanation</p>
-                        <button role="button" class="feedback js-feedback-next-button"> NEXT</button>
-
-                    <output class="callout feedback js-results-feedback js-incorrect-callout-header">Oops!</output>                     
-                    <!-- <img src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face"> -->
+        <section id="feedback-screen">
+            <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
+            
+                <output class="callout feedback js-results-feedback js-correct-callout-header">Correct!</output> 
+                <!-- <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses"> -->          
                     <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
-                    <div class="callout js-results-feedback js-callout-container"></div>
-                        <p class ="callout js-results-feedback js-incorrect-callout-header">explanation</p>
-                    
+                <div class="callout feedback js-results-feedback js-callout-container"></div>
+                    <p class="callout js-results-feedback js-correct-callout-header">explanation</p>
+                    <button role="button" class="feedback js-feedback-next-button"> NEXT</button>
+
+                <output class="callout feedback js-results-feedback js-incorrect-callout-header">Oops!</output>                     
+                <!-- <img src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face"> -->
+                <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
+                <div class="callout js-results-feedback js-callout-container"></div>
+                    <p class ="callout js-results-feedback js-incorrect-callout-header">explanation</p>
+                <button role="button" class="callout feedback js-feedback-next-button"> NEXT</button>
+        </section>            
             
         
         <section id="finalscore-screen">       

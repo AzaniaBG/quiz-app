@@ -69,7 +69,6 @@ let number = 0;
 let questions = QUIZ.map(quiz => {        
     return quiz.question;
 });
-
 //ANSWERS returns an array of objects
 let answers = QUIZ.map(quiz =>{ 
     return quiz.answers; 
@@ -77,12 +76,11 @@ let answers = QUIZ.map(quiz =>{
 generateQuestionSet(number)
 let questionSet = generateQuestionSet(number);
              
-
-let questionNumber = `<output role="header" class="js-questions-screen-header js-question-number" value="num"> Question Number ${number+1} </output>`;
+let questionNumber = number+1;
 let questionsCorrect = `<output role="header" class="js-questions-screen-header js-answers-correct">Answers correct 0/${number} </output>`;
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
-///////////////////////////////////////////////////// END GLOBAL VARIABLES
+///////////////////////////////////////////////////// END GLOBAL VARIABLES /////////////////////////////////////
     function handleQuiz() { 
         if(number < 5) {
             startQuiz();
@@ -92,22 +90,24 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     }
 
     function startQuiz() {
+        $("#questions-screen-header").hide();
+        $("#questions-screen").hide();
+        $("#feedback-screen").hide();
+        $("#finalscore-screen").hide();
+
         handleStartButton();    
     }
 //when START button clicked, START button hides, SUBMIT and NEXT button displays 
     function handleStartButton() {
 
-        $(".js-start-button").click(function(event) {
+        $(".js-start-button").on("click", function(event) {
             event.preventDefault();
-            $("#start-screen").toggle();
-            // $("#main-screen-header").toggle();
-            $(".js-main-screen").toggle();
-            $("#questions-screen-header").toggle();
-            
-            $(".js-question-number").html(`${questionNumber}`);
-            $(".js-answers-correct").html(`${questionsCorrect}`);
+            $("#start-screen").hide();
+            $("#questions-screen-header").show();
+            $("#questions-screen").show();
         }); 
     }
+    
     function handleSubmitButton() {
         $(".js-submit-button").click(function(event) {
             event.preventDefault();
@@ -143,27 +143,32 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function generateQuestionSet(number) {
         let answer = renderOneAnswerSet(number);
     // console.log(`answer is ${answer}`);
-            let questionsSet = 
-            `<h4 role="" class="form js-question-set" id="js-question${number}"> ${questions[number]}</h4>`
+         
     // console.log(`questionsSet is ${questionsSet}`); 
 
             let answersSet = answer.map((answers) =>{
-                return `<input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
-                <label for="index0" class="radio js-question-set js-button-index0" lang="es"> </label>
-                <button role="button" class="button js-question-set js-button-index0"> ${answers} </button>
+                return `
+                <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
+                <label for="index0" class="radio js-question-set js-button-index0" lang="es">${answers}</label>
+                
                 <br>
                 `               
             })
             answersSet.join("");
     // console.log(`answersSet is ${answersSet}`)
             let questionSet = `
-            ${questionsSet}
-            ${answersSet}       
+            <h4 role="" class="form js-question-set" id="js-question-${number}"> ${questions[number]}</h4>
+            ${answersSet}<br>
+            <button role="button" type="button" class="js-question-set js-submit-button"> SUBMIT  </button>       
             `
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
         }
 
+    function renderQuestionSet() {
+
+            $("#questions-screen").append(questionSet);
+    }
     function handleFeedback() {
         
         $("#questions-screen-header").toggle();
@@ -174,7 +179,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         //if QUESTION NUMBER <= 5 && ANSWER = correct, show correct
         //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
         //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS           
-            $("#js-questions-screen").toggle();
+            $("#questions-screen").hide();
             $("#finalscore-screen").toggle();         
         }
 
@@ -199,16 +204,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
                 };   
 
             });
-    }
-
-    function renderQuestionSet() {
-        
-        questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
-            $(".js-question-number").html(`${questionNumber}`);
-            $(".js-answers-correct").html(`${questionsCorrect}`);   
-            $(".js-question-set").html(questionSet);         
-            
-            $("#js-questions-screen").html(questionSet);
     }
 
     function showNextQuestion(questionNumber) {
@@ -243,7 +238,10 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     // }
 
     function restartQuiz() {
-        $(".js-restart-button").toggle();
+        $(".js-restart-button").on("click", function(event) {
+            $("#start-screen").show();
+        })
+        
         
     };
 

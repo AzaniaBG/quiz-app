@@ -52,10 +52,9 @@ time, mark, audio, video {
             flex-wrap: wrap;
             /* flex-grow: 1; */
         }
-        .button {
-            font-size: 30px;
-        }  */
-    
+.button {
+        font-size: 30px;
+        margin: 10px 0;    
 }
 
 /*laptops and desktops wireframe*/
@@ -73,9 +72,6 @@ time, mark, audio, video {
         flex-shrink: 2;
     } */
 
-.selected {
-
-}
 
 }
 .correct {
@@ -85,9 +81,6 @@ time, mark, audio, video {
     background-image: url("https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg");
 }
 
-.button {
-    margin: 10px 0;
-}
 legend {
     padding-top: 50px;
 }
@@ -98,18 +91,7 @@ form, fieldset {
 #start-screen {
 
 }
-.js-main-screen {
-    display: none;
-}
-.js-question-screen {
-    display: none;
-}
-.js-submit-button {
-    display: none;
-}
-.js-start-screen {
-    /* display: none; */
-}
+
 .js-start-button {
 
 }
@@ -117,16 +99,9 @@ form, fieldset {
 #main-screen-header {
 
 }
+
 #questions-screen-header {
     display: none;
-
-}
-
-
-.js-questions-screen-header {
-
-}
-.js-questions-screen {
 
 }
 
@@ -135,27 +110,16 @@ form, fieldset {
 }
 
 /* display for FEEDBACK screen */
-.callout {
-    display: none;
-}
-.js-results-feedback {
-    display: none;
-}
+
 .js-feedback-next-button {
     display: none;
 }
 
 /* display for FINAL SCORE screen */
 #finalscore-screen {
-    display: none;
+    
 }
 
-/* .js-finalscore-screen {
-    display: none;
-} */
-/* #finalscore-screen {
-    display: none;
-} */
 .js-restart-button {
     display: none;
 
