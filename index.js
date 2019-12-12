@@ -107,26 +107,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             $("#questions-screen").show();
         }); 
     }
-    
-    function handleSubmitButton() {
-        $(".js-submit-button").click(function(event) {
-            event.preventDefault();
-            handleFeedback()
-
-            number++;
-            checkQuestionSet(number);
-            if(number < 5) {           
-            // checkQuestionSet(number)
-
-            // questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
-            // $(".js-question-number").html(`${questionNumber}`);
-            // $(".js-answers-correct").html(`${questionsCorrect}`)
-
-            } else {
-                showFinalScoreScreen();
-            }
-        });
-    }
 
     function renderOneQuestion(index) {
         let question = questions[index];
@@ -149,8 +129,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             let answersSet = answer.map((answers) =>{
                 return `
                 <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
-                <label for="index0" class="radio js-question-set js-button-index0" lang="es">${answers}</label>
-                
+                <label for="index0" class="radio js-question-set js-button-index0" lang="es">${answers}</label>              
                 <br>
                 `               
             })
@@ -158,8 +137,9 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     // console.log(`answersSet is ${answersSet}`)
             let questionSet = `
             <h4 role="" class="form js-question-set" id="js-question-${number}"> ${questions[number]}</h4>
+            <button role="button" type="button" id="question-submit-button" class="js-question-set"> SUBMIT  </button><br>
             ${answersSet}<br>
-            <button role="button" type="button" class="js-question-set js-submit-button"> SUBMIT  </button>       
+                   
             `
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
@@ -169,10 +149,16 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
 
             $("#questions-screen").append(questionSet);
     }
+    function handleSubmitButton() {
+        $("#questions-screen").on("click", "#question-submit-button", function(event) {
+            event.preventDefault();
+            handleFeedback();  
+        });
+    }
     function handleFeedback() {
         
-        $("#questions-screen-header").toggle();
-        $(".callout").toggle();  
+        $("#feedback-screen").show(); 
+        $("#questions-screen").hide(); 
     }
 
     function showFinalScoreScreen() {
