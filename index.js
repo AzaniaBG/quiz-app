@@ -126,14 +126,18 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
          
     // console.log(`questionsSet is ${questionsSet}`); 
 
-            let answersSet = answer.map((answers) =>{
+            let answersSet = answer.map((answers, index) =>{
+                let item = answer[index];
+                let indexNumber = answer.indexOf(item);
+    //console.log(`indexNumber is ${indexNumber}`)
                 return `
-                <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="0" checked id="index0">
+                <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" checked id="index0">
                 <label for="index0" class="radio js-question-set js-button-index0" lang="es">${answers}</label>              
                 <br>
                 `               
             })
             answersSet.join("");
+    
     // console.log(`answersSet is ${answersSet}`)
             let questionSet = `
             <h4 role="" class="form js-question-set" id="js-question-${number}"> ${questions[number]}</h4>
