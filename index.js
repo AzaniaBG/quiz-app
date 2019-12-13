@@ -131,8 +131,8 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
                 let indexNumber = answer.indexOf(item);
     //console.log(`indexNumber is ${indexNumber}`)
                 return `
-                <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" checked id="index0">
-                <label for="index0" class="radio js-question-set js-button-index0" lang="es">${answers}</label>              
+                <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" checked id="${indexNumber}">
+                <label for="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
                 <br>
                 `               
             })
@@ -170,8 +170,10 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function handleFeedback() {
         $("#feedback-screen").show();
         $("#questions-screen").hide();
-        let feedback = `<button type="submit" id="js-feedback-next-button"> NEXT </button>`
-        $("#feedback-screen").append(feedback);
+        let feedback = `<aside> MUY BIEN! </aside>
+                        <aside> OOPS! </aside>
+        <button type="submit" id="js-feedback-next-button"> NEXT </button>`
+        $("#feedback-screen").html(feedback);
         // if(answer===correct) {
         // let correctFeedback = `
         // <div class="callout feedback js-results-feedback js-callout-container">
