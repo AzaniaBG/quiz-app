@@ -146,8 +146,8 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         }
 
     function renderQuestionSet() {
-
-            $("#questions-screen").append(questionSet);
+            
+            $("#questions-screen").html(questionSet);
     }
     function handleSubmitButton() {
         $("#questions-screen").on("click", "#question-submit-button", function(event) {
@@ -155,36 +155,51 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             handleFeedback();  
         });
     }
-    function handleFeedback() {
-        
-        $("#feedback-screen").show(); 
-        $("#questions-screen").hide(); 
+    function showNextQuestion(questionNumber) {
+        $("#questions-screen").show();
+        $("#feedback-screen").hide();
+        questionSet = generateQuestionSet(questionNumber);
+    // console.log(`nextQuestion is ${nextQuestion}`)
+        $("#questions-screen").html(questionSet);
     }
-
-    function showFinalScoreScreen() {
-        //if QUESTION NUMBER <= 5 && ANSWER = correct, show correct
-        //if QUESTION NUMBER <= 5 && ANSWER = incorrect, show incorrect
-        //if QUESTION NUMBER === 5 && ANSWER feedback provided, show RESULTS           
-            $("#questions-screen").hide();
-            $("#finalscore-screen").toggle();         
-        }
-
+    
+    function handleFeedback() {
+        $("#feedback-screen").show();
+        $("#questions-screen").hide();
+        let feedback = `<button type="submit" id="js-feedback-next-button"> NEXT </button>`
+        $("#feedback-screen").append(feedback);
+        // if(answer===correct) {
+        // let correctFeedback = `
+        // <div class="callout feedback js-results-feedback js-callout-container">
+        //     <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
+        //     <output class="callout feedback js-results-feedback js-correct-callout-header">Correct!</output> 
+        // <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses">          
+        //     <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
+        //     <p class="callout js-results-feedback js-correct-callout-header">explanation</p>
+        //     <button role="button" class="feedback js-feedback-next-button"> NEXT</button>
+        // </div>`
+        // $("#feedback-screen").html(correctFeedback)
+    
+        // } else {   
+        //     let incorrectFeedback = `
+        //     <div class="callout js-results-feedback js-callout-container">
+        //         <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
+        //         <output class="callout feedback js-results-feedback js-incorrect-callout-header">Oops!</output>                     
+        //     <img src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face"> 
+        //         <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>       
+        //             <p class ="callout js-results-feedback js-incorrect-callout-header">explanation</p>
+        //         <button role="button" class="callout feedback js-feedback-next-button"> NEXT</button>
+        //     </div>`
+        //     $("#feedback-screen").html(incorrectFeedback)
+        // }       
+    }
     function handleNextButton(number) {
-        // checkQuestionSet(number);
-        $(".js-feedback-next-button").click(function(event) {
+        $("#feedback-screen").on("click", "#js-feedback-next-button", function(event) {
             event.preventDefault();
             number++;
-            // checkQuestionSet(number);
             if(number < 5) {           
+            showNextQuestion(number);
             
-            questionNumber = `<output role="header" class="info js-question-number" value="num"> Question Number ${number+1} </output>`;
-            $(".js-question-number").html(`${questionNumber}`);
-            $(".js-answers-correct").html(`${questionsCorrect}`)
-            
-            let questionSet = showNextQuestion(number);
-            
-            $("#js-questions-screen").html(questionSet);              
-               
         } else {
             showFinalScoreScreen();
                 };   
@@ -192,27 +207,13 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             });
     }
 
-    function showNextQuestion(questionNumber) {
-        
-        let nextQuestion = generateQuestionSet(questionNumber);
-    console.log(`nextQuestion is ${nextQuestion}`)
-            return nextQuestion;
-    }
+    function showFinalScoreScreen() {          
+            $("#questions-screen").hide();
+            $("#finalscore-screen").toggle();         
+        }
 
     function checkQuestionSet(number) {
-        if(number <= 5) {
-            // number++;
-            $(".js-feedback-next-button").click(function(event) {
-            event.preventDefault();
-            // number++;
-            // showNextQuestion(number);
-            });
-            // number++          
-        } else {
-            $("form.js-main-screen").toggle();
-            $(".js-restart-button").toggle();
-            $("#finalscore-screen").toggle();
-        }
+        
     }  
     // function showFeedback(answer) {
     //     // let correctAnswer = this.options["option2"];
