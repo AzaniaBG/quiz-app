@@ -73,7 +73,7 @@ let questions = QUIZ.map(quiz => {
 let answers = QUIZ.map(quiz =>{ 
     return quiz.answers; 
 });
-generateQuestionSet(number)
+// generateQuestionSet(number)
 let questionSet = generateQuestionSet(number);
              
 let questionNumber = number+1;
@@ -82,8 +82,11 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
 ///////////////////////////////////////////////////// END GLOBAL VARIABLES /////////////////////////////////////
     function handleQuiz() { 
-        if(number < 5) {
+        if(number === 0) {
             startQuiz();
+        } else if(number >5) {
+            showNextQuestion();
+
         } else {
             showFinalScoreScreen();
         }             
@@ -94,7 +97,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         $("#questions-screen").hide();
         $("#feedback-screen").hide();
         $("#finalscore-screen").hide();
-
         handleStartButton();    
     }
 //when START button clicked, START button hides, SUBMIT and NEXT button displays 
@@ -123,7 +125,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function generateQuestionSet(number) {
         let answer = renderOneAnswerSet(number);
     // console.log(`answer is ${answer}`);
-         
     // console.log(`questionsSet is ${questionsSet}`); 
 
             let answersSet = answer.map((answers, index) =>{
@@ -133,8 +134,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
                 return `
                 <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" checked id="${indexNumber}">
                 <label for="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
-                <br>
-                `               
+                <br>`               
             })
             answersSet.join("");
     
@@ -142,9 +142,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             let questionSet = `
             <h4 role="" class="form js-question-set" id="js-question-${number}"> ${questions[number]}</h4>
             <button role="button" type="button" id="question-submit-button" class="js-question-set"> SUBMIT  </button><br>
-            ${answersSet}<br>
-                   
-            `
+            ${answersSet}<br>`
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
         }
@@ -156,48 +154,42 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function handleSubmitButton() {
         $("#questions-screen").on("click", "#question-submit-button", function(event) {
             event.preventDefault();
-            handleFeedback();  
+            let answerValue = $("input[name=options]:checked").val();
+        //console.log(`answerValue is ${answerValue}`)
+            handleFeedback(answerValue, number);  
         });
     }
     function showNextQuestion(questionNumber) {
         $("#questions-screen").show();
         $("#feedback-screen").hide();
+    console.log(`questionNumber is ${questionNumber}`);
         questionSet = generateQuestionSet(questionNumber);
     // console.log(`nextQuestion is ${nextQuestion}`)
         $("#questions-screen").html(questionSet);
+        
+    console.log(`questionNumber is now ${questionNumber}`);
     }
     
-    function handleFeedback() {
+    function handleFeedback(answerValue, number) {
+        
         $("#feedback-screen").show();
         $("#questions-screen").hide();
-        let feedback = `<aside> MUY BIEN! </aside>
-                        <aside> OOPS! </aside>
-        <button type="submit" id="js-feedback-next-button"> NEXT </button>`
-        $("#feedback-screen").html(feedback);
-        // if(answer===correct) {
-        // let correctFeedback = `
-        // <div class="callout feedback js-results-feedback js-callout-container">
-        //     <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
-        //     <output class="callout feedback js-results-feedback js-correct-callout-header">Correct!</output> 
-        // <img src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses">          
-        //     <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
-        //     <p class="callout js-results-feedback js-correct-callout-header">explanation</p>
-        //     <button role="button" class="feedback js-feedback-next-button"> NEXT</button>
-        // </div>`
-        // $("#feedback-screen").html(correctFeedback)
-    
-        // } else {   
-        //     let incorrectFeedback = `
-        //     <div class="callout js-results-feedback js-callout-container">
-        //         <aside class="callout feedback js-results-feedback js-callout-box">Answer feedback</aside>
-        //         <output class="callout feedback js-results-feedback js-incorrect-callout-header">Oops!</output>                     
-        //     <img src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face"> 
-        //         <span class="callout js-results-feedback js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>       
-        //             <p class ="callout js-results-feedback js-incorrect-callout-header">explanation</p>
-        //         <button role="button" class="callout feedback js-feedback-next-button"> NEXT</button>
-        //     </div>`
-        //     $("#feedback-screen").html(incorrectFeedback)
-        // }       
+        let correctAnswer = QUIZ[number].answer;
+        let correctAnswerString = QUIZ[number].answers[correctAnswer];
+    console.log(`correctAnswer is ${correctAnswer}`)
+        let feedback
+        if(answerValue == correctAnswer) {
+            feedback = 
+        `<div class="feedback js-results-feedback">
+        <aside> <h2> MUY BIEN! The correct answer is ${correctAnswerString} </h2> </aside><button type="submit" id="js-feedback-next-button"> NEXT </button></div>
+        <img id="correct" src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses">`
+        } else {
+            feedback =
+        `<div class="feedback js-results-feedback">
+        <aside> <h2> OOPS! The correct answer is ${correctAnswerString} </h2> </aside><button type="submit" id="js-feedback-next-button"> NEXT </button></div>
+        <img id="incorrect" src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face">`
+    }
+        $("#feedback-screen").html(feedback);     
     }
     function handleNextButton(number) {
         $("#feedback-screen").on("click", "#js-feedback-next-button", function(event) {
@@ -209,8 +201,8 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         } else {
             showFinalScoreScreen();
                 };   
-
             });
+        // return number;
     }
 
     function showFinalScoreScreen() {          
@@ -218,9 +210,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             $("#finalscore-screen").toggle();         
         }
 
-    function checkQuestionSet(number) {
-        
-    }  
     // function showFeedback(answer) {
     //     // let correctAnswer = this.options["option2"];
     //     // if(answer === correctAnswer) {        
@@ -241,13 +230,9 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function handleQuiz() {
 
     restartQuiz();
-    // showFeedback();
-    checkQuestionSet(number);
-    // showNextQuestion(number);
     // showQuestionNumber();
     handleSubmitButton();
     handleNextButton(number);
-    // generateQuestionSet(number);
     renderOneQuestion(number);
     renderOneAnswerSet(number);
     renderQuestionSet();
