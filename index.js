@@ -75,7 +75,8 @@ let answers = QUIZ.map(quiz =>{
 });
 // generateQuestionSet(number)
 let questionSet = generateQuestionSet(number);
-             
+let correctAnswer = QUIZ[number].answer;
+let correctAnswerString = QUIZ[number].answers[correctAnswer];
 let questionNumber = number+1;
 let questionsCorrect = `<output role="header" class="js-questions-screen-header js-answers-correct">Answers correct 0/${number} </output>`;
 // console.log(`answers is ${answers}`);
@@ -85,7 +86,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         if(number === 0) {
             startQuiz();
         } else if(number >5) {
-            showNextQuestion();
+            handleNextButton();
 
         } else {
             showFinalScoreScreen();
@@ -151,13 +152,15 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
             
             $("#questions-screen").html(questionSet);
     }
+
     function handleSubmitButton() {
         $("#questions-screen").on("click", "#question-submit-button", function(event) {
             event.preventDefault();
             let answerValue = $("input[name=options]:checked").val();
-        //console.log(`answerValue is ${answerValue}`)
-            handleFeedback(answerValue, number);  
+        //console.log(`answerValue is ${answerValue}`)        
+            handleFeedback(answerValue, number);            
         });
+       
     }
     function showNextQuestion(questionNumber) {
         $("#questions-screen").show();
@@ -165,17 +168,20 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     console.log(`questionNumber is ${questionNumber}`);
         questionSet = generateQuestionSet(questionNumber);
     // console.log(`nextQuestion is ${nextQuestion}`)
-        $("#questions-screen").html(questionSet);
+        $("#questions-screen").html(questionSet);  
+        correctAnswer = QUIZ[questionNumber].answer;
+        correctAnswerString = QUIZ[questionNumber].answers[correctAnswer];
         
+
     console.log(`questionNumber is now ${questionNumber}`);
     }
     
-    function handleFeedback(answerValue, number) {
+    function handleFeedback(answerValue, questionNumber) {
         
         $("#feedback-screen").show();
         $("#questions-screen").hide();
-        let correctAnswer = QUIZ[number].answer;
-        let correctAnswerString = QUIZ[number].answers[correctAnswer];
+        
+        
     console.log(`correctAnswer is ${correctAnswer}`)
         let feedback
         if(answerValue == correctAnswer) {
@@ -188,13 +194,14 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         `<div class="feedback js-results-feedback">
         <aside> <h2> OOPS! The correct answer is ${correctAnswerString} </h2> </aside><button type="submit" id="js-feedback-next-button"> NEXT </button></div>
         <img id="incorrect" src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face">`
-    }
+        }
         $("#feedback-screen").html(feedback);     
     }
     function handleNextButton(number) {
         $("#feedback-screen").on("click", "#js-feedback-next-button", function(event) {
             event.preventDefault();
             number++;
+            
             if(number < 5) {           
             showNextQuestion(number);
             
@@ -207,17 +214,9 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
 
     function showFinalScoreScreen() {          
             $("#questions-screen").hide();
+            $("#feedback-screen").hide();
             $("#finalscore-screen").toggle();         
         }
-
-    // function showFeedback(answer) {
-    //     // let correctAnswer = this.options["option2"];
-    //     // if(answer === correctAnswer) {        
-    //     //     return `Great! "${correctAnswer}" is correct;`
-    //     // } else {
-    //     //     return `Oops! "${correctAnswer}" is the correct answer.`
-    //     // }
-    // }
 
     function restartQuiz() {
         $(".js-restart-button").on("click", function(event) {
@@ -230,7 +229,6 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function handleQuiz() {
 
     restartQuiz();
-    // showQuestionNumber();
     handleSubmitButton();
     handleNextButton(number);
     renderOneQuestion(number);
