@@ -74,6 +74,10 @@ time, mark, audio, video {
 
 
 }
+
+p {
+    font-family: Lucida Sans, Verdana, Geneva, Tahoma, sans-serif
+}
 #correct, #incorrect {
     width: 100 px;
     height: 100px;
@@ -97,7 +101,7 @@ form, fieldset {
 
 }
 
-.js-start-button {
+#js-start-button {
 
 }
 /* display for MAIN screen */

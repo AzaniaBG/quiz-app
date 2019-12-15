@@ -103,7 +103,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
 //when START button clicked, START button hides, SUBMIT and NEXT button displays 
     function handleStartButton() {
 
-        $(".js-start-button").on("click", function(event) {
+        $("#js-start-button").on("click", function(event) {
             event.preventDefault();
             $("#start-screen").hide();
             $("#questions-screen-header").show();
@@ -133,7 +133,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
                 let indexNumber = answer.indexOf(item);
     //console.log(`indexNumber is ${indexNumber}`)
                 return `
-                <input role="" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" checked id="${indexNumber}">
+                <input role="" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" checked required>
                 <label for="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
                 <br>`               
             })
