@@ -151,16 +151,8 @@ let questionsCorrect =
             return questionSet;
         }
 
-        function renderQuestionScreenHeader(number) {
-        
-            questionNumber = 
-            `<h2 role="header" class="js-questions-screen-header js-question-number"> Question Number ${number+1} </h2>`;
-            console.log(`renderQuestionScreenHeader is ${questionNumber}`);
-            return questionNumber;
-        }
-
     function renderQuestionSet() {
-        $("#questions-screen-header").html(questionNumber);
+        
         $("#questions-screen").html(questionSet);
     }
 
@@ -176,6 +168,8 @@ let questionsCorrect =
     function showNextQuestion(questionNumber) {
         $("#questions-screen").show();
         $("#feedback-screen").hide();
+        // *****************************
+        $("#questions-screen-header").html(questionNumber);
     //console.log(`questionNumber is ${questionNumber}`);
         questionSet = generateQuestionSet(questionNumber);
     // console.log(`nextQuestion is ${nextQuestion}`)
@@ -211,7 +205,6 @@ let questionsCorrect =
             event.preventDefault();
             number++;          
             if(number < 5) {         
-            renderQuestionScreenHeader(number);         
             showNextQuestion(number);
             
         } else {
@@ -244,7 +237,7 @@ let questionsCorrect =
     handleNextButton(number);
     renderOneQuestion(number);
     renderOneAnswerSet(number);
-    renderQuestionSet();
+    renderQuestionSet();//may need to require parameter?
     generateQuestionSet(number);
     // handleStartButton(); why don't i need to call this here ?
     startQuiz();
