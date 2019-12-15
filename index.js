@@ -78,9 +78,12 @@ let questionSet = generateQuestionSet(number);
 let correctAnswer = QUIZ[number].answer;
 let correctAnswerString = QUIZ[number].answers[correctAnswer];
 let questionNumber = 
-`<h2 role="header" class="js-questions-screen-header js-question-number"> Question Number ${number+1} </h2>`
+`<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number ${number+1} </h3>`
 let questionsCorrect = 
-`<output role="header" class="js-questions-screen-header js-answers-correct">Answers correct 0/${number} </output>`;
+`<h2>
+    <output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct 0/5 </output>
+    <progress value="0" > 0/5 </progress>
+</h2>`;
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
 ///////////////////////////////////////////////////// END GLOBAL VARIABLES /////////////////////////////////////
@@ -152,7 +155,7 @@ let questionsCorrect =
         }
 
     function renderQuestionSet() {
-        
+        $("#questions-screen-header").append(questionNumber, questionsCorrect);
         $("#questions-screen").html(questionSet);
     }
 
@@ -166,13 +169,15 @@ let questionsCorrect =
        
     }
     function showNextQuestion(questionNumber) {
+        let nextNumber = questionNumber
         $("#questions-screen").show();
         $("#feedback-screen").hide();
         // *****************************
-        $("#questions-screen-header").html(questionNumber);
+        let nextQuestionHeader = `<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number ${nextNumber+1} </h3>`
     //console.log(`questionNumber is ${questionNumber}`);
         questionSet = generateQuestionSet(questionNumber);
     // console.log(`nextQuestion is ${nextQuestion}`)
+        $("#questions-screen-header").html(nextQuestionHeader);
         $("#questions-screen").html(questionSet);  
         correctAnswer = QUIZ[questionNumber].answer;
         correctAnswerString = QUIZ[questionNumber].answers[correctAnswer];
@@ -186,8 +191,10 @@ let questionsCorrect =
         
         
     console.log(`correctAnswer is ${correctAnswer}`)
-        let feedback
+        let correctAnswersHeader = 0;
+        let feedback;
         if(answerValue == correctAnswer) {
+            correctAnswersHeader += 1;
             feedback = 
         `<div class="feedback js-results-feedback">
         <aside> <h2> MUY BIEN! The correct answer is ${correctAnswerString} </h2> </aside><button type="submit" id="js-feedback-next-button"> NEXT </button></div>
@@ -200,11 +207,23 @@ let questionsCorrect =
         }
         $("#feedback-screen").html(feedback);     
     }
+        function renderQuestionSetHeader(number) {
+            if(number = 0) {
+            questionNumber = 
+            `<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number 1 </h3>` 
+            } else {
+            questionNumber = 
+            `<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number ${number+1} </h3>` 
+            }
+        }
     function handleNextButton(number) {
         $("#feedback-screen").on("click", "#js-feedback-next-button", function(event) {
             event.preventDefault();
             number++;          
-            if(number < 5) {         
+            renderQuestionSetHeader(number);
+            
+            if(number < 5) {     
+               
             showNextQuestion(number);
             
         } else {
