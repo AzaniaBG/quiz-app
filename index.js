@@ -215,12 +215,14 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
     function showFinalScoreScreen() {          
             $("#questions-screen").hide();
             $("#feedback-screen").hide();
+            $("#questions-screen-header").hide();
             $("#finalscore-screen").toggle();         
         }
 
     function restartQuiz() {
-        $("#js-restart-button").on("click", function(event) {
+        $("#finalscore-screen").on("click", "#js-restart-button", function(event) {
             $("#start-screen").show();
+            $("#finalscore-screen").hide();
         })
         
         
