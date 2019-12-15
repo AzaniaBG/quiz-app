@@ -219,7 +219,7 @@ let questionsCorrect = `<output role="header" class="js-questions-screen-header 
         }
 
     function restartQuiz() {
-        $(".js-restart-button").on("click", function(event) {
+        $("#js-restart-button").on("click", function(event) {
             $("#start-screen").show();
         })
         
