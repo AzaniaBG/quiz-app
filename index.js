@@ -112,7 +112,7 @@ let questionsCorrect =
         $("#js-start-button").on("click", function(event) {
 
             event.preventDefault();
-            showNextQuestion(number)
+            showNextQuestion(number);
             $("#start-screen").hide();
             $("#questions-screen-header").show();
             $("#questions-screen").show();
@@ -243,19 +243,20 @@ let questionsCorrect =
     }
 
     function showFinalScoreScreen() {  
-        let finalscore = correctAnswersHeader;      
+        let finalScore = correctAnswersHeader;      
             $("#questions-screen").hide();
             $("#feedback-screen").hide();
             $("#questions-screen-header").hide();
             $("#finalscore-screen").show();
-            $("#finalscore-screen h3").append(finalscore); 
+            $("#finalscore-screen h3").html(finalScore); 
         }
 
     function restartQuiz() {
         $("#finalscore-screen").on("click", "#js-restart-button", function(event) {
+            correctAnswersHeader = 0;
             $("#finalscore-screen").hide();
             $("#start-screen").show();
-            number = 0;
+            // number = 0;
             startQuiz();   
         })
         
