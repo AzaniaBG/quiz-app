@@ -34,14 +34,21 @@
     <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
     <main role="main">   
                
-        <form role="form" class="form js-main-screen js-questions-screen js-form-quiz">    
+        <form role="form" class="form js-main-screen js-questions-screen js-form-quiz">  
+            <fieldset id="callout-box" class="hidden">
+                <span class="callout js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
+                <div class="callout js-callout-container">
+                    <p>Please select an answer before continuing</p>
+                </div>
+            </fieldset>  
                 <!-- <button role="button" class="button js-main-screen js-questions-screen js-feedback-next-button"> NEXT</button>
                 <button role="button" class="button js-main-screen js-questions-screen js-submit-button">SUBMIT</button> -->
-            <fieldset id="questions-screen" class="form js-questions-screen js-fieldset">                              
+            <fieldset id="questions-screen" class="form js-questions-screen">                              
             <legend role="legend" class="form js-questions-screen js-form-instruction">Select the Correct Spanish Translation for the Question Below </legend>
               
-                
+            
             </fieldset> 
+            
         </form> 
 
         <section id="feedback-screen">
@@ -51,10 +58,9 @@
             
         
         <section id="finalscore-screen">       
-            <h2 class="feedback js-finalscore-screen">You did it! </h2>
+            <h2 class="feedback js-finalscore-screen">You did it! ¡Felicitaciones! </h2>
             <h3 class="feedback js-finalscore-screen">Final Score: </h3>
-            <legend role="legend" class="feedback js-finalscore-screen">Answers correct:</legend>
-            <output class="callout feedback js-finalscore-screen js-final-callout-header" value="100"> Answers correct 0/0  </output><br>                  
+                            
             <button role="button" id="js-restart-button" class="button feedback js-finalscore-screen">RE-START QUIZ</button> 
         </section>
     </main>

@@ -79,11 +79,12 @@ let correctAnswer = QUIZ[number].answer;
 let correctAnswerString = QUIZ[number].answers[correctAnswer];
 let questionNumber = 
 `<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number ${number+1} </h3>`
+let correctAnswersHeader = 0;
 let questionsCorrect = 
-`<h2>
-    <output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct 0/5 </output>
+`<h3>
+    <output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
     <progress value="0" > 0/5 </progress>
-</h2>`;
+</h3>`;
 // console.log(`answers is ${answers}`);
 //create a question set from global variable QUESTIONS (line 69) and ANSWERS (line 75) 
 ///////////////////////////////////////////////////// END GLOBAL VARIABLES /////////////////////////////////////
@@ -109,7 +110,9 @@ let questionsCorrect =
     function handleStartButton() {
 
         $("#js-start-button").on("click", function(event) {
+
             event.preventDefault();
+            showNextQuestion(number);
             $("#start-screen").hide();
             $("#questions-screen-header").show();
             $("#questions-screen").show();
@@ -139,8 +142,8 @@ let questionsCorrect =
                 let indexNumber = answer.indexOf(item);
     //console.log(`indexNumber is ${indexNumber}`)
                 return `
-                <input role="" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" checked required>
-                <label for="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
+                <input role="" tabindex="${indexNumber}" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" required>
+                <label for="${indexNumber}" tabindex="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
                 <br>`               
             })
             answersSet.join("");
@@ -155,7 +158,7 @@ let questionsCorrect =
         }
 
     function renderQuestionSet() {
-        $("#questions-screen-header").append(questionNumber, questionsCorrect);
+        $("#questions-screen-header").append(questionNumber);
         $("#questions-screen").html(questionSet);
     }
 
@@ -163,8 +166,15 @@ let questionsCorrect =
         $("#questions-screen").on("click", "#question-submit-button", function(event) {
             event.preventDefault();
             let answerValue = $("input[name=options]:checked").val();
-        //console.log(`answerValue is ${answerValue}`)        
-            handleFeedback(answerValue, number);            
+            if(!answerValue) {
+                $("#callout-box").show();
+                $("#question-submit-button").on("click", function(event) {
+                    $("#callout-box").hide();
+                })  
+                
+            } else {
+                handleFeedback(answerValue, number)
+            };           
         });
        
     }
@@ -172,8 +182,12 @@ let questionsCorrect =
         let nextNumber = questionNumber
         $("#questions-screen").show();
         $("#feedback-screen").hide();
-        // *****************************
-        let nextQuestionHeader = `<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number ${nextNumber+1} </h3>`
+        
+        let nextQuestionHeader = `<h3 role="header" class="js-questions-screen-header js-question-number"> 
+        <output> Question Number ${nextNumber+1} </output>
+        <progress value="0" > 0/5 </progress>
+        <output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
+        </h3>`
     //console.log(`questionNumber is ${questionNumber}`);
         questionSet = generateQuestionSet(questionNumber);
     // console.log(`nextQuestion is ${nextQuestion}`)
@@ -189,11 +203,10 @@ let questionsCorrect =
         $("#feedback-screen").show();
         $("#questions-screen").hide();
         
-        
     console.log(`correctAnswer is ${correctAnswer}`)
-        let correctAnswersHeader = 0;
+        
         let feedback;
-        if(answerValue == correctAnswer) {
+        if (answerValue == correctAnswer) {
             correctAnswersHeader += 1;
             feedback = 
         `<div class="feedback js-results-feedback">
@@ -227,23 +240,30 @@ let questionsCorrect =
             showNextQuestion(number);
             
         } else {
+            
             showFinalScoreScreen();
+            number = 0;
                 };   
             });
         // return number;
     }
 
-    function showFinalScoreScreen() {          
+    function showFinalScoreScreen() {  
+        let finalScore = `<h2> Final Score: ${correctAnswersHeader} Answers Correct </h2>`;      
             $("#questions-screen").hide();
             $("#feedback-screen").hide();
             $("#questions-screen-header").hide();
-            $("#finalscore-screen").toggle();         
+            $("#finalscore-screen").show();
+            $("#finalscore-screen h3").html(finalScore); 
         }
 
     function restartQuiz() {
         $("#finalscore-screen").on("click", "#js-restart-button", function(event) {
-            $("#start-screen").show();
+            correctAnswersHeader = 0;
             $("#finalscore-screen").hide();
+            $("#start-screen").show();
+            // number = 0;
+            startQuiz();   
         })
         
         
