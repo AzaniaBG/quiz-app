@@ -143,7 +143,7 @@ let questionsCorrect =
     //console.log(`indexNumber is ${indexNumber}`)
                 return `
                 <input role="" tabindex="${indexNumber}" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" required>
-                <label for="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
+                <label for="${indexNumber}" tabindex="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
                 <br>`               
             })
             answersSet.join("");
@@ -249,7 +249,7 @@ let questionsCorrect =
     }
 
     function showFinalScoreScreen() {  
-        let finalScore = correctAnswersHeader;      
+        let finalScore = `<h2> Final Score: ${correctAnswersHeader} Answers Correct </h2>`;      
             $("#questions-screen").hide();
             $("#feedback-screen").hide();
             $("#questions-screen-header").hide();
