@@ -142,7 +142,7 @@ let questionsCorrect =
                 let indexNumber = answer.indexOf(item);
     //console.log(`indexNumber is ${indexNumber}`)
                 return `
-                <input role="" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" checked required>
+                <input role="" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" required>
                 <label for="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
                 <br>`               
             })
@@ -166,8 +166,12 @@ let questionsCorrect =
         $("#questions-screen").on("click", "#question-submit-button", function(event) {
             event.preventDefault();
             let answerValue = $("input[name=options]:checked").val();
-        //console.log(`answerValue is ${answerValue}`)        
-            handleFeedback(answerValue, number);            
+            if(!answerValue) {
+                $("#callout-box").show();     
+                
+            } else {
+                handleFeedback(answerValue, number)
+            };           
         });
        
     }
@@ -196,11 +200,10 @@ let questionsCorrect =
         $("#feedback-screen").show();
         $("#questions-screen").hide();
         
-        
     console.log(`correctAnswer is ${correctAnswer}`)
         
         let feedback;
-        if(answerValue == correctAnswer) {
+        if (answerValue == correctAnswer) {
             correctAnswersHeader += 1;
             feedback = 
         `<div class="feedback js-results-feedback">

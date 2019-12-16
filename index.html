@@ -34,14 +34,21 @@
     <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
     <main role="main">   
                
-        <form role="form" class="form js-main-screen js-questions-screen js-form-quiz">    
+        <form role="form" class="form js-main-screen js-questions-screen js-form-quiz">  
+            <fieldset id="callout-box" class="hidden">
+                <span class="callout js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
+                <div class="callout js-callout-container">
+                    <p>Please select an answer before continuing</p>
+                </div>
+            </fieldset>  
                 <!-- <button role="button" class="button js-main-screen js-questions-screen js-feedback-next-button"> NEXT</button>
                 <button role="button" class="button js-main-screen js-questions-screen js-submit-button">SUBMIT</button> -->
             <fieldset id="questions-screen" class="form js-questions-screen js-fieldset">                              
             <legend role="legend" class="form js-questions-screen js-form-instruction">Select the Correct Spanish Translation for the Question Below </legend>
               
-                
+            
             </fieldset> 
+            
         </form> 
 
         <section id="feedback-screen">

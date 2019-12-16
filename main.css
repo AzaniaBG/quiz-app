@@ -133,3 +133,6 @@ form, fieldset {
     
 
 }
+.hidden {
+    display: none;
+}
