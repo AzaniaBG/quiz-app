@@ -233,6 +233,8 @@ let questionsCorrect =
             
         } else {
             showFinalScoreScreen();
+            number = 0;
+            renderQuestionSet(number);
                 };   
             });
         // return number;
