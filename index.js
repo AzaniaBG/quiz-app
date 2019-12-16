@@ -167,7 +167,10 @@ let questionsCorrect =
             event.preventDefault();
             let answerValue = $("input[name=options]:checked").val();
             if(!answerValue) {
-                $("#callout-box").show();     
+                $("#callout-box").show();
+                $("#question-submit-button").on("click", function(event) {
+                    $("#callout-box").hide();
+                })  
                 
             } else {
                 handleFeedback(answerValue, number)
