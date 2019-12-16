@@ -110,7 +110,9 @@ let questionsCorrect =
     function handleStartButton() {
 
         $("#js-start-button").on("click", function(event) {
+
             event.preventDefault();
+            showNextQuestion(number)
             $("#start-screen").hide();
             $("#questions-screen-header").show();
             $("#questions-screen").show();
@@ -156,7 +158,7 @@ let questionsCorrect =
         }
 
     function renderQuestionSet() {
-        $("#questions-screen-header").append(questionsCorrect, questionNumber);
+        $("#questions-screen-header").append(questionNumber);
         $("#questions-screen").html(questionSet);
     }
 
@@ -232,9 +234,9 @@ let questionsCorrect =
             showNextQuestion(number);
             
         } else {
+            
             showFinalScoreScreen();
             number = 0;
-            renderQuestionSet(number);
                 };   
             });
         // return number;
@@ -247,13 +249,14 @@ let questionsCorrect =
             $("#questions-screen-header").hide();
             $("#finalscore-screen").show();
             $("#finalscore-screen h3").append(finalscore); 
-
         }
 
     function restartQuiz() {
         $("#finalscore-screen").on("click", "#js-restart-button", function(event) {
-            $("#start-screen").show();
             $("#finalscore-screen").hide();
+            $("#start-screen").show();
+            number = 0;
+            startQuiz();   
         })
         
         
