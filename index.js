@@ -173,16 +173,16 @@ let questionsCorrect =
         let nextNumber = questionNumber
         $("#questions-screen").show();
         $("#feedback-screen").hide();
-        questionsCorrect = 
-        `<h4>
-            <output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
-            <progress value="0" > 0/5 </progress>
-        </h4>`
-        let nextQuestionHeader = `<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number ${nextNumber+1} </h3>`
+        
+        let nextQuestionHeader = `<h3 role="header" class="js-questions-screen-header js-question-number"> 
+        <output> Question Number ${nextNumber+1} </output>
+        <progress value="0" > 0/5 </progress>
+        <output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
+        </h3>`
     //console.log(`questionNumber is ${questionNumber}`);
         questionSet = generateQuestionSet(questionNumber);
     // console.log(`nextQuestion is ${nextQuestion}`)
-        $("#questions-screen-header").html(questionsCorrect, nextQuestionHeader);
+        $("#questions-screen-header").html(nextQuestionHeader);
         $("#questions-screen").html(questionSet);  
         correctAnswer = QUIZ[questionNumber].answer;
         correctAnswerString = QUIZ[questionNumber].answers[correctAnswer];
@@ -238,11 +238,14 @@ let questionsCorrect =
         // return number;
     }
 
-    function showFinalScoreScreen() {          
+    function showFinalScoreScreen() {  
+        let finalscore = correctAnswersHeader;      
             $("#questions-screen").hide();
             $("#feedback-screen").hide();
             $("#questions-screen-header").hide();
-            $("#finalscore-screen").toggle();         
+            $("#finalscore-screen").show();
+            $("#finalscore-screen h3").append(finalscore); 
+
         }
 
     function restartQuiz() {
