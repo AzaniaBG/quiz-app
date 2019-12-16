@@ -142,7 +142,7 @@ let questionsCorrect =
                 let indexNumber = answer.indexOf(item);
     //console.log(`indexNumber is ${indexNumber}`)
                 return `
-                <input role="" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" required>
+                <input role="" tabindex="${indexNumber}" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" required>
                 <label for="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
                 <br>`               
             })
