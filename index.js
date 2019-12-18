@@ -215,19 +215,21 @@ let questionsCorrect =
             correctAnswersHeader += 1;
             feedback = 
         `<div class="feedback js-results-feedback">
+        <img id="correct" src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses">
         <aside> <h2> MUY BIEN!<br>The correct answer is</h2> 
             <p class="correct"> ${correctAnswerString}</p>
         </aside>
         <button type="submit" id="js-feedback-next-button" class="button js-results-feedback"> NEXT </button></div>
-        <img id="correct" src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses">`
+        `
         } else {
             feedback =
         `<div class="feedback js-results-feedback">
+        <img id="incorrect" src="https://i1.wp.com/bigtechquestion.com/wp-content/uploads/2018/09/Emoji.png?w=1000&ssl=1" alt="oh no emoji face">
         <aside> <h2> OOPS!<br>The correct answer is</h2>    
         </aside>
         <p class="correct"> ${correctAnswerString}</p>
         <button type="submit" id="js-feedback-next-button" class="button js-results-feedback"> NEXT </button></div>
-        <img id="incorrect" src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face">`
+        `
         }
         $("#feedback-screen").html(feedback);     
     }
