@@ -151,7 +151,7 @@ let questionsCorrect =
     // console.log(`answersSet is ${answersSet}`)
             let questionSet = `
             <h4 role="" class="form js-question-set" id="js-question-${number}"> ${questions[number]}</h4>
-            <button role="button" type="button" id="question-submit-button" class="js-question-set"> SUBMIT  </button><br>
+            <button role="button" type="submit" id="question-submit-button" class="js-question-set"> SUBMIT  </button><br>
             ${answersSet}<br>`
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
