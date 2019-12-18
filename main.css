@@ -54,7 +54,9 @@ time, mark, audio, video {
         }
 .button {
         font-size: 30px;
-        margin: 10px 0;    
+        margin: 10px 0;  
+        border: black thin solid;
+        border-radius: 3%;  
 }
 
 /*laptops and desktops wireframe*/
@@ -90,9 +92,7 @@ p {
     background-image: url("https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg");
 }
 
-legend {
-    padding-top: 50px;
-}
+
 form, fieldset {
     /* margin: 10px auto; */
 }
@@ -107,6 +107,9 @@ form, fieldset {
 /* display for MAIN screen */
 #main-screen-header {
 
+}
+legend {
+    font-size: 20px;
 }
 
 #questions-screen-header {

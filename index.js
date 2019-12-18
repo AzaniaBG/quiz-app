@@ -141,18 +141,19 @@ let questionsCorrect =
                 let item = answer[index];
                 let indexNumber = answer.indexOf(item);
     //console.log(`indexNumber is ${indexNumber}`)
-                return `
+                return `<fieldset>
                 <input role="" tabindex="${indexNumber}" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" required>
-                <label for="${indexNumber}" tabindex="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>              
-                <br>`               
+                <label for="${indexNumber}" tabindex="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>
+                </fieldset>`               
             })
             answersSet.join("");
     
     // console.log(`answersSet is ${answersSet}`)
-            let questionSet = `
-            <h4 role="" class="form js-question-set" id="js-question-${number}"> ${questions[number]}</h4>
-            <button role="button" type="submit" id="question-submit-button" class="js-question-set"> SUBMIT  </button><br>
-            ${answersSet}<br>`
+            let questionSet = `<h5 role="" class="form js-question-set" id="js-question-${number}"> <legend>Choose the correct translation for the question below.</legend>
+            <br>${questions[number]}</h5>
+            ${answersSet}
+            <button role="button" type="submit" id="question-submit-button" class="button js-question-set"> SUBMIT  </button><br>
+            `
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
         }
