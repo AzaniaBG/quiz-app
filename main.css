@@ -77,8 +77,8 @@ time, mark, audio, video {
 
 }
 
-p {
-    font-family: Lucida Sans, Verdana, Geneva, Tahoma, sans-serif
+header, body, form {
+    font-family: Helvetica, Calibri, Tahoma, Lucida Sans, Verdana, Geneva, Tahoma, sans-serif
 }
 #correct, #incorrect {
     width: 100 px;

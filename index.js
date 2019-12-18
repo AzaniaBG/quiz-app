@@ -146,7 +146,7 @@ let questionsCorrect =
                 <label for="${indexNumber}" tabindex="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>
                 </fieldset>`               
             })
-            answersSet.join("");
+            answersSet.join(" ");
     
     // console.log(`answersSet is ${answersSet}`)
             let questionSet = `<h5 role="" class="form js-question-set" id="js-question-${number}"> <legend>Choose the correct translation for the question below.</legend>
