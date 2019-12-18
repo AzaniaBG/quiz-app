@@ -71,7 +71,7 @@ let questions = QUIZ.map(quiz => {
 });
 //ANSWERS returns an array of objects
 let answers = QUIZ.map(quiz =>{ 
-    return quiz.answers; 
+       return quiz.answers; 
 });
 // generateQuestionSet(number)
 let questionSet = generateQuestionSet(number);
@@ -186,7 +186,7 @@ let questionsCorrect =
         let nextQuestionHeader = `<h3 role="header" class="js-questions-screen-header js-question-number"> 
         <output> Question Number ${nextNumber+1} </output>
         <progress value="0" > 0/5 </progress>
-        <output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
+        <br><output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
         </h3>`
     //console.log(`questionNumber is ${questionNumber}`);
         questionSet = generateQuestionSet(questionNumber);
