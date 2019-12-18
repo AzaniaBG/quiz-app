@@ -78,11 +78,11 @@ let questionSet = generateQuestionSet(number);
 let correctAnswer = QUIZ[number].answer;
 let correctAnswerString = QUIZ[number].answers[correctAnswer];
 let questionNumber = 
-`<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number ${number+1} </h3>`
+`<h3 role="header" class="questions-screen-header js-question-number"> Question Number ${number+1} </h3>`
 let correctAnswersHeader = 0;
 let questionsCorrect = 
 `<h3>
-    <output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
+    <output role="header" number="0" class="questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
     <progress value="0" > 0/5 </progress>
 </h3>`;
 // console.log(`answers is ${answers}`);
@@ -141,7 +141,7 @@ let questionsCorrect =
                 let item = answer[index];
                 let indexNumber = answer.indexOf(item);
     //console.log(`indexNumber is ${indexNumber}`)
-                return `<fieldset>
+                return `<fieldset class="form js-question-set">
                 <input role="" tabindex="${indexNumber}" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" required>
                 <label for="${indexNumber}" tabindex="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>
                 </fieldset>`               
@@ -149,11 +149,14 @@ let questionsCorrect =
             answersSet.join(" ");
     
     // console.log(`answersSet is ${answersSet}`)
-            let questionSet = `<h5 role="" class="form js-question-set" id="js-question-${number}"> <legend>Choose the correct translation for the question below.</legend>
-            <br>${questions[number]}</h5>
+            let questionSet = `<fieldset>
+            <legend id="question-set-legend">Choose the correct translation for the question below.</legend>
+            <br>
+            <h3 role="" class="form js-question-set" id="js-question-${number}"> 
+            ${questions[number]}</h3>
             ${answersSet}
             <button role="button" type="submit" id="question-submit-button" class="button js-question-set"> SUBMIT  </button><br>
-            `
+            </fieldset>`
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
         }
@@ -181,13 +184,13 @@ let questionsCorrect =
     }
     function showNextQuestion(questionNumber) {
         let nextNumber = questionNumber
+        $("#questions-screen-header").show();
         $("#questions-screen").show();
         $("#feedback-screen").hide();
         
-        let nextQuestionHeader = `<h3 role="header" class="js-questions-screen-header js-question-number"> 
+        let nextQuestionHeader = `<h3 role="header" class="questions-screen-header js-question-number"> 
         <output> Question Number ${nextNumber+1} </output>
-        <progress value="0" > 0/5 </progress>
-        <br><output role="header" number="0" class="js-questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
+        <br><output role="header" number="0" class="questions-screen-header js-answers-correct">Answers correct ${correctAnswersHeader}/5 </output>
         </h3>`
     //console.log(`questionNumber is ${questionNumber}`);
         questionSet = generateQuestionSet(questionNumber);
@@ -202,6 +205,7 @@ let questionsCorrect =
     function handleFeedback(answerValue, questionNumber) {
         
         $("#feedback-screen").show();
+        $("#questions-screen-header").hide();
         $("#questions-screen").hide();
         
     console.log(`correctAnswer is ${correctAnswer}`)
@@ -211,12 +215,18 @@ let questionsCorrect =
             correctAnswersHeader += 1;
             feedback = 
         `<div class="feedback js-results-feedback">
-        <aside> <h2> MUY BIEN! The correct answer is ${correctAnswerString} </h2> </aside><button type="submit" id="js-feedback-next-button"> NEXT </button></div>
+        <aside> <h2> MUY BIEN!<br>The correct answer is</h2> 
+            <p class="correct"> ${correctAnswerString}</p>
+        </aside>
+        <button type="submit" id="js-feedback-next-button" class="button js-results-feedback"> NEXT </button></div>
         <img id="correct" src="https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg" alt="ecstatic face with glasses">`
         } else {
             feedback =
         `<div class="feedback js-results-feedback">
-        <aside> <h2> OOPS! The correct answer is ${correctAnswerString} </h2> </aside><button type="submit" id="js-feedback-next-button"> NEXT </button></div>
+        <aside> <h2> OOPS!<br>The correct answer is</h2>    
+        </aside>
+        <p class="correct"> ${correctAnswerString}</p>
+        <button type="submit" id="js-feedback-next-button" class="button js-results-feedback"> NEXT </button></div>
         <img id="incorrect" src="https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg" alt="oh no emoji face">`
         }
         $("#feedback-screen").html(feedback);     
@@ -224,10 +234,10 @@ let questionsCorrect =
         function renderQuestionSetHeader(number) {
             if(number = 0) {
             questionNumber = 
-            `<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number 1 </h3>` 
+            `<h3 role="header" class="questions-screen-header js-question-number"> Question Number 1 </h3>` 
             } else {
             questionNumber = 
-            `<h3 role="header" class="js-questions-screen-header js-question-number"> Question Number ${number+1} </h3>` 
+            `<h3 role="header" class="questions-screen-header js-question-number"> Question Number ${number+1} </h3>` 
             }
         }
     function handleNextButton(number) {
@@ -250,12 +260,12 @@ let questionsCorrect =
     }
 
     function showFinalScoreScreen() {  
-        let finalScore = `<h2> Final Score: ${correctAnswersHeader} Answers Correct </h2>`;      
+        let finalScore = `<h2> Final Score:<br>${correctAnswersHeader} Answers Correct </h2>`;      
             $("#questions-screen").hide();
             $("#feedback-screen").hide();
             $("#questions-screen-header").hide();
             $("#finalscore-screen").show();
-            $("#finalscore-screen h3").html(finalScore); 
+            $("#finalscore-screen h4").html(finalScore); 
         }
 
     function restartQuiz() {

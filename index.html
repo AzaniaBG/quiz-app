@@ -16,7 +16,7 @@
         <!-- ///////////////////// START SCREEN ///////////////////// start screen shows welcome, instructions, and start button -->
         <section id="start-screen"> 
             <h1 role="header" class="js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
-                <p role="" class="js-start-screen">Click the "START" button to begin the quiz</p>
+                <p role="" class="js-start-screen">Click "START" to begin the quiz</p>
             <button role="button" id="js-start-button" class="button js-start-screen">START</button>
         </section>
         <!-- ///////////////////// QUIZ SCREEN HEADER ///////////////////// -->
@@ -33,25 +33,18 @@
             </fieldset> 
             <fieldset id="callout-box" class="hidden">
                 <span class="callout js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
-                <div class="callout js-callout-container">
-                    <p>Please select an answer before continuing</p>
+                <div class="callout js-callout-container"></div>
+                    <p class="callout js-callout-container">Please select an answer </p>
                 </div>
             </fieldset>  
-                <!-- <button role="button" class="button js-main-screen js-questions-screen js-feedback-next-button"> NEXT</button>
-                <button role="button" class="button js-main-screen js-questions-screen js-submit-button">SUBMIT</button> -->
-            
         </form> 
 
         <section id="feedback-screen">
-
-                
-        </section>            
-            
+        </section>                       
         
         <section id="finalscore-screen">       
             <h2 class="feedback js-finalscore-screen">You did it! ¡Felicitaciones! </h2>
-            <h3 class="feedback js-finalscore-screen">Final Score: </h3>
-                            
+            <h4 class="feedback js-finalscore-screen">Final Score: </h4>                 
             <button role="button" id="js-restart-button" class="button feedback js-finalscore-screen">RE-START QUIZ</button> 
         </section>
     </main>

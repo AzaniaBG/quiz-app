@@ -16,11 +16,10 @@ time, mark, audio, video {
 /* small phone wireframe */
 
 @media only screen and (max-width: 600px) {
-    fieldset {
+    /* fieldset {
     display: flex;  
     flex-direction: column;
     font-size: 30px;
-    /*make radio button larger*/
     }
     input {
         flex-wrap: wrap;
@@ -29,7 +28,7 @@ time, mark, audio, video {
 
     .button {
         font-size: 30px;
-    }
+    } */
 }
 /*tablet and large phone wireframe*/
 @media only screen and (min-width: 600px) {
@@ -42,21 +41,7 @@ time, mark, audio, video {
     fieldset {
         font-size: 20px;
     }
-    /* ul > li {
-        display: flex;  
-        flex-direction: row;
-        font-size: 25px;
-        /*make radio button larger*/
-        /* }
-        input {
-            flex-wrap: wrap;
-            /* flex-grow: 1; */
-        }
-.button {
-        font-size: 30px;
-        margin: 10px 0;  
-        border: black thin solid;
-        border-radius: 3%;  
+    
 }
 
 /*laptops and desktops wireframe*/
@@ -80,23 +65,57 @@ time, mark, audio, video {
 header, body, form {
     font-family: Helvetica, Calibri, Tahoma, Lucida Sans, Verdana, Geneva, Tahoma, sans-serif
 }
-#correct, #incorrect {
-    width: 100 px;
-    height: 100px;
+.button {
+    font-size: 30px;
+    margin: 10px 0;  
+    border: black thin solid;
+    border-radius: 5%;  
+}
+body {
+    /* background-color: #FFE700; */
+}
+p {
+    font-style: inherit;
+    font-weight: bold;
+    font-size: 17px;
+}
+p.callout {
+    font-size: 30px;
+}
+
+#start-screen {
+    
+    text-align: center;
+}
+
+#js-start-button {
+    background-color: pink;
 
 }
-#correct {
-    background-image: url("https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg");
+/* display for MAIN screen */
+#questions-screen-header {
+    display: none;
 }
-#incorrect {
-    background-image: url("https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg");
-}
-
-
 form, fieldset {
-    /* margin: 10px auto; */
+    padding: 5px; 
 }
+fieldset {
+    position: relative;
+    text-align: center;
+}
+legend {
+    position: absolute;
+    top: 0px;
+}
+h3 {
+    margin: 15px, 5px, 5px;
+}
+label {
+    font-size: 30px;
+}
+
 #callout-box {
+    color: rgb(139, 6, 6);
     position: fixed;
     z-index: 1;
     left: 0;
@@ -107,26 +126,15 @@ form, fieldset {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
-/* display for START screen */
-#start-screen {
-
-}
-
-#js-start-button {
-
-}
-/* display for MAIN screen */
-#main-screen-header {
-
-}
 legend {
     font-size: 20px;
 }
-
-#questions-screen-header {
-    display: none;
-
+#feedback-screen {
+    text-align: center;
 }
+/* display for START screen */
+
+
 
 .js-submit-button {
     /* display: none; */
@@ -137,10 +145,31 @@ legend {
 .js-feedback-next-button {
     display: none;
 }
+#js-feedback-next-button {
+    float: left;
+}
+/* #js-restart-button {
+    margin: 0 auto;
+} */
+p.correct {
+    font-size: 20px;
+    color: green;
+}
+#correct, #incorrect {
+    width: 100 px;
+    height: 100px;
+}
+#correct {
+    background-image: url("https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg");
+}
+#incorrect {
+    background-image: url("https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg");
+}
 
 /* display for FINAL SCORE screen */
+
 #finalscore-screen {
-    
+    text-align: center;
 }
 
 #js-restart-button {
