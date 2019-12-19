@@ -52,7 +52,7 @@ time, mark, audio, video {
 }
 
 header, body, form {
-    font-family: Helvetica, Calibri, Tahoma, Lucida Sans, Verdana, Geneva, Tahoma, sans-serif
+    font-family: Verdana, Helvetica, Calibri, Tahoma, Lucida Sans, Geneva, Tahoma, sans-serif
 }
 .button {
     font-size: 30px;
@@ -75,6 +75,10 @@ p.callout {
 #start-screen {
     
     text-align: center;
+}
+#green-arrow {
+    width: 25%;
+    height: 25%;
 }
 
 #js-start-button {
