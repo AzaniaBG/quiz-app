@@ -78,7 +78,7 @@ p.callout {
 }
 
 #js-start-button {
-    background-color: silver;
+    background-color: rgb(8, 204, 74);
 }
 label.js-question-set:hover {
     color: white;
@@ -92,7 +92,14 @@ label.js-question-set:hover {
 #questions-screen-header {
     display: none;
 }
+.grayed-out {
+    color: silver;
+}
+#question-submit-button:hover {
+    background-color: rgb(8, 204, 74)
+}
 form, fieldset {
+    background-color: rgb(251, 252, 249);
     padding: 5px; 
 }
 fieldset {
@@ -128,25 +135,31 @@ legend {
 #feedback-screen {
     text-align: center;
 }
+span.js-callout-close {
+    font-size: 30px;
+    transition: transform .2s;
+}
+span.js-callout-close:hover {
+    font-size: 50px;
+    transform: scale(1.5);
+}
 /* display for START screen */
 
-.js-submit-button {
-    /* display: none; */
-}
 
 /* display for FEEDBACK screen */
 
-.js-feedback-next-button {
-    display: none;
+#js-feedback-next-button {
+    background-color: rgb(255, 217, 0);
 }
-/* #js-feedback-next-button {
-    float: left;
-} */
+#js-feedback-next-button:hover {
+    background-color: rgb(8, 204, 74)
+}
 /* #js-restart-button {
     margin: 0 auto;
 } */
 p.correct {
     font-size: 20px;
+    font-style: italic;
     color: green;
 }
 #correct, #incorrect {

@@ -169,8 +169,12 @@ let questionsCorrect =
             let answerValue = $("input[name=options]:checked").val();
             if(!answerValue) {
                 $("#callout-box").show();
+                $("#questions-screen").addClass("grayed-out");
+                $(".js-callout-close").on("click", function(event) {
+                    $("#questions-screen").removeClass("grayed-out");
+                })
                 $("#question-submit-button").on("click", function(event) {
-                    $("#callout-box").hide();
+                    $("#callout-box").hide();    
                 })  
                 
             } else {
