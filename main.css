@@ -13,119 +13,114 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 } */
-/* small phone wireframe */
+/* ////////////////////////// START SCREEN ///////////////////*/
+#start-screen {  
+    text-align: center;
+}
 
-@media only screen and (max-width: 600px) {
-    fieldset {
-    display: flex;  
-    flex-direction: column;
+#green-arrow {
+    width: 25%;
+    height: 25%;
+}
+
+#js-start-button {
+    background-color: rgb(8, 204, 74);
+}
+/* ////////////////////////// END START SCREEN ///////////////////*/
+
+/* ////////////////////////// QUESTIONS SCREEN ///////////////////*/
+form, fieldset {
+    background-color: rgb(251, 252, 249);
+    padding: 5px; 
+}
+fieldset {
+    position: relative;
+    text-align: center;
+}
+
+h3 {
+    margin: 15px, 5px, 5px;
+}
+label {
     font-size: 30px;
-    /*make radio button larger*/
-    }
-    input {
-        flex-wrap: wrap;
-        flex-grow: 1;
-    }
-
-    .button {
-        font-size: 30px;
-    }
 }
-/*tablet and large phone wireframe*/
-@media only screen and (min-width: 600px) {
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        flex-grow: 1;
-        flex-shrink: 2;
-    }
-    fieldset {
-        font-size: 20px;
-    }
-    /* ul > li {
-        display: flex;  
-        flex-direction: row;
-        font-size: 25px;
-        /*make radio button larger*/
-        /* }
-        input {
-            flex-wrap: wrap;
-            /* flex-grow: 1; */
-        }
-.button {
-        font-size: 30px;
-        margin: 10px 0;    
+#questions-screen-header {
+    display: none;
+}
+label.js-question-set:hover {
+    color: white;
+    background-color: blueviolet;
+}
+.button:hover {
+    color: white;
+    background-color: blueviolet;
+}
+#question-submit-button:hover {
+    background-color: rgb(8, 204, 74)
 }
 
-/*laptops and desktops wireframe*/
-@media only screen and (min-width: 900px) {
+.grayed-out {
+    color: silver;
+}
+/* ////////////////////////// END QUESTIONS SCREEN ///////////////////*/
 
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        flex-grow: 1;
-        flex-shrink: 2;
-    }
-    /* li {
-        flex-wrap: wrap;
-        flex-grow: 1;
-        flex-shrink: 2;
-    } */
-
-
+/* ////////////////////////// FEEDBACK SCREEN ///////////////////*/
+#feedback-screen {
+    text-align: center;
+}
+p.callout {
+    font-size: 30px;
+}
+#callout-box {
+    color: rgb(139, 6, 6);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+span.js-callout-close {
+    font-size: 30px;
+    transition: transform .2s;
+}
+span.js-callout-close:hover {
+    font-size: 50px;
+    transform: scale(1.5);
 }
 
-p {
-    font-family: Lucida Sans, Verdana, Geneva, Tahoma, sans-serif
+#js-feedback-next-button {
+    background-color: rgb(255, 217, 0);
+}
+#js-feedback-next-button:hover {
+    background-color: rgb(8, 204, 74)
+}
+
+p.correct {
+    font-size: 20px;
+    font-style: italic;
+    color: green;
 }
 #correct, #incorrect {
     width: 100 px;
     height: 100px;
+}
+/* ////////////////////////// END FEEDBACK SCREEN ///////////////////*/
+
+/* ////////////////////////// FINAL SCORE SCREEN ///////////////////*/
+body #finalscore-screen {
+    background-image: url(https://image.freepik.com/free-vector/colorful-confetti-flying-randomly-abstract-background-with-explosion-particles_103588-297.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    width: 100%;
+    height: auto;
 
 }
-#correct {
-    background-image: url("https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg");
-}
-#incorrect {
-    background-image: url("https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg");
-}
-
-legend {
-    padding-top: 50px;
-}
-form, fieldset {
-    /* margin: 10px auto; */
-}
-/* display for START screen */
-#start-screen {
-
-}
-
-#js-start-button {
-
-}
-/* display for MAIN screen */
-#main-screen-header {
-
-}
-
-#questions-screen-header {
-    display: none;
-
-}
-
-.js-submit-button {
-    /* display: none; */
-}
-
-/* display for FEEDBACK screen */
-
-.js-feedback-next-button {
-    display: none;
-}
-
-/* display for FINAL SCORE screen */
 #finalscore-screen {
+    text-align: center;
     
 }
 
@@ -133,6 +128,87 @@ form, fieldset {
     
 
 }
+
+/* ////////////////////////// END FINAL SCORE SCREEN ///////////////////*/
+
+
+/* //////////////////////////small phone///////////////////*/
+@media only screen and (max-width: 320px) {
+   header, body, main, form, fieldset, p {
+       font-family: Helvetica, Arial, Helvetica, sans-serif;
+   }
+   p {
+    font-style: inherit;
+    font-weight: normal;
+    font-size: 17px;
+    }
+}
+/* //////////////////////////tablet screen ///////////////////*/
+
+
+/*laptops and desktops wireframe*/
+@media only screen and (min-width: 320px) {
+
+    
+
+}
+
+@media only screen and (min-width: 620px) {
+
+    header, body, form {
+        font-family: Verdana, Helvetica, Calibri, Tahoma, Lucida Sans, Geneva, Tahoma, sans-serif;
+    }
+    p {
+        font-style: inherit;
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+}
+
+
+.button {
+    font-size: 30px;
+    margin: 10px 0;  
+    border: black thin solid;
+    border-radius: 5%;  
+}
+
+p {
+    font-style: inherit;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+/* display for FINAL SCORE screen */
+
+
 .hidden {
     display: none;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    h3 {
+        justify-content: center;
+    }
+    
+    fieldset {
+        
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-shrink: 2;
+        font-size: 30px;
+    }
+    /* #feedback-screen {
+        text-align: center;
+    } */
+    
 }
