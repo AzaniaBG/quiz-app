@@ -142,10 +142,8 @@ let questionsCorrect =
     
     // console.log(`answersSet is ${answersSet}`)
             let questionSet = `<fieldset>
-            <legend id="question-set-legend"> </legend>
-            <br>
-            <h3 role="" class="form js-question-set" id="js-question-${number}"> 
-            ${questions[number]}</h3>`
+            <h2 role="" class="form js-question-set" id="js-question-${number}"> 
+            ${questions[number]}</h2>`
 
             answer.map((answers, index) =>{
             questionSet += `<fieldset class="form js-question-set">
