@@ -76,6 +76,7 @@ let answers = QUIZ.map(quiz =>{
 // generateQuestionSet(number)
 let questionSet = generateQuestionSet(number);
 let correctAnswer = QUIZ[number].answer;
+console.log(`correctAnswer is ${correctAnswer}`);
 let correctAnswerString = QUIZ[number].answers[correctAnswer];
 let questionNumber = 
 `<h3 role="header" class="questions-screen-header js-question-number"> Question Number ${number+1} </h3>`
@@ -126,36 +127,34 @@ let questionsCorrect =
     } 
 //create an answer set from global variable ANSWERS (line 75) and pass in NUMBER (line 67) as the index 
     function renderOneAnswerSet(index) {//generateAnswerElement
-            let answerSet = answers[index];
-            
+            let answerSet = answers[index];      
         console.log(`answerSet is ${answerSet}`);      
             return answerSet;
         }  
 //create a question set from global variable QUESTIONS (69) and pass in NUMBER (line 67) as the index  
     function generateQuestionSet(number) {
         let answer = renderOneAnswerSet(number);
-    // console.log(`answer is ${answer}`);
+    console.log(`answer is ${answer}`);
     // console.log(`questionsSet is ${questionsSet}`); 
 
-            let answersSet = answer.map((answers, index) =>{
-                let item = answer[index];
-                let indexNumber = answer.indexOf(item);
-    //console.log(`indexNumber is ${indexNumber}`)
-                return `<fieldset class="form js-question-set">
-                <input role="" tabindex="${indexNumber}" id="${indexNumber}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${indexNumber}" required>
-                <label for="${indexNumber}" tabindex="${indexNumber}" class="radio js-question-set js-button-${indexNumber}" lang="es">${answers}</label>
-                </fieldset>`               
-            })
-            answersSet.join(" ");
+            
+            //answersSet.join(" ");
     
     // console.log(`answersSet is ${answersSet}`)
             let questionSet = `<fieldset>
-            <legend id="question-set-legend">Choose the correct translation for the question below.</legend>
+            <legend id="question-set-legend"> </legend>
             <br>
             <h3 role="" class="form js-question-set" id="js-question-${number}"> 
-            ${questions[number]}</h3>
-            ${answersSet}
-            <button role="button" type="submit" id="question-submit-button" class="button js-question-set"> SUBMIT  </button><br>
+            ${questions[number]}</h3>`
+
+            answer.map((answers, index) =>{
+            questionSet += `<fieldset class="form js-question-set">
+                <input role="" tabindex="${index}" id="${index}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${index}" required>
+                <label for="${index}" tabindex="${index}" class="radio js-question-set js-button-${index}" lang="es">${answers}</label>
+                </fieldset>`               
+            })
+
+            questionSet += `<button role="button" type="submit" id="question-submit-button" class="button js-question-set"> SUBMIT  </button><br>
             </fieldset>`
     //console.log(`questionSet is ${questionSet}`)
             return questionSet;
@@ -225,7 +224,7 @@ let questionsCorrect =
             feedback =
         `<div class="feedback js-results-feedback">
         <img id="incorrect" src="https://i1.wp.com/bigtechquestion.com/wp-content/uploads/2018/09/Emoji.png?w=1000&ssl=1" alt="oh no emoji face">
-        <aside> <h2> OOPS!<br>The correct answer is</h2>    
+        <aside> <h2> ¡Ay Caramba!<br>The correct answer is</h2>    
         </aside>
         <p class="correct"> ${correctAnswerString}</p>
         <button type="submit" id="js-feedback-next-button" class="button js-results-feedback"> NEXT </button></div>

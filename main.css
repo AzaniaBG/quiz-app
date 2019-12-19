@@ -13,8 +13,8 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 } */
-/* small phone wireframe */
 
+/* //////////////////////////small phone///////////////////*/
 @media only screen and (max-width: 600px) {
     /* fieldset {
     display: flex;  
@@ -30,19 +30,8 @@ time, mark, audio, video {
         font-size: 30px;
     } */
 }
-/*tablet and large phone wireframe*/
-@media only screen and (min-width: 600px) {
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        flex-grow: 1;
-        flex-shrink: 2;
-    }
-    fieldset {
-        font-size: 20px;
-    }
-    
-}
+/* //////////////////////////tablet screen ///////////////////*/
+
 
 /*laptops and desktops wireframe*/
 @media only screen and (min-width: 900px) {
@@ -159,17 +148,16 @@ p.correct {
     width: 100 px;
     height: 100px;
 }
-#correct {
-    background-image: url("https://previews.123rf.com/images/arcady31/arcady311812/arcady31181200164/114186087-happy-nerd-emoji.jpg");
-}
-#incorrect {
-    background-image: url("https://cdn.imgbin.com/10/20/25/imgbin-emoticon-oh-no-emoticon-illustration-eMDxaTxNca7euDSwfMZSmkLsb.jpg");
-}
 
 /* display for FINAL SCORE screen */
 
 #finalscore-screen {
     text-align: center;
+    background-image: url(https://image.freepik.com/free-vector/colorful-confetti-flying-randomly-abstract-background-with-explosion-particles_103588-297.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
 }
 
 #js-restart-button {
@@ -178,4 +166,29 @@ p.correct {
 }
 .hidden {
     display: none;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    h3 {
+        justify-content: center;
+    }
+    
+    fieldset {
+        
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-shrink: 2;
+        font-size: 30px;
+    }
+    /* #feedback-screen {
+        text-align: center;
+    } */
+    
 }
