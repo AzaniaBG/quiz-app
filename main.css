@@ -78,8 +78,15 @@ p.callout {
 }
 
 #js-start-button {
-    background-color: pink;
-
+    background-color: silver;
+}
+label.js-question-set:hover {
+    color: white;
+    background-color: blueviolet;
+}
+.button:hover {
+    color: white;
+    background-color: blueviolet;
 }
 /* display for MAIN screen */
 #questions-screen-header {
@@ -122,8 +129,6 @@ legend {
     text-align: center;
 }
 /* display for START screen */
-
-
 
 .js-submit-button {
     /* display: none; */

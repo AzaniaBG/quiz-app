@@ -146,7 +146,7 @@ let questionsCorrect =
             ${questions[number]}</h2>`
 
             answer.map((answers, index) =>{
-            questionSet += `<fieldset class="form js-question-set">
+            questionSet += `<fieldset class="form js-question-set" tabindex="${index}">
                 <input role="" tabindex="${index}" id="${index}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${index}" required>
                 <label for="${index}" tabindex="${index}" class="radio js-question-set js-button-${index}" lang="es">${answers}</label>
                 </fieldset>`               
