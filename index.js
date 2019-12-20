@@ -143,14 +143,14 @@ let questionsCorrect =
     // console.log(`answersSet is ${answersSet}`)
             let questionSet = `<fieldset>
             <h2 role="" class="form js-question-set" id="js-question-${number}"> 
-            ${questions[number]}</h2>`
+            ${questions[number]}</h2>`;
 
             answer.map((answers, index) =>{
             questionSet += `<fieldset class="form js-question-set" tabindex="${index}">
                 <input role="" tabindex="${index}" id="${index}" class="radio js-question-set js-button-index0" type="radio" name="options" value="${index}" required>
                 <label for="${index}" tabindex="${index}" class="radio js-question-set js-button-${index}" lang="es">${answers}</label>
                 </fieldset>`               
-            })
+            });
 
             questionSet += `<button role="button" type="submit" id="question-submit-button" class="button js-question-set"> SUBMIT  </button><br>
             </fieldset>`

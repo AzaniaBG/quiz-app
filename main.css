@@ -163,6 +163,26 @@ p.correct {
 
 }
 
+@media only screen and (min-width: 900px) {
+
+
+input {
+    
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    transition: transform .1s;
+    
+
+}
+input:hover {
+    transform: scale(1.5);
+}
+input:checked {
+    color: blueviolet;
+    outline: 1px, solid, black;
+}
+
 
 .button {
     font-size: 30px;
@@ -198,7 +218,7 @@ p {
     }
     
     fieldset {
-        
+        justify-content: space-around;
         flex-wrap: wrap;
         flex-grow: 1;
         flex-shrink: 2;
