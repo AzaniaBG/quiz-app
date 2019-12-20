@@ -111,17 +111,14 @@ p.correct {
 /* ////////////////////////// END FEEDBACK SCREEN ///////////////////*/
 
 /* ////////////////////////// FINAL SCORE SCREEN ///////////////////*/
-body #finalscore-screen {
-    background-image: url(https://image.freepik.com/free-vector/colorful-confetti-flying-randomly-abstract-background-with-explosion-particles_103588-297.jpg);
+
+#finalscore-screen {
+    text-align: center;
+    background-image: url("https://image.freepik.com/free-vector/colorful-confetti-flying-randomly-abstract-background-with-explosion-particles_103588-297.jpg");
     background-size: cover;
     background-repeat: repeat;
     width: 100%;
-    height: auto;
-
-}
-#finalscore-screen {
-    text-align: center;
-    
+    height: 100%;
 }
 
 #js-restart-button {
@@ -147,11 +144,11 @@ body #finalscore-screen {
 
 
 /*laptops and desktops wireframe*/
-@media only screen and (min-width: 320px) {
+/* @media only screen and (min-width: 320px) {
 
     
 
-}
+} */
 
 @media only screen and (min-width: 620px) {
 
