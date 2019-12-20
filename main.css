@@ -1,18 +1,20 @@
-/* html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, img, center, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, embed, 
-figure, figcaption, footer, header,
-menu, nav, output, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-} */
+
+.button {
+    font-size: 30px;
+    margin: 10px 0;  
+    border: black thin solid;
+    border-radius: 5%;  
+}
+
+p {
+    font-style: inherit;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.hidden {
+    display: none;
+}
 /* ////////////////////////// START SCREEN ///////////////////*/
 #start-screen {  
     text-align: center;
@@ -57,6 +59,17 @@ label.js-question-set:hover {
 }
 #question-submit-button:hover {
     background-color: rgb(8, 204, 74)
+}
+input {
+    
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    transition: transform .1s;
+    
+}
+input:hover {
+    transform: scale(1.5);
 }
 
 .grayed-out {
@@ -121,15 +134,8 @@ p.correct {
     height: 100%;
 }
 
-#js-restart-button {
-    
-
-}
-
 /* ////////////////////////// END FINAL SCORE SCREEN ///////////////////*/
 
-
-/* //////////////////////////small phone///////////////////*/
 @media only screen and (max-width: 320px) {
    header, body, main, form, fieldset, p {
        font-family: Helvetica, Arial, Helvetica, sans-serif;
@@ -140,15 +146,6 @@ p.correct {
     font-size: 17px;
     }
 }
-/* //////////////////////////tablet screen ///////////////////*/
-
-
-/*laptops and desktops wireframe*/
-/* @media only screen and (min-width: 320px) {
-
-    
-
-} */
 
 @media only screen and (min-width: 620px) {
 
@@ -164,50 +161,25 @@ p.correct {
 }
 
 @media only screen and (min-width: 900px) {
-
-
-input {
-    
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    transition: transform .1s;
-    
-
-}
-input:hover {
-    transform: scale(1.5);
-}
-input:checked {
-    color: blueviolet;
-    outline: 1px, solid, black;
-}
-
-
-.button {
-    font-size: 30px;
-    margin: 10px 0;  
-    border: black thin solid;
-    border-radius: 5%;  
-}
-
-p {
-    font-style: inherit;
-    font-weight: bold;
-    font-size: 17px;
-}
-
-
-/* display for FINAL SCORE screen */
-
-
-.hidden {
-    display: none;
+    input {
+        
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        transition: transform .1s;
+        
+    }
+    input:hover {
+        transform: scale(1.5);
+    }
+    input:checked {
+        color: blueviolet;
+        outline: 1px, solid, black;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
-
-    
+ 
     body {
         display: flex;
         flex-direction: row;
@@ -224,8 +196,5 @@ p {
         flex-shrink: 2;
         font-size: 30px;
     }
-    /* #feedback-screen {
-        text-align: center;
-    } */
     
 }
