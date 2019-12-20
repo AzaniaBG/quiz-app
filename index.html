@@ -11,7 +11,7 @@
 
 <body>
     <header>       
-        <section id="start-screen"> 
+        <section role="document" id="start-screen"> 
             <h1 role="header" class="js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
                 <p>Test your Spanish language knowledge here.</p>           
                 <p role="" class="js-start-screen">Click "START" to begin the quiz</p>
@@ -30,7 +30,7 @@
             </fieldset> 
             <fieldset role="alertdialogue" id="callout-box" class="hidden">
                 <span role="button" tabindex="5" class="callout js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
-                <div role="dialogue" class="callout js-callout-container"></div>
+                   <div role="dialogue" class="callout js-callout-container"></div>
                     <p  class="callout js-callout-container">Please select an answer </p>
                 </div>
             </fieldset>  
@@ -39,7 +39,7 @@
         <section role="dialog" id="feedback-screen">
         </section>                       
         
-        <section role="contentinfo" id="finalscore-screen">      
+        <section role="document" id="finalscore-screen">      
             <h2 role="header" class="feedback js-finalscore-screen">You did it! ¡Felicitaciones! </h2>
             <h4 role="header" class="feedback js-finalscore-screen">Final Score: </h4>                 
             <button role="button" id="js-restart-button" class="button feedback js-finalscore-screen">RE-START QUIZ</button>         
