@@ -173,8 +173,7 @@ p.correct {
         transform: scale(1.5);
     }
     input:checked {
-        color: blueviolet;
-        outline: 1px, solid, black;
+        outline: 5px, solid, black;
     }
 }
 

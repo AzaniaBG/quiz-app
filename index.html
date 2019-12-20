@@ -7,57 +7,46 @@
     <meta name="description" content="Test your spanish language knowledge with this quiz.">
     <title>Spanish Quiz</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <!-- <link rel="images" href="/images/happy nerd.docx">
-    <link rel="stylesheet" href="images/ohno face.docx"> -->
 </head>
 
 <body>
-    <header>
-        <!-- ///////////////////// START SCREEN ///////////////////// start screen shows welcome, instructions, and start button -->
+    <header>       
         <section id="start-screen"> 
             <h1 role="header" class="js-start-screen" lang="es">¡Hola y Bienvenidos!</h1>
-                <p>Test your Spanish language knowledge here.</p>
-                
+                <p>Test your Spanish language knowledge here.</p>           
                 <p role="" class="js-start-screen">Click "START" to begin the quiz</p>
             <button role="button" id="js-start-button" class="button js-start-screen">START</button>
             <p>Choose the correct translation for the questions that follow. </p>
         <img id="green-arrow" src="https://cdn.pixabay.com/photo/2012/04/02/15/56/right-24823_1280.png" alt="green arrow pointing to right">
         </section>
-        <!-- ///////////////////// QUIZ SCREEN HEADER ///////////////////// -->
+        
         <section id="questions-screen-header"> 
-                <progress></progress>
-        </section>
-        <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
+        </section>   
     </header>
-    <!--main screen shows header with Question Number and Answers Correct; Question Set; and Submit button -->
-    <main role="main">   
-               
+    
+    <main role="main">                 
         <form role="form" class="form js-main-screen js-questions-screen js-form-quiz">  
             <fieldset id="questions-screen" class="form js-questions-screen">                              
             </fieldset> 
-            <fieldset id="callout-box" class="hidden">
-                <span role="" tabindex="5" class="callout js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
-                <div class="callout js-callout-container"></div>
-                    <p class="callout js-callout-container">Please select an answer </p>
+            <fieldset role="alertdialogue" id="callout-box" class="hidden">
+                <span role="button" tabindex="5" class="callout js-callout-close" onclick="this.parentElement.style.display='none';">&times</span>
+                <div role="dialogue" class="callout js-callout-container"></div>
+                    <p  class="callout js-callout-container">Please select an answer </p>
                 </div>
             </fieldset>  
         </form> 
 
-        <section id="feedback-screen">
+        <section role="dialog" id="feedback-screen">
         </section>                       
         
-        <section id="finalscore-screen">      
-            <h2 class="feedback js-finalscore-screen">You did it! ¡Felicitaciones! </h2>
-            <h4 class="feedback js-finalscore-screen">Final Score: </h4>                 
-            <!-- <img src="https://image.freepik.com/free-vector/colorful-confetti-flying-randomly-abstract-background-with-explosion-particles_103588-297.jpg"> -->
-            <button role="button" id="js-restart-button" class="button feedback js-finalscore-screen">RE-START QUIZ</button> 
-            
+        <section role="contentinfo" id="finalscore-screen">      
+            <h2 role="header" class="feedback js-finalscore-screen">You did it! ¡Felicitaciones! </h2>
+            <h4 role="header" class="feedback js-finalscore-screen">Final Score: </h4>                 
+            <button role="button" id="js-restart-button" class="button feedback js-finalscore-screen">RE-START QUIZ</button>         
         </section>
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <script type="text/javascript" src="index.js"></script>
-    
+    <script type="text/javascript" src="index.js"></script>  
 </body>
 </html>
