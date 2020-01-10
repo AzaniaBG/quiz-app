@@ -71,7 +71,6 @@ p {
 /* ////////////////////////// QUESTIONS SCREEN ///////////////////*/
 form, fieldset {
     background-color: rgb(251, 252, 249);
-    padding: 5px; 
 }
 fieldset {
     position: relative;
