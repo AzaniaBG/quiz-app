@@ -53,6 +53,10 @@ p {
 .hidden {
     display: none;
 }
+
+.js-results-feedback {
+    background-color: white;
+}
 /* ////////////////////////// START SCREEN ///////////////////*/
 #start-screen {  
     display: flex;
