@@ -55,9 +55,14 @@ p {
 }
 /* ////////////////////////// START SCREEN ///////////////////*/
 #start-screen {  
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
+.tooltip, .tooltip-message {
+    margin-top: 100px;
 
+}
 #js-start-button {
     background-color: rgb(8, 204, 74);
 }
