@@ -1,6 +1,30 @@
 
 body, main {
-    background-color:rgb(255, 255, 31);
+    background-color: #F7F74A;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    border-width: 5px;
+    background-color:  rgb(8, 204, 74);
+    color: black;
+    background-color: #F7F74A;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    /* border-style: ridge; */
+    font-weight: bold;
+    border-width: 5px;
+    background-color:  rgb(8, 204, 74);
+    color: black;
+    background-color: #F7F74A;
+}
+
+body {
+    background-color: #F7F74A;
 }
 .tooltip {
     position: relative;
@@ -28,7 +52,6 @@ body, main {
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
-    border-style: solid;
     border-color: #555 transparent transparent transparent;
 
 }
@@ -37,11 +60,13 @@ body, main {
     visibility: visible;
     opacity: 1;
 }
+
 .button {
     font-size: 30px;
     margin: 10px 0;  
     border: black thin solid;
     border-radius: 5%;  
+    font-family: 'Montserrat', sans-serif;
 }
 
 p {
@@ -62,6 +87,7 @@ p {
     display: flex;
     flex-direction: column;
     text-align: center;
+    background-color: white;
 }
 .tooltip, .tooltip-message {
     margin-top: 100px;
@@ -179,7 +205,7 @@ p.correct {
 
 @media only screen and (max-width: 320px) {
    header, body, main, form, fieldset, p {
-       font-family: Helvetica, Arial, Helvetica, sans-serif;
+    
    }
    p {
     font-style: inherit;
@@ -190,9 +216,6 @@ p.correct {
 
 @media only screen and (min-width: 620px) {
 
-    header, body, form {
-        font-family: Verdana, Helvetica, Calibri, Tahoma, Lucida Sans, Geneva, Tahoma, sans-serif;
-    }
     p {
         font-style: inherit;
         font-weight: bold;
@@ -223,10 +246,13 @@ p.correct {
     body {
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: center;
+    }
+    #feedback-screen {
+        justify-content: center;
     }
     h3 {
-        justify-content: center;
+        justify-content: start;
     }
     
     fieldset {
