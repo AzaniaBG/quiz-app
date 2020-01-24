@@ -241,18 +241,17 @@ p.correct {
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1000px) {
  
     body {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
     }
-    #feedback-screen {
-        justify-content: center;
-    }
+    
     h3 {
-        justify-content: start;
+        
+        justify-content: center;
     }
     
     fieldset {
@@ -260,7 +259,7 @@ p.correct {
         flex-wrap: wrap;
         flex-grow: 1;
         flex-shrink: 2;
-        font-size: 30px;
+        font-size: 20px;
     }
     
 }
